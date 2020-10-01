@@ -9,7 +9,7 @@
 \usepackage{enumitem}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{mathtools,physics}
-\usepackage{tikz}
+\usepackage{tikz,graphicx}
 \usepackage{pdfpages}
 \usepackage[hidelinks]{hyperref}
 
@@ -102,7 +102,7 @@
     \end{proof}
 \end{itemize}
 
-\includepdf[pages=-]{PDFs/WhatIsAMathematicalProof}
+\includepdf[pages=-]{ExtFiles/WhatIsAMathematicalProof}
 
 
 
@@ -171,13 +171,16 @@
 \begin{exercise}[PMI Exercise 2]
     Prove that if $x>-1$, then $(1+x)^n\geq 1+nx$ for any natural number $n$. (Note that although this script is focused on the natural numbers, your argument should hold for any real number $x>-1$.)
     \begin{proof}
-        We induct on $n$. For the base case $n=1$, we have $(1+x)^1=1+x\geq 1+(1)x$, where the greater than or equal to relation could be strengthened to equality but will be left as such for the sake of the argument. Now suppose inductively that we have proven the claim for some natural number $n$, i.e., we know that $(1+x)^n\geq 1+nx$ if $x>-1$. We now seek to prove it for $n+1$. To begin, we have $(1+x)^{n+1}=(1+x)^n(1+x)$ by the laws of exponents. By the inductive hypothesis and the fact that $ac\geq bc$ if and only if $a,b,c$ are positive numbers and $a\geq b$ (note that $x>-1$ implies $1+x>0$ along with $(1+x)^n>0$), we have $(1+x)^n(1+x)\geq (1+nx)(1+x)=1+nx+x+nx^2$. Since $x^2$ must be positive or zero and $n\in\N$ is clearly positive, we have that $nx^2\geq 0$ so that $1+nx+x+nx^2\geq 1+nx+x=1+(n+1)x$. To recap,
+        We induct on $n$. For the base case $k=1$, we have $(1+x)^1=1+x\geq 1+(1)x$, where the greater than or equal to relation could be strengthened to equality but will be left as such for the sake of the argument. Now suppose inductively that we have proven the claim for some natural number $k$, i.e., we know that $(1+x)^k\geq 1+kx$ if $x>-1$. We now seek to prove it for $k+1$. To begin, we have
         \begin{align*}
-            (1+x)^{n+1} &= (1+x)^n(1+x)\\
-            &\geq (1+nx)(1+x)\\
-            &= 1+nx+x+nx^2\\
-            &= 1+(n+1)x+nx^2\\
-            &\geq 1+(n+1)x
+            (1+x)^{k+1} &= (1+x)^k(1+x)
+            \intertext{by the laws of exponents. By the inductive hypothesis and the fact that $ac\geq bc$ if and only if $a,b,c$ are positive numbers and $a\geq b$ (note that $x>-1$ implies $1+x>0$ along with $(1+x)^k>0$), we have that the above is}
+            &\geq (1+kx)(1+x)
+            \intertext{Now expand and simplify.}
+            &= 1+kx+x+kx^2\\
+            &= 1+(k+1)x+kx^2
+            \intertext{Since $x^2$ must be positive or zero and $k\in\N$ is clearly positive, we have that $kx^2\geq 0$ so that the above is}
+            &\geq 1+(k+1)x
         \end{align*}
         thus closing the induction.
     \end{proof}
@@ -192,8 +195,6 @@
         \item $X\setminus(A\cup B)=(X\setminus A)\cap(X\setminus B)$
         \item $X\setminus(A\cap B)=(X\setminus A)\cup(X\setminus B)$
     \end{enumerate}
-    % Are we allowed to assume that $x\in\{A:Q\}$ tells us that $x\in A$ and $Q$ is true?
-    % Can we say "A similar argument works in reverse?"
     \begin{proof}[Proof of a]
         To prove that $X\setminus(A\cup B)=(X\setminus A)\cap(X\setminus B)$, Definition 1.2 tells us that it will suffice to prove that $x\in X\setminus(A\cup B)$ if and only if $x\in (X\setminus A)\cap(X\setminus B)$, i.e., that if $x\in X\setminus(A\cup B)$, then $x\in (X\setminus A)\cap(X\setminus B)$ and if $x\in (X\setminus A)\cap(X\setminus B)$, then $x\in X\setminus(A\cup B)$. To begin, let $x\in X\setminus(A\cup B)$. By Definition 1.11, $x\in X$ and $x\notin A\cup B$. By Definition 1.5, it follows that $x\notin A$ and $x\notin B$. Since we know that $x\in X$ and $x\notin A$, Definition 1.11 tells us that $x\in X\setminus A$. Similarly, $x\in X\setminus B$. Since $x\in X\setminus A$ and $x\in X\setminus B$, we have by Definition 1.6 that $x\in(X\setminus A)\cap(X\setminus B)$, as desired. The proof of the other implication is the preceding proof "in reverse." For clarity, let $x\in(X\setminus A)\cap(X\setminus B)$. By Definition 1.6, $x\in X\setminus A$ and $x\in X\setminus B$. By consecutive applications of Definition 1.11, $x\in X$, $x\notin A$, and $x\notin B$. Since $x\notin A$ and $x\notin B$, Definition 1.5 reveals that $x\notin A\cup B$. But as previously established, $x\in X$, so Definition 1.11 tells us that $x\in X\setminus(A\cup B)$.
     \end{proof}
@@ -208,19 +209,10 @@
     Must $f(f^{-1}(Y))=Y$ and $f^{-1}(f(X))=X$? For each, either prove that it always holds or give a counterexample.
     \begin{proof}
         We will address each statement in turn.\par
-        Consider the set $f(f^{-1}(Y))$. By consecutive applications of Definition 1.18, we have that $f(f^{-1}(Y))=f(\{a\in A\mid f(a)\in Y\})=\{f(x)\in B\mid x\in\{a\in A\mid f(a)\in Y\}\}$. Now the rightmost set in the previous equality expresses the fact that $f(f^{-1}(Y))$ is the set of all elements $f(x)$ in $B$ such that "$x\in\{a\in A\mid f(a)\in Y\}$" is a true statement. Equivalently, $f(f^{-1}(Y))$ is the set of all elements $f(x)$ in $B$ such that $x\in A$ and $f(x)\in Y$. But since $Y\subset B$, the constraint that $f(x)\in Y$ implies that $f(x)\in B$ by Definition 1.3, meaning that $f(f^{-1}(Y))$ can be thought of as the set of all elements $f(x)$ in $Y$ such that $x\in A$. Since $x\in A$ for every $f(x)\in Y$, $f(f^{-1}(Y))$ is just the set of all $f(x)$ in $Y$, i.e., the set of all elements of $Y$, i.e., $Y$.\par
-        Consider the sets $\{1,2\}$ and $\{3,4\}$, and let $f:\{1,3\}\to\{3,4\}$ be a function defined by $f(1)=3$ and $f(2)=3$. Let $X=\{1\}$ (we clearly have $X\subset\{1,2\}$ since 1 is the only element of $X$ and $1\in\{1,2\}$ [see Definition 1.3]). Then $f(X)=\{f(x)\in\{3,4\}\mid x\in\{1\}\}=\{f(1)\}=\{3\}$ and $f^{-1}(f(X))=\{a\in\{1,2\}\mid f(a)\in\{3\}\}=\{1,2\}\neq X$ by consecutive applications of Definition 1.18.
+        Consider the sets $\{1\}$ and $\{3,4\}$, and let $f:\{1\}\to\{3,4\}$ be a function defined by $f(1)=3$. Let $Y=\{4\}$ (we clearly have $Y\subset\{3,4\}$ since 4 is the only element of $Y$ and $4\in\{3,4\}$ [see Definition 1.3]). Then $f^{-1}(Y)=\{a\in\{1\}\mid f(a)\in\{4\}\}=\emptyset$ and $f(f^{-1}(Y))=\{f(x)\in\{3,4\}\mid x\in\emptyset\}=\emptyset$ by consecutive applications of Definition 1.18. Therefore, $f(f^{-1}(Y))\neq Y$ since $4\in Y$ but $4\notin f(f^{-1}(Y))$ (see Definition 1.2)\footnote{Note that the reason $f(f^{-1}(Y))\neq Y$ in this case is because $f$ is not surjective.}.\par
+        Similarly, consider the sets $\{1,2\}$ and $\{3\}$, and let $f:\{1,2\}\to\{3\}$ be a function defined by $f(1)=3$ and $f(2)=3$. Let $X=\{1\}$ (we clearly have $X\subset\{1,2\}$ since 1 is the only element of $X$ and $1\in\{1,2\}$ [see Definition 1.3]). Then $f(X)=\{f(x)\in\{3\}\mid x\in\{1\}\}=\{f(1)\}=\{3\}$ and $f^{-1}(f(X))=\{a\in\{1,2\}\mid f(a)\in\{3\}\}=\{1,2\}$ by consecutive applications of Definition 1.18. Therefore, $f^{-1}(f(X))\neq X$ since $2\in f^{-1}(f(X))$ but $2\notin X$ (see Definition 1.2)\footnote{Note that the reason $f^{-1}(f(X))\neq X$ in this case is because $f$ is not injective.}.
     \end{proof}
 \end{exercise}
-
-% \begin{align*}
-%     f(f^{-1}(Y)) &= f(\{a\in A:f(a)\in Y\})\\
-%     &= \{f(x)\in B:x\in\{a\in A:f(a)\in Y\}\}\\
-%     &= \{f(x)\in B:x\in A;f(x)\in Y\}\\
-%     &= \{f(x)\in Y:x\in A\}\\
-%     &= \{f(x)\in Y\}\\
-%     &= Y
-% \end{align*}
 
 \setcounter{proposition}{25}
 
@@ -242,18 +234,25 @@
     \end{proof}
 \end{proposition}
 
-% We know that
-% $g(b)=g(b') \Rightarrow b=b'$
-% $f(a)=f(a') \Rightarrow a=a'$
 
-% We suppose that
-% $(g\circ f)(a)=(g\circ f)(a')$
 
-% We want to prove that
-% $a=a'$
-
-% Proof:
-% $g(f(a))=g(f(a')) \Rightarrow f(a)=f(a') \Rightarrow a=a'$
+\section{Discussion of First Problem Set}
+\begin{itemize}
+    \item \marginnote{10/1:}See above for edits to my attempts for the proofs.
+    \item Always make sure you use all given assumptions.
+    \item $X\setminus A$ is the \textbf{complement} of $A$ (relative to $X$).
+    \item We are allowed to assume that $x\in\{A:Q\}$ tells us that $x\in A$ and $Q$ is true? --- yes.
+    \item We can let $x$ be an arbitrary element of a set and deduce stuff like in Tao.
+    \item When we're writing proofs (consider Theorem 1.12), do we do not have to show the definition of $A\cap B$; we can just say "by Definition 1.6, $y\notin A\cap B$ implies that $y\notin a$ or $y\notin b$."
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.3\linewidth]{ExtFiles/SampleTrm1-12Proof.png}
+        \caption{Sample exam-ready proof of Theorem 1.12.}
+        \label{fig:sampleTrm1-12Proof}
+    \end{figure}
+    \item What she wrote for the beginning of the proof of Theorem 1.12 (see Figure \ref{fig:sampleTrm1-12Proof}) is acceptable on an exam; in our exams, it will be the same as when presenting to class (we do not need complete sentences).
+    \item Can we say "A similar argument works in reverse?"
+\end{itemize}
 
 
 
