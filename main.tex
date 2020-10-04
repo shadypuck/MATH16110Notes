@@ -36,6 +36,7 @@
 \newtheorem{exercise}{Exercise}[script]
 \newtheorem{theorem}{Theorem}[script]
 \newtheorem{proposition}{Proposition}[script]
+\newtheorem*{axioms}{Axioms}
 
 \setcounter{secnumdepth}{0}
 
@@ -253,6 +254,88 @@
     \item What she wrote for the beginning of the proof of Theorem 1.12 (see Figure \ref{fig:sampleTrm1-12Proof}) is acceptable on an exam; in our exams, it will be the same as when presenting to class (we do not need complete sentences).
     \item Can we say "A similar argument works in reverse?"
 \end{itemize}
+\newpage
+
+
+
+\section{Homework 1}
+\emph{Due on Thursday, October 8 at 2:20 PM CT. Completed by Steven Labalme, student in MATH 16110/50.}
+\begin{enumerate}
+    \item Let $n$ be a natural number and $k\leq n$ also be a natural number. Define
+    \begin{equation*}
+        \binom{n}{k} = \frac{n!}{k!(n-k)!}
+    \end{equation*}
+    where $k!=1\times 2\times\cdots\times k$. Show that
+    \begin{equation*}
+        (x+y)^n = \sum_{k=0}^n\binom{n}{k}x^{n-k}y^k
+    \end{equation*}
+    for all $n\in\N$.\par
+    \begin{proof}
+        We begin with a lemma proving some basic properties of combinations.
+        \setcounter{lemma}{0}
+        \begin{lemma}
+            Let $n$ be a natural number and $k\leq n$ also be a natural number. Define
+            \begin{equation*}
+                \binom{n}{k} = \frac{n!}{k!(n-k)!}
+            \end{equation*}
+            where $k!=1\times 2\times\cdots\times k$. Then
+            \begin{enumerate}[label={\alph*\textup{)}}]
+                \item $\binom{n}{0}=1$ for all $n\in\N$;
+                \item $\binom{n}{n}=1$ for all $n\in\N$;
+                \item $\binom{n+1}{k}=\binom{n}{k-1}+\binom{n}{k}$ for all natural numbers $n$ and $1\leq k\leq n$.
+            \end{enumerate}
+            \begin{proof}[Proof of Lemma 1]
+                We will address each of the three parts of the lemma in turn.\par
+                For part (a), we know by the definition of $\binom{n}{k}$ that $\binom{n}{0}=\frac{n!}{0!(n-0)!}$ and by the definition of a factorial that $\frac{n!}{0!(n-0)!}=\frac{1\cdot n!}{n!}=1$. Thus, $\binom{n}{0}=1$, as desired.\par
+                For part (b), we proceed in a similar manner to the above: $\binom{n}{n}=\frac{n!}{n!(n-n)!}=\frac{n!}{n!\cdot 1}=1$.\par
+                For part (c), we repeatedly apply the definition of $\binom{n}{k}$ and of a factorial in the following algebra. Note that we proceed from the right side of the equality we seek to prove since it makes the algebra flow more logically (via simplification rather than expansion).
+                \begin{align*}
+                    \binom{n}{k-1}+\binom{n}{k} &= \frac{n!}{(k-1)!(n-(k-1))!}+\frac{n!}{k!(n-k)!}\\
+                    &= \frac{n!}{(k-1)!(n-k+1)!}+\frac{n!}{k(k-1)!(n-k)!}\\
+                    &= \frac{n!}{(k-1)!(n-k+1)(n-k)!}+\frac{n!}{k(k-1)!(n-k)!}\\
+                    &= \frac{k\cdot n!}{k(k-1)!(n-k+1)(n-k)!}+\frac{(n-k+1)n!}{k(k-1)!(n-k+1)(n-k)!}\\
+                    &= \frac{k\cdot n!+(n-k+1)n!}{k(k-1)!(n-k+1)(n-k)!}\\
+                    &= \frac{k\cdot n!+(n+1)n!-k\cdot n!}{k!(n-k+1)!}\\
+                    &= \frac{(n+1)n!}{k!(n+1-k)!}\\
+                    &= \frac{(n+1)!}{k!((n+1)-k)!}\\
+                    &= \binom{n+1}{k}
+                \end{align*}
+            \end{proof}
+        \end{lemma}
+        Now we begin to address the question in earnest by inducting on $n$. For the base case $n=1$, begin with the left side of the equality we wish to verify and employ the definition of exponents.
+        \begin{align*}
+            (x+y)^1 &= x+y
+            \intertext{Now use a couple of ``clever forms of 1," which we can, of course, multiply to the terms in the above equation and still preserve equality.}
+            &= \frac{1!}{0!(1-0)!}x^1y^0+\frac{1!}{1!(1-1)!}x^0y^1
+            \intertext{Now just employ the definition of $\binom{n}{k}$ and use summation notation to simplify the expression.}
+            &= \binom{1}{0}x^{1-0}y^0+\binom{1}{1}x^{1-1}y^1\\
+            &= \sum_{k=0}^1\binom{1}{k}x^{1-k}y^k
+        \end{align*}
+        This proves the base case. Now suppose inductively that we have proven the claim for some natural number $n$, i.e., we know given the definitions in the question that $(x+y)^n = \sum_{k=0}^n\binom{n}{k}x^{n-k}y^k$. We wish to prove the claim for $n+1$, which can be done as follows. Once again, begin with the left side of the equality we wish to prove and employ a rule of exponents.
+        \begin{align*}
+            (x+y)^{n+1} &= (x+y)^1(x+y)^n
+            \intertext{Now substitute using the induction hypothesis.}
+            &= (x+y)\sum_{k=0}^n\binom{n}{k}x^{n-k}y^k
+            \intertext{Distribute the summation to each term in $x+y$, and then ``distribute" $x$ and $y$ into the general term of the summation.}
+            &= x\sum_{k=0}^n\binom{n}{k}x^{n-k}y^k+y\sum_{k=0}^n\binom{n}{k}x^{n-k}y^k\\
+            &= \sum_{k=0}^n\binom{n}{k}x^{(n+1)-k}y^k+\sum_{k=0}^n\binom{n}{k}x^{n-k}y^{k+1}
+            \intertext{Reindex the second summation (instead of iterating from 0 to $n$, iterate from 1 to $n+1$ [the same number of terms] and subtract 1 from each instance of the index variable $k$). Note that this does not change the sum at all; it just changes how the sum is written. After the reindexing, algebraically manipulate the exponents into an equivalent form that matches the exponents in the other summation.}
+            &= \sum_{k=0}^n\binom{n}{k}x^{(n+1)-k}y^k+\sum_{k=1}^{n+1}\binom{n}{k-1}x^{n-(k-1)}y^{(k-1)+1}\\
+            &= \sum_{k=0}^n\binom{n}{k}x^{(n+1)-k}y^k+\sum_{k=1}^{n+1}\binom{n}{k-1}x^{(n+1)-k}y^k
+            \intertext{Separate the first term of the left summation and the last term of the right summation from the summation notation.}
+            &= \binom{n}{0}x^{n+1}y^0+\sum_{k=1}^n\binom{n}{k}x^{(n+1)-k}y^k+\sum_{k=1}^n\binom{n}{k-1}x^{(n+1)-k}y^k+\binom{n}{n}x^0y^{n+1}
+            \intertext{Now that the sums are once again indexed alike, combine them and do some algebraic manipulations to set up a substitution.}
+            &= \binom{n}{0}x^{n+1}y^0+\sum_{k=1}^n\left( \binom{n}{k}x^{(n+1)-k}y^k+\binom{n}{k-1}x^{(n+1)-k}y^k \right)+\binom{n}{n}x^0y^{n+1}\\
+            &= \binom{n}{0}x^{n+1}y^0+\sum_{k=1}^n\left( \binom{n}{k}+\binom{n}{k-1} \right)x^{(n+1)-k}y^k+\binom{n}{n}x^0y^{n+1}
+            \intertext{In the first term, use Lemma 1a to make the substitution $\binom{n}{0}=1=\binom{n+1}{0}$. In the last term, use Lemma 1b to make the substitution $\binom{n}{n}=1=\binom{n+1}{n+1}$. In the summation, use Lemma 1c to make the substitution $\binom{n}{k}+\binom{n}{k-1}=\binom{n+1}{k}$ (notice how $k$ varies between 1 and $n$ in the summation, just like it is allowed to in the statement of Lemma 1c).}
+            &= \binom{n+1}{0}x^{n+1}y^0+\sum_{k=1}^n\binom{n+1}{k}x^{(n+1)-k}y^k+\binom{n+1}{n+1}x^0y^{n+1}
+            \intertext{Expand the limits of the summation to encompass the first and last terms.}
+            &= \sum_{k=0}^{n+1}\binom{n+1}{k}x^{(n+1)-k}y^k
+        \end{align*}
+        This closes the induction.
+        % How much of this proof could be left out as unnecessary verbage?
+    \end{proof}
+\end{enumerate}
 
 
 
