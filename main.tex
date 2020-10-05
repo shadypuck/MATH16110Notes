@@ -33,14 +33,16 @@
 
 \newtheorem{lemma}{Lemma}
 \newtheorem{corollary}{Corollary}
-\newtheorem{exercise}{Exercise}[script]
 \newtheorem{theorem}{Theorem}[script]
 \newtheorem{proposition}{Proposition}[script]
 \newtheorem*{axioms}{Axioms}
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}[script]
 
 \setcounter{secnumdepth}{0}
 
 \newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
 
 \title{MATH 16110 (Honors Calculus I IBL) Notes}
 \author{Steven Labalme}
@@ -166,7 +168,6 @@
 \end{itemize}
 
 
-
 \subsection{Problems}
 \setcounter{exercise}{1}
 \begin{exercise}[PMI Exercise 2]
@@ -254,6 +255,71 @@
     \item What she wrote for the beginning of the proof of Theorem 1.12 (see Figure \ref{fig:sampleTrm1-12Proof}) is acceptable on an exam; in our exams, it will be the same as when presenting to class (we do not need complete sentences).
     \item Can we say "A similar argument works in reverse?"
 \end{itemize}
+
+
+\subsection{Problems}
+\setcounter{exercise}{3}
+\begin{exercise}
+    Let $A=\{1,\{2\}\}$. Is $1\in A$? Is $2\in A$? Is $\{1\}\subset A$? Is $\{2\}\subset A$? Is $1\subset A$? Is $\{1\}\in A$? Is $\{2\}\in A$? Is $\{\{2\}\}\subset A$? Explain.
+    \begin{proof}
+        We list affirmative or negative answers and short explanations.\\[3pt]
+        Yes, $1\in A$.\\
+        No, $2\notin A$, but $\{2\}\in A$.\\
+        Yes, $\{1\}\subset A$ since 1 is the only element of $\{1\}$ and $1\in A$ (as previously established).\\
+        No, $\{2\}\not\subset A$ since $2\in\{2\}$ but $2\notin A$ (as previously established).\\
+        No, $1\not\subset A$ since 1 is not a set.\\
+        No, $\{1\}\notin A$, but $1\in A$ and $\{1\}\subset A$ as previously established.\\
+        Yes, $\{2\}\in A$.\\
+        Yes, $\{\{2\}\}\subset A$ since $\{2\}$ is the only element of $\{\{2\}\}$ and $\{2\}\in A$ (as previously established).
+    \end{proof}
+\end{exercise}
+
+\setcounter{exercise}{9}
+
+\begin{exercise}
+    Show that if $A$ is any set, then $\emptyset\subset A$.
+    \begin{proof}
+        Suppose for the sake of contradiction that there exists a set $A$ such that $\emptyset\not\subset A$. Then by Definition 1.3, not every element of $\emptyset$ is also an element of $A$, i.e., there exists an element $x\in\emptyset$ such that $x\notin A$. But by Definition 1.8, $x$ (like all other objects) cannot be an element of $\emptyset$, a contradiction. Therefore, $\emptyset\subset A$ for all sets $A$.
+    \end{proof}
+\end{exercise}
+
+\setcounter{exercise}{20}
+
+\begin{exercise}
+    Let $f:\N\to\N$ be defined by $f(n)=n^2$. Is $f$ injective? Is $f$ surjective?
+    \begin{proof}
+        $f$ is injective: Let $f(n)=f(n')$. Then $n^2=(n')^2$, implying that $n=n'$ (note that this last step is not permissible in all number systems, but it is within the naturals).\par
+        $f$ is not surjective: For example, $2\in\N$ but there exists no natural number $n$ such that $f(n)=n^2=2$ (suppose for the sake of contradiction that there exists a natural number $n$ such that $n^2=2$. Since $n^2=2>1$, we know that $n<2$ (a number is less than its square if its square is greater than 1). But the only natural number less than 2 is 1, and $1^2=1\neq 2$, a contradiction).
+    \end{proof}
+\end{exercise}
+
+\begin{exercise}
+    Let $f:\N\to\N$ be defined by $f(n)=n+2$. Is $f$ injective? Is $f$ surjective?
+    \begin{proof}
+        $f$ is injective: Let $f(n)=f(n')$. Then $n+2=n'+2$, implying by the cancellation law for addition that $n=n'$.\par
+        $f$ is not surjective: For example, $1\in\N$ but there exists no natural number $n$ such that $n+2=1$ (suppose for the sake of contradiction that there exists a natural number $n$ such that $n+2=1$. Because $1=n+2$, we know that $1>n$. But we also know that $1\leq n$ for all $n\in\N$ (as can be proven by induction), which contradicts the trichotomy).
+    \end{proof}
+\end{exercise}
+
+\begin{exercise}
+    Let $f:\Z\to\Z$ be defined by $f(x)=x^2$. Is $f$ injective? Is $f$ surjective?
+    \begin{proof}
+        $f$ is not injective: For example, $f(2)=4=f(-2)$, but $2\neq -2$.\par
+        $f$ is not surjective: For example, $2\in\Z$ but there exists no integer $x$ such that $f(x)=x^2=2$ (suppose for the sake of contradiction that there exists an integer $x$ such that $x^2=2$. Since $x^2=2$, $|x|<2$ for similar reasons to those discussed in Exercise 1.21. Thus, $x=-1$, $x=0$, or $x=1$. But $(-1)^2=1\neq 2$, $0^2=0\neq 2$, and $1^2=1\neq 2$, a contradiction).
+    \end{proof}
+\end{exercise}
+
+\setcounter{proposition}{26}
+
+\begin{proposition}
+    Suppose that $f:A\to B$ is bijective. Then there exists a bijection $g:B\to A$ that satisfies $(g\circ f)(a)=a$ for all $a\in A$, and $(f\circ g)(b)=b$ for all $b\in B$.
+    \begin{proof}
+        Let $g:B\to A$ be defined by the rule, "$g(b)=a$ if and only if $f(a)=b$." For $g$ to be a function as defined, Definition 1.16 tells us that we must show that for every $b\in B$, there exists a unique $a\in A$ such that $g(b)=a$. By the surjectivity of $f$, we know that for all $b\in B$, there exists \emph{an} $a\in A$ such that $f(a)=b$. On the uniqueness of this $a$, let $a\neq a'$ and suppose for the sake of contradiction that $g(b)=a$ and $g(b)=a'$. By the definition of $g$, we have that $f(a)=b$ and $f(a')=b$, so $f(a)=f(a')$. But by the injectivity of $f$, this means that $a=a'$, a contradiction. Therefore, $g$ indeed maps every $b\in B$ to a unique $a\in A$. To demonstrate that $g$ satisfies the remainder of the necessary constraints, we will work through them one by one.\par
+        To prove that $g$ is injective, Definition 1.20 tells us that we must verify that if $g(b)=g(b')$, then $b=b'$. Let $g(b)=g(b')$. Since $g$ is a function, $g(b)=g(b')=a$, where $a\in A$. This implies by the definition of $g$ that $f(a)=b$ and $f(a)=b'$. But this means that $b=f(a)=b'$, as desired. To prove that $g$ is surjective, Definition 1.20 tells us that we must verify that for all $a\in A$, there exists a $b\in B$ such that $g(b)=a$. Let $a$ be an arbitrary element of $A$. By Definition 1.16 and the status of $f$ as a function, there exists an element $b\in B$ such that $f(a)=b$. But by the definition of $g$, $f(a)=b$ implies that $g(b)=a$, meaning that this $b$ satisfies the desired constraint. On the basis of this and the previous argument, Definition 1.20 allows us to conclude that $g$ is bijective.\par
+        We now prove that $(g\circ f)(a)=a$ for all $a\in A$. Let $a$ be an arbitrary element of $A$. Then by Definition 1.16 and the status of $f$ as a function, $f(a)=b$ where $b\in B$. Thus, by the definition of $g$, $g(b)=a$, implying that $g(b)=g(f(a))=a$. But by Definition 1.25, $g(f(a))=(g\circ f)(a)=a$, as desired.\par
+        A symmetric argument can demonstrate that $(f\circ g)(b)=b$ for all $b\in B$.
+    \end{proof}
+\end{proposition}
 \newpage
 
 
@@ -335,6 +401,31 @@
         This closes the induction.
         % How much of this proof could be left out as unnecessary verbage?
     \end{proof}
+    \item From Peano's Postulates (below), prove the following claims.
+    \begin{axioms}[Peano's Postulates]
+        The natural numbers are defined as a set $\N$ together with a unary "successor" function $S:\N\to\N$ and a special element $1\in\N$ satisfying the following postulates.
+        \begin{enumerate}[label={\Roman*.}]
+            \item $1\in\N$.
+            \item If $n\in\N$, then $S(n)\in\N$.
+            \item There is no $n\in\N$ such that $S(n)=1$.
+            \item If $n,m\in\N$ and $S(n)=S(m)$, then $n=m$.
+            \item If $A\subset\N$ is a subset satisfying the two properties:
+            \begin{itemize}
+                \item $1\in A$;
+                \item if $n\in A$, then $S(n)\in A$;
+            \end{itemize}
+            then $A=\N$.
+        \end{enumerate}
+    \end{axioms}
+    \begin{enumerate}[label={(\alph*)}]
+        \item \textbf{Bonus exercise}. Show that
+        \begin{equation*}
+            \N = \{1,S(1),S(S(1)),S(S(S(1))),\cdots\}
+        \end{equation*}
+        \begin{proof}
+            We wish to eventually use Axiom V to show that the set on the right side of the above equality (which we shall call $A$) is equal to $\N$. Thus, we begin by demonstrating that $A$ is a subset of $\N$. To do so, Definition 1.3 tells us that we must verify that every element of $A$ is an element of $\N$. Now $A$ consists of 1 and elements in the codomain of $S$, so since $1\in\N$ (Axiom I) and any element of the codomain of $S$ is clearly an element of $\N$ (because the codomain of $S$ \emph{is} $\N$), $A\subset\N$. Moving on, as previously referenced, $1\in A$, so the first property of Axiom V holds. Additionally, the pattern defining $A$ clearly indicates that for any $a\in A$, $S(a)\in A$, so the second property of Axiom V holds. Therefore, by Axiom V, $A=\N$.
+        \end{proof}
+    \end{enumerate}
 \end{enumerate}
 
 
