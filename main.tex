@@ -9,7 +9,7 @@
 \usepackage{enumitem}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{mathtools,physics}
-\usepackage{tikz,graphicx}
+\usepackage{tikz,graphicx,subcaption}
 \usepackage{pdfpages}
 \usepackage[hidelinks]{hyperref}
 
@@ -38,6 +38,8 @@
 \newtheorem*{axioms}{Axioms}
 \theoremstyle{definition}
 \newtheorem{exercise}{Exercise}[script]
+
+\usetikzlibrary{positioning,shapes}
 
 \setcounter{secnumdepth}{0}
 
@@ -320,6 +322,34 @@
         A symmetric argument can demonstrate that $(f\circ g)(b)=b$ for all $b\in B$.
     \end{proof}
 \end{proposition}
+
+\setcounter{theorem}{31}
+
+\begin{theorem}
+    Let $A$ be a finite set. Suppose that $A$ is in bijective correspondence both with $[m]$ and with $[n]$. Then $m=n$.
+    \begin{proof}
+        If $A$ is in bijective correspondence with both $[m]$ and with $[n]$, then Definition 1.28 tells us that there exist bijections $f:[m]\to A$ and $g:A\to[n]$. Thus, by Proposition 1.26, $g\circ f:[m]\to[n]$ is bijective. Now suppose for the sake of contradiction that $m\neq n$. Then by the trichotomy, either $m>n$ or $m<n$. We divide into two cases. If $m>n$, then Theorem 1.31 tells us that no injective function $h:[m]\to[n]$ exists. But $f:[m]\to[n]$ is bijective, hence injective by Definition 1.20, a contradiction. On the other hand, if $m<n$, then Theorem 1.31 tells us that no injective function $h:[n]\to[m]$ exists. But by Proposition 1.27, the existence of the bijection $f:[m]\to[n]$ implies the existence of a bijection $f^{-1}:[n]\to[m]$. As before, the bijectivity of $f^{-1}$ implies that it is also injective by Definition 1.20, a contradiction. Therefore, we must have $m=n$ based on the given conditions. 
+    \end{proof}
+\end{theorem}
+
+\noindent\textbf{Additional Exercises}
+\begin{enumerate}
+    \item In each of the following, write out the elements of the sets.
+    \begin{enumerate}
+        \item[a)] $(\{n\in\Z\mid n\text{ is divisible by }2\}\cap\N)\cup\{5\}$
+        \begin{proof}
+            The elements are 5 as well as 2, 4, 6, and every other even natural number.
+        \end{proof}
+        \item[c)] $\{[n]\mid n\in\N,1\leq n\leq 3\}$
+        \begin{proof}
+            The elements are the three sets $\{1\}$, $\{1,2\}$, and $\{1,2,3\}$.
+        \end{proof}
+        \item[k)] $\{\{a\}\cup\{b\}\mid a\in\N,b\in\N,1\leq a\leq 4,3\leq b\leq 5\}$
+        \begin{proof}
+            The elements are the 11 sets $\{1,3\}$, $\{1,4\}$, $\{1,5\}$, $\{2,3\}$, $\{2,4\}$, $\{2,5\}$, $\{3\}$, $\{3,4\}$, $\{3,5\}$, $\{4\}$, and $\{4,5\}$.
+        \end{proof}
+    \end{enumerate}
+\end{enumerate}
 \newpage
 
 
