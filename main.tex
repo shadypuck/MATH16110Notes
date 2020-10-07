@@ -336,9 +336,9 @@
 \begin{enumerate}
     \item In each of the following, write out the elements of the sets.
     \begin{enumerate}
-        \item[a)] $(\{n\in\Z\mid n\text{ is divisible by }2\}\cap\N)\cup\{5\}$
+        \item[a)] $(\{n\in\Z\mid n\text{ is divisible by }2\}\cap\N)\cup\{-5\}$
         \begin{proof}
-            The elements are 5 as well as 2, 4, 6, and every other even natural number.
+            The elements are $-5$ as well as 2, 4, 6, and every other even natural number.
         \end{proof}
         \item[c)] $\{[n]\mid n\in\N,1\leq n\leq 3\}$
         \begin{proof}
@@ -350,6 +350,21 @@
         \end{proof}
     \end{enumerate}
 \end{enumerate}
+
+
+
+\section{Discussion of Second Problem Set}
+\begin{itemize}
+    \item \marginnote{10/6:}ZZ introduced vacuous truths.
+    \item If you had to prove your answers to Additional Exercise 1, you would write out the elements of the first set, and rewrite the elements with each additional constraint.
+    \begin{itemize}
+        \item For example, $(\{n\in\Z\mid n\text{ is divisible by }2\}\cap\N)\cup\{-5\}=(\{\cdots,-4,-2,0,2,4,\cdots\}\cap\{1,2,3,\cdots\})\cup\{-5\}=\{2,4,6,\cdots\}\cup\{-5\}$.
+    \end{itemize}
+    \item In this class, $0\notin\N$, but $0\in\N_0$.
+    \item For Exercise 1.21, we can refer to Theorem 7 in "What is a mathematical proof?" to demonstrate that $\sqrt{2}\notin\N$.
+    \item When presenting, write on the board more like I would in a journal.
+    \item Ask ZZ about my contradiction proofs for 1.21-1.23!
+\end{itemize}
 \newpage
 
 
@@ -454,6 +469,11 @@
         \end{equation*}
         \begin{proof}
             We wish to eventually use Axiom V to show that the set on the right side of the above equality (which we shall call $A$) is equal to $\N$. Thus, we begin by demonstrating that $A$ is a subset of $\N$. To do so, Definition 1.3 tells us that we must verify that every element of $A$ is an element of $\N$. Now $A$ consists of 1 and elements in the codomain of $S$, so since $1\in\N$ (Axiom I) and any element of the codomain of $S$ is clearly an element of $\N$ (because the codomain of $S$ \emph{is} $\N$), $A\subset\N$. Moving on, as previously referenced, $1\in A$, so the first property of Axiom V holds. Additionally, the pattern defining $A$ clearly indicates that for any $a\in A$, $S(a)\in A$, so the second property of Axiom V holds. Therefore, by Axiom V, $A=\N$.
+        \end{proof}
+        \item Prove that the Principle of Mathematical Induction follows from Peano's Postulates.
+        \begin{proof}
+            We wish to prove, using only Axioms I-V above and set theoretic results, that if $P(n)$ is a proposition pertaining to each natural number $n$, $P(1)$ is true, and the truth of $P(k)$ implies that $P(S(n))$\footnote{Addition has not yet been defined. Although we do not yet "know" that $n+1=S(n)$ we must assume it for the sake of this proof.} is also true, then $P(n)$ is true for all natural numbers $n$. We will do this by defining a set $A$ such that "$P(n)$ is true" is logically equivalent to $n\in A$. Then if we can show that $n\in A$ for all $n\in\N$ (i.e., that $A=\N$), we will have verified that $P(n)$ is true for all $n\in\N$ as desired. Lastly, note that we will show that $A=\N$ by demonstrating that $A$ satisfies the stipulations of Axiom V. Let's begin.\par
+            Let $A=\{n\in\N\mid P(n)\text{ is true}\}$. Since every element of $A$ is an element of $\N$ by the definition of $A$, Definition 1.3 tells us that $A\subset\N$. Additionally, since $P(1)$ is true by hypothesis and $1\in\N$ by Axiom I, we know by the definition of $A$ that $1\in A$. Now suppose $n\in A$. It follows that $n\in\N$ and $P(n)$ is true. But by hypothesis, the truth of $P(n)$ implies that $P(S(n))$ is true. This, combined with the fact that $S(n)\in\N$ by Axiom II, shows that $S(n)\in A$. Having now proven that $A\subset\N$, $1\in A$, and $n\in A$ implies $S(n)\in A$, Axiom V tells us that $A=\N$, as desired.
         \end{proof}
     \end{enumerate}
 \end{enumerate}
