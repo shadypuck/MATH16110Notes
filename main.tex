@@ -27,7 +27,7 @@
 \deffootnotemark{\textsuperscript{\textup{[}\thefootnotemark\textup{]}}}
 \deffootnote[2.1em]{0em}{0em}{\textsuperscript{\thefootnote}}
 
-\setenumerate[itemize,3]{label={\scriptsize$\blacksquare$}}
+\setitemize[3]{label={\scriptsize$\blacksquare$}}
 
 \newcounter{script}
 
@@ -36,6 +36,8 @@
 \newtheorem{theorem}{Theorem}[script]
 \newtheorem{proposition}{Proposition}[script]
 \newtheorem*{axioms}{Axioms}
+\newtheorem*{definition*}{Definition}
+\newtheorem*{theorem*}{Theorem}
 \theoremstyle{definition}
 \newtheorem{exercise}{Exercise}[script]
 
@@ -365,6 +367,48 @@
     \item When presenting, write on the board more like I would in a journal.
     \item Ask ZZ about my contradiction proofs for 1.21-1.23!
 \end{itemize}
+
+
+\subsection{Problems}
+\setcounter{exercise}{33}
+\begin{exercise}
+    Let $A$ and $B$ be finite sets.
+    \begin{enumerate}[label={\alph*)}]
+        \setcounter{enumi}{1}
+        \item Let $A\cap B=\emptyset$. Then $|A\cup B|=|A|+|B|$.
+        \item $|A\cup B|+|A\cap B|=|A|+|B|$.
+        \item $|A\times B|=|A|\cdot|B|$.
+    \end{enumerate}
+\end{exercise}
+
+\stepcounter{exercise}
+
+\begin{exercise}
+    Prove that $\Z$ is a countable set.
+    \begin{proof}
+        To prove that $\Z$ is countable, Definition 1.35 and, subsequently, Definition 1.28 tell us that we must find a bijection $f:\Z\to\N$. To do so, we will define a matching and then prove that the guiding rule generates a (1) function that is (2) injective and (3) surjective (demonstrating injectivity and surjectivity verifies bijectivity by Definition 1.20).\par
+        Let $f:\Z\to\N$ be defined as follows:
+        \begin{equation*}
+            f(z) =
+            \begin{cases}
+                -2z+1 & z\in-\N\\
+                1 & z\in\{0\}\\
+                2z & z\in\N
+            \end{cases}
+        \end{equation*}
+        Since $\Z=(-\N)\cup\{0\}\cup(\N)$, it is clear that the above mapping sends every element of $\Z$ to \emph{an} element of $\N$. Additionally, since $-\N$, $\{0\}$, and $\N$ are all disjoint from one another, it follows that each element of $\Z$ is only mapped once. Thus, by Definition 1.16, $f$ is a function as defined.\par
+        Let $f(z)=f(z')$. Since the outputs of the first case in the definition of $f$ are the odd natural numbers except 1, the one of the second case is 1, and those of the third case are the even natural numbers, the outputs form three disjoint sets, so $f(z)$ and $f(z')$ as equal quantities are elements of only one category. We now divide into three cases by category. First, suppose $f(z)=f(z')$ is an odd natural number not equal to 1. Then we have by the definition of $f$ that $-2z+1=-2z'+1$, implying by the cancellation laws of addition and multiplication, respectively, that $z=z'$. Second, suppose that $f(z)=f(z')=1$. Then $z=z'=0$ by the definition of $f$. Lastly, suppose $f(z)=f(z')$ is an even natural number. Then we have by the definition of $f$ that $2z=2z'$, implying by the cancellation law of multiplication that $z=z'$. Therefore, in any case, $f(z)=f(z')$ implies that $z=z'$, meaning by Definition 1.20 that $f$ is injective.\par
+        Let $n$ be an arbitrary element of $\N$. As noted in "What is a mathematical proof?", $n$ must be either odd or even. Now if $n$ is odd, $n$ is either equal to 1 or not equal to 1. Thus, we can break the natural numbers $\N$ into three disjoint sets: $\N=(\{n\in\N:n\text{ is odd}\}\setminus\{1\})\cup\{1\}\cup\{n\in\N:n\text{ is even}\}$. We now divide into three cases, each pertaining to one of the disjoint subsets of $\N$ defined above. First, suppose $n$ is odd and not equal to 1. Then $n=2z+1$ for some $z\in\N$ (see "What is a mathematical proof?"), or $-2z+1$ for some $z\in-\N$ (the negative signs cancel). By the definition of $f$, this $z\in-\N$ is the element of $\Z$ that $f$ sends to $n$. Second, suppose that $n=1$. Then since $f(0)=1$ by the definition of $f$, 0 is the element of $\Z$ from which $f$ generates 1. Lastly, suppose that $n$ is even. Then $n=2z$ for some $z\in\N$ (see "What is a mathematical proof?"). By the definition of $f$, this $z$ is the element of $\Z$ that $f$ sends to $n$. Therefore, for every element $n\in\N$, there exists a $z\in\Z$ satisfying $f(z)=n$, meaning by Definition 1.20 that $f$ is surjective. As mentioned at the top, the last two results (injectivity and surjectivity) together imply that $f$ is bijective by Definition 1.20.
+    \end{proof}
+\end{exercise}
+
+\begin{exercise}
+    Prove that every infinite subset of a countable set is also countable.
+\end{exercise}
+
+\begin{exercise}
+    Prove that if there is an injection $f:A\to B$ where $B$ is countable and $A$ is infinite, then $A$ is countable.
+\end{exercise}
 \newpage
 
 
@@ -474,6 +518,127 @@
         \begin{proof}
             We wish to prove, using only Axioms I-V above and set theoretic results, that if $P(n)$ is a proposition pertaining to each natural number $n$, $P(1)$ is true, and the truth of $P(k)$ implies that $P(S(n))$\footnote{Addition has not yet been defined. Although we do not yet "know" that $n+1=S(n)$ we must assume it for the sake of this proof.} is also true, then $P(n)$ is true for all natural numbers $n$. We will do this by defining a set $A$ such that "$P(n)$ is true" is logically equivalent to $n\in A$. Then if we can show that $n\in A$ for all $n\in\N$ (i.e., that $A=\N$), we will have verified that $P(n)$ is true for all $n\in\N$ as desired. Lastly, note that we will show that $A=\N$ by demonstrating that $A$ satisfies the stipulations of Axiom V. Let's begin.\par
             Let $A=\{n\in\N\mid P(n)\text{ is true}\}$. Since every element of $A$ is an element of $\N$ by the definition of $A$, Definition 1.3 tells us that $A\subset\N$. Additionally, since $P(1)$ is true by hypothesis and $1\in\N$ by Axiom I, we know by the definition of $A$ that $1\in A$. Now suppose $n\in A$. It follows that $n\in\N$ and $P(n)$ is true. But by hypothesis, the truth of $P(n)$ implies that $P(S(n))$ is true. This, combined with the fact that $S(n)\in\N$ by Axiom II, shows that $S(n)\in A$. Having now proven that $A\subset\N$, $1\in A$, and $n\in A$ implies $S(n)\in A$, Axiom V tells us that $A=\N$, as desired.
+        \end{proof}
+        \item Define a special element $0\notin\N$ and define $\N_0=\N\cup\{0\}$. Let $s:\N_0\to\N$ be defined by
+        \begin{align*}
+            s(0) &= 1\\
+            s(n) &= S(n)\text{, for }n\in\N
+        \end{align*}
+        where $S$ is the successor function defined in Peano's Postulates.
+        \begin{definition*}
+            We define addition $x+y$ for $x,y\in\N_0$ inductively on $y$ by
+            \begin{align*}
+                x+0 &= x\\
+                x+s(y) &= s(x+y)
+            \end{align*}
+        \end{definition*}
+        \begin{theorem*}
+            The following facts all hold.
+            \begin{enumerate}[label={\roman*.}]
+                \item If $x,y\in\N_0$, then $x+y\in\N_0$.
+                \item $0+x=x$, for all $x\in\N_0$.
+                \item (Commutative Law) $x+y=y+x$ for all $x,y\in\N_0$.
+                \item (Associative Law) $x+(y+z)=(x+y)+z$ for all $x,y,z\in\N_0$.
+                \item Given $x,y,z\in\N_0$, if $x+y=x+z$, then $y=z$.
+            \end{enumerate}
+        \end{theorem*}
+        Prove that $x+1=s(x)$ for all $x\in\N_0$ and then prove items (i), (ii), and (iv) in the above theorem.
+        \begin{proof}[Proof of first claim]
+            Since $1=s(0)$ by definition, we know by repeated applications of the various parts of the definition of addition that $x+1=x+s(0)=s(x+0)=s(x)$, as desired.
+        \end{proof}
+        \begin{proof}[Proof of i]
+            We keep $x$ fixed and induct on $y$. For the base case $y=0$, we have by the definition of addition that $x+0=x$. Since $x\in\N_0$ by assumption, it clearly follows that $x+0\in\N_0$, thus proving the base case. Now suppose inductively that we have proven that $x+y\in\N_0$ for some $y\in\N_0$; we now seek to prove that $x+(y+1)\in\N_0$. By the above argument, $y+1=s(y)$, so
+            \begin{align*}
+                x+(y+1) &= x+s(y)
+                \intertext{It follows by the definition of addition that the above}
+                &= s(x+y)
+            \end{align*}
+            Since $s:\N_0\to\N$ and $x+y\in\N_0$ by hypothesis, Definition 1.16 from Script 1 implies that $s(x+y)\in\N$. Thus, $x+(y+1)\in\N$. Consequently, by Definition 1.5 from Script 1, $x+(y+1)\in\N\cup\{0\}$, implying by the definition of $\N_0$ that $x+(y+1)\in\N_0$. This closes the induction.
+        \end{proof}
+        \begin{proof}[Proof of ii]
+            We induct on $x$. For the base case $x=0$, we have by the definition of addition that $0+0=0$, thus proving the base case. Now suppose inductively that we have proven that $0+x=x$ for some $x\in\N_0$; we now seek to prove that $0+(x+1)=x+1$. As before, we can write that 
+            \begin{align*}
+                0+(x+1) &= 0+s(x)\\
+                &= s(0+x)
+                \intertext{But by the inductive hypothesis and the first claim proven herein, it follows that the above}
+                &= s(x)\\
+                &= x+1
+            \end{align*}
+            This closes the induction.
+        \end{proof}
+        \begin{proof}[Proof of iv]
+            We induct on $x$ (keeping $y,z$ fixed). For the base case $x=0$, we must consider $0+(y+z)$. By part (i), $y+z\in\N_0$. Thus, part (ii) applies, and implies that
+            \begin{align*}
+                0+(y+z) &= y+z
+                \intertext{Since $y\in\N_0$ by assumption, we can apply part (ii) again in reverse to demonstrate that $y=0+y$. Thus, the above is}
+                &= (0+y)+z
+            \end{align*}
+            This proves the base case. Now suppose inductively that we have proven that $x+(y+z)=(x+y)+z$ for some $x\in\N_0$; we now seek to prove that $(x+1)+(y+z)=((x+1)+y)+z$. As before,
+            \begin{align*}
+                (x+1)+(y+z) &= s(x)+(y+z)
+                \intertext{By part (iii) (which implies that $s(y)+x=s(y+x)$ is also true), the fact that $y+z\in\N_0$ by part (i), and the definition of addition, we thus have that the above}
+                &= s(x+(y+z))
+                \intertext{We now apply the inductive hypothesis.}
+                &= s((x+y)+z)
+                \intertext{By the fact that $x+y\in\N_0$ (part i) and consecutive applications of the definition of addition, we find that the above}
+                &= s(x+y)+z\\
+                &= (s(x)+y)+z
+                \intertext{To finish it off, we once again use the first claim proved herein:}
+                &= ((x+1)+y)+z
+            \end{align*}
+            This closes the induction.
+        \end{proof}
+        \item \leavevmode\vspace{-1.6em}
+        \begin{definition*}
+            We define multiplication $x\cdot y$ for $x,y\in\N_0$ inductively on $\N_0$ by
+            \begin{align*}
+                x\cdot 0 &= 0\\
+                x\cdot s(y) &= x\cdot y+x
+            \end{align*}
+        \end{definition*}
+        Prove that $x\cdot 1=x$ for all $x\in\N_0$.
+        \begin{proof}
+            Since $s(0)=1$,
+            \begin{align*}
+                x\cdot 1 &= x\cdot s(0)
+                \intertext{By the definition of multiplication, the above is}
+                &= x\cdot 0+x
+                \intertext{From the above, we can use the definition of multiplication to substitute $x\cdot 0=0$.}
+                &= 0+x
+                \intertext{Now just apply part (ii) of the Theorem in part (c).}
+                &= x
+            \end{align*}
+        \end{proof}
+        \item \leavevmode\vspace{-1.6em}
+        \begin{definition*}
+            We define $<$ on $\N_0$ by
+            \begin{center}
+                $x<y$ if and only if $y=x+u$ for some $u\in\N$.
+            \end{center}
+        \end{definition*}
+        \begin{enumerate}
+            \item Prove that $1<n$ for all $n\in(\N\setminus\{1\})$.
+            \item Prove that if $a,x,y\in\N$ with $x<y$, then $a\cdot x<a\cdot y$.
+        \end{enumerate}
+        \begin{proof}[Proof of i]
+            We induct on $n$. For the base case $n=2$, we have $2=s(1+0)=1+s(0)=1+1$, so $1<2$. Now suppose inductively that $1<n$ for some $n\in\N$; we wish to prove that $1<n+1$. By the induction hypothesis and the definition of $<$, $n=1+u$. Thus, $n+1=1+u+1$ by the inverse of the cancellation law for addition. Since $u+1\in\N$ by part (c) Theorem part (i), we have that $n+1=1+(u+1)$, implying that $1<n+1$. This closes the induction.
+        \end{proof}
+        \begin{proof}[Proof of ii]
+            We induct on $a$ (keeping $x,y$ fixed). For the base case $a=1$, we have by part (d) that $x<y$ is equivalent to $1\cdot x<1\cdot y$ since $x=1\cdot x$ for all $x\in\N$. Now suppose inductively that we have proven that $a\cdot x<a\cdot y$; we wish to prove that $(a+1)\cdot x<(a+1)\cdot y$. Let's start with
+            \begin{align*}
+                a\cdot x &< a\cdot y
+                \intertext{By the definition of $<$, we know that this implies}
+                a\cdot y &= a\cdot x+u
+                \intertext{By the inverse of the cancellation law for addition, we can add a quantity to both sides, say $y$.}
+                a\cdot y+y &= a\cdot x+y+u
+                \intertext{Since $x<y$ by assumption, $y=x+u'$ for some $u'\in\N$.}
+                a\cdot y+y &= a\cdot x+x+u'+u
+                \intertext{Use the definition of multiplication and addition.}
+                s(a)\cdot y &= s(a)\cdot x+u'+u\\
+                (a+1)\cdot y &= (a+1)\cdot x+u'+u
+                \intertext{If we treat $u'+u$ as a single natural number, which we can do because of part (c) Theorem part i, we can employ the definition of $<$ one more time.}
+                (a+1)\cdot x &< (a+1)\cdot y
+            \end{align*}
         \end{proof}
     \end{enumerate}
 \end{enumerate}
