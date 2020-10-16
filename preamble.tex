@@ -1,0 +1,49 @@
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{csquotes}
+\usepackage{marginnote}
+\usepackage{scrextend}
+\usepackage[bottom]{footmisc}
+\usepackage{enumitem}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools,physics}
+\usepackage{tikz,graphicx,subcaption}
+\usepackage[hidelinks]{hyperref}
+
+\fancypagestyle{main}{
+    \fancyhf{}
+    \fancyhead[L]{\leftmark}
+    \fancyhead[R]{MATH 16110}
+    \fancyfoot[R]{Labalme \thepage}
+}
+
+\MakeOuterQuote{"}
+
+\reversemarginpar
+
+\deffootnotemark{\textsuperscript{\textup{[}\thefootnotemark\textup{]}}}
+\deffootnote[2.1em]{0em}{0em}{\textsuperscript{\thefootnote}}
+
+\setitemize[3]{label={\scriptsize$\blacksquare$}}
+
+\numberwithin{figure}{section}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem*{axioms}{Axioms}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem{lemmaM}{Lemma}
+\newtheorem{corollaryM}{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem*{definition*}{Definition}
+\newtheorem{exerciseM}{Exercise}
+
+\usetikzlibrary{positioning,shapes,decorations.pathreplacing,calc}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\usepackage{subfiles}
