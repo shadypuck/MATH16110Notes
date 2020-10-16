@@ -1,16 +1,16 @@
 \documentclass[../main.tex]{subfiles}
 
 \pagestyle{main}
-\renewcommand{\sectionmark}[1]{\markboth{#1\ \thesection}{}}
-\setcounter{section}{1}
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter}{#1}}
+\setcounter{chapter}{1}
 
 \begin{document}
 
 
 
 
-\section{Script}
-\subsection{Journal}
+\chapter{The Rationals}
+\section{Journal}
 \begin{definition}\label{dfn:2.1}\marginnote{10/15:}
     Let $X$ be a set. A \textbf{relation} $R$ on $X$ is a subset of $X\times X$. The statement $(x,y)\in R$ is read "$x$ is related to $y$ by the relation $R$" and is often denoted $x\sim y$.\par\medskip
     \noindent A relation is \textbf{reflexive} if $x\sim x$ for all $x\in X$.\\
@@ -40,7 +40,7 @@
             To prove that the described relation is an equivalence relation, Definition \ref{dfn:2.1} tells us that we must verify that it is reflexive, symmetric, and transitive. To prove these properties, it will suffice to show that $x\sim x$ for all $x\in X$, $x\sim y$ implies $y\sim x$ for any $x,y\in X$, and $x\sim y$ and $y\sim z$ implies $x\sim z$ for any $x,y,z\in X$, respectively. Let's begin.\par
             To prove that $x\sim x$ for all $x\in X$, it will suffice to show that $\frac{x-x}{5}\in X$ for an arbitrary element $x\in X$. Let $x$ be such an object. It follows that $\frac{x-x}{5}=\frac{0}{5}=0$. Since $0\in X$, $\frac{x-x}{5}\in X$, as desired.\par
             To prove that $x\sim y$ implies that $y\sim x$ for any $x,y\in X$, it will suffice to show that $\frac{x-y}{5}\in X$ given that $\frac{y-x}{5}\in X$. Since $\frac{y-x}{5}\in X$, it follows by the set theoretic definition of $\Z$ that $-\frac{y-x}{5}\in X$. But $-\frac{y-x}{5}=\frac{x-y}{5}$, so $\frac{x-y}{5}\in X$, as desired.\par
-            To prove that $x\sim y$ and $y\sim z$ implies that $x\sim y$ for any $x,y,z\in X$, it will suffice to show that $\frac{z-x}{5}\in X$ given that $\frac{y-x}{5}\in X$ and $\frac{z-y}{5}\in X$. Since $\frac{y-x}{5}\in X$ and $\frac{z-y}{5}\in X$, it follows by the closure of addition for integers that $\left( \frac{z-y}{5}+\frac{y-x}{5} \right)\in X$. But $\frac{z-y}{5}+\frac{y-x}{5}=\frac{z-y+y-x}{5}=\frac{z-x}{5}$, so $\frac{z-x}{5}\in X$, as desired.
+            To prove that $x\sim y$ and $y\sim z$ implies that $x\sim y$ for any $x,y,z\in X$, it will suffice to show that $\frac{z-x}{5}\in X$ given that $\frac{y-x}{5}\in X$ and $\frac{z-y}{5}\in X$. Since $\frac{y-x}{5}\in X$ and $\frac{z-y}{5}\in X$, it follows by the closure of integer addition that $\left( \frac{z-y}{5}+\frac{y-x}{5} \right)\in X$. But $\frac{z-y}{5}+\frac{y-x}{5}=\frac{z-y+y-x}{5}=\frac{z-x}{5}$, so $\frac{z-x}{5}\in X$, as desired.
         \end{proof}
         \item \label{exr:2.2e}$X=\{(a,b)\mid a,b\in\Z,b\neq 0\}$ with the relation $\sim$ defined by $(a,b)\sim(c,d)\Longleftrightarrow ad=bc$.
         \begin{proof}

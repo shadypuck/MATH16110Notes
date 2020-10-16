@@ -1,16 +1,16 @@
 \documentclass[../main.tex]{subfiles}
 
 \pagestyle{main}
-\renewcommand{\sectionmark}[1]{\markboth{#1\ \thesection}{}}
-\setcounter{section}{-1}
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter}{#1}}
+\setcounter{chapter}{-1}
 
 \begin{document}
 
 
 
 
-\section{Script}
-\subsection{Responses}
+\chapter{The Natural Numbers and Mathematical Induction}
+\section{Responses}
 \setcounter{theorem}{1}
 \begin{exercise}[PMI Exercise 2]\marginnote{10/1:}
     Prove that if $x>-1$, then $(1+x)^n\geq 1+nx$ for any natural number $n$. (Note that although this script is focused on the natural numbers, your argument should hold for any real number $x>-1$.)
@@ -30,7 +30,7 @@
     \end{proof}
 \end{exercise}
 
-\subsubsection*{Additional Exercises}
+\subsection*{Additional Exercises}
 \begin{enumerate}
     \setcounter{enumi}{6}
     \item \marginnote{10/8:}Let $n$ be a natural number and $k\leq n$ also be a natural number. Define

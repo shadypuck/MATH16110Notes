@@ -1,7 +1,7 @@
 \documentclass[../main.tex]{subfiles}
 
 \pagestyle{main}
-\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
 \setcounter{secnumdepth}{0}
 
 \begin{document}
@@ -9,8 +9,10 @@
 
 
 
-\section{Notes on Proofs}
-\subsection{Responses}
+\chapter*{Notes on Proofs}
+\addcontentsline{toc}{chapter}{Notes on Proofs}
+\chaptermark{Notes on Proofs}
+\section{Responses}
 \setcounter{lemmaM}{3}
 \begin{lemmaM}\marginnote{\emph{9/27:}}
     Let $x,y$ be positive integers. Then $xy$ is odd if and only if $x$ and $y$ are both odd.
@@ -55,7 +57,7 @@
 \end{exerciseM}
 
 
-\subsection{Discussion}
+\section{Discussion}
 \begin{itemize}
     \item \marginnote{9/29:}Dr. Cartee.
     \item Sam Craig (super reader) is an advanced undergraduate who has taken this class before.
