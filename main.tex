@@ -42,7 +42,7 @@
 \theoremstyle{definition}
 \newtheorem{exercise}{Exercise}[script]
 
-\usetikzlibrary{positioning,shapes,decorations.pathreplacing}
+\usetikzlibrary{positioning,shapes,decorations.pathreplacing,calc}
 
 \setcounter{secnumdepth}{0}
 
@@ -446,6 +446,25 @@
             \end{align*}
         \end{proof}
         \item $|A\times B|=|A|\cdot|B|$.
+        \begin{proof}
+            Let $|A|=n$ and $|B|=m$. Then since $A$ and $B$ are finite, Definition 1.30 and 1.28 tell us that there exist bijections $f:A\to[n]$ and $g:B\to[m]$. By Definition 1.33 and 1.28, to prove the claim, it will suffice to find a bijection $h:A\times B\to[m\cdot n]$.\par
+            Let $h:A\times B\to[m\cdot n]$ be defined by
+            \begin{equation*}
+                h(a,b) = f(a)+n\cdot(g(b)-1)
+            \end{equation*}
+            Clearly, the above rule assigns a unique value to every $(a,b)$, and since $f$ and $g$ map all $a\in A$ and $b\in B$, respectively, the above function is not undefined for any $(a,b)\in A\times B$. Thus, $h$ is a function as defined in Definition 1.16.\par
+            We must now prove that $h$ is bijective. By Definition 1.20, it will suffice to prove that $h$ is injective and surjective, which we may do as follows. We shall start with injectivity.\par
+            Let
+            \begin{align*}
+                h(a,b) &= h(a',b')
+                \intertext{Then by the definition of $h$,}
+                f(a)+n\cdot(g(b)-1) &= f(a')+n\cdot(g(b')-1)\\
+                f(a)-f(a') &= n\cdot(g(b')-1)-n\cdot(g(b)-1)\\
+                f(a)-f(a') &= n\cdot(g(b')-g(b))
+            \end{align*}
+            Since $f(a)$ and $f(a')$ are both elements of $[n]$, we have $|f(a)-f(a')|<n$ (since $\max([n])-\min([n])=n-1<n$). Substituting, we have that $|n\cdot(g(b')-g(b))|<n$, i.e., $|g(b')-g(b)|<1$. But since $g(b),g(b')\in[m]$, the only way that $|g(b')-g(b)<1$ is if $|g(b')-g(b)|=0$. Consequently, $g(b')-g(b)=0$, so additionally, $f(a)-f(a')=n\cdot(g(b')-g(b))=0$. Having ascertained that $g(b')-g(b)=0$ and $f(a)-f(a')=0$, it is a simple matter to find that $g(b)=g(b')$ and $f(a)=f(a')$, meaning by the bijectivity (more specifically, the injectivity) of $f$ and $g$ that $b=b'$ and $a=a'$. But by Definition 1.15, this implies that $(a,b)=(a',b')$, as desired.\par
+            As to surjectivity, let $c$ be an arbitrary element of $[n\cdot m]$. As a natural number, $c$ can be written in the form $c=\beta\cdot n+\alpha$ where $1\leq\alpha\leq n$ and $\beta\in\N$. We know that $\min([n\cdot m])=1=0\cdot n+1$ and $\max([n\cdot m])=m\cdot n=(m-1)\cdot n+n$; thus, if we restrict the possible values of $\beta$ to $0\leq\beta\leq m-1$, we still know that $c=\beta\cdot n+\alpha$ for some $1\leq\alpha\leq n$ and $0\leq\beta\leq m-1$. Now by the surjectivity of $f$, there exists an $a\in A$ such that $f(a)=\alpha$ for any $1\leq\alpha\leq n$. Similarly, the surjectivity of $g$ implies that there exists a $b\in B$ such that $g(b)=\beta+1$ for any $1\leq\beta+1\leq m$, i.e., there exists a $b\in B$ such that $g(b)-1=\beta$ for any $0\leq\beta\leq m-1$. Therefore, $c$ can be written in the form $c=f(a)+n\cdot(g(b)-1)$ for some $a\in A$ and $b\in B$, which by the definition of $h$ means that $c=h(a,b)$ for some $(a,b)\in A\times B$, as desired.
+        \end{proof}
     \end{enumerate}
 \end{exercise}
 
@@ -472,11 +491,113 @@
 
 \begin{exercise}
     Prove that every infinite subset of a countable set is also countable.
+    \begin{lemma*}
+        Every infinite subset of the natural numbers is countable.
+        \begin{proof}
+            Let $A\subset\N$ be infinite. To prove that $A$ is countable, Definition 1.35 tells us that it will suffice to show that there exists a bijection $g:\N\to A$. Let's begin.\par
+            We define $g$ recursively with strong induction, as follows. Note that $A=A\setminus\{\}$ where $\{\}=\emptyset$. By the well-ordering principle (see Script 0), there exists a minimum element $\min(A\setminus\{\})\in A\setminus\{\}$; we define $g(1)=\min(A\setminus\{\})$. Now suppose inductively that we have defined $g(1),g(2),\dots,g(n)$. Then we can define $g(n+1)$ by defining $g(n+1)=\min(A\setminus\{g(1),g(2),\dots,g(n)\})$\footnote{Basically, what this definition is doing is mapping 1 to the least element of $A$, 2 to the second-least element of $A$, 3 to the third-least element of $A$, and so on and so forth. Notice how the least element of $A$ is denoted by $g(1)$, and $g(2)$ (for example) is equal to $\min(A\setminus\{g(1)\})$, i.e., the minimum value in $A$ if $A$'s least element did not exist, i.e., the second-least element in $A$. Additionally, $g(3)=\min(A\setminus\{g(1),g(2)\})$, so we can see how $g(3)$ is the third-least element in $A$ by the same logic used in discussing $g(2)$. Obviously, the pattern continues for all $n\in\N$.}. By the principle of strong mathematical induction, it follows that $g$ is defined for all $n\in\N$, and it is obvious that $g$ is not multiply defined for any $n\in\N$. Thus, $g$ is a function as defined in Definition 1.16.\par
+            To prove that $g$ is bijective, Definition 1.20 tells us that it will suffice to show that $g$ is injective and surjective. We will prove each of these qualities in turn. To prove that $g$ is injective, Definition 1.20 tells us that we must verify that $n\neq n'$ implies $g(n)\neq g(n')$. Suppose that $n\neq n'$. Then by the trichotomy, either $n>n'$ or $n<n'$. If $n>n'$, then $g(n)=\min(A\setminus\{g(1),\dots,g(n'),\dots,g(n-1)\})$, meaning that $g(n)$ cannot equal $g(n')$ since $g(n)$ is an element of a set (namely, $A\setminus\{g(1),\dots,g(n'),\dots,g(n-1)\}$) of which $g(n')$ is explicitly not a member. The proof is symmetric if $n<n'$. To prove that $g$ is surjective, Definition 1.20 tells us that we must verify that for all $a\in A$, there exists an $n\in\N$ such that $g(n)=a$. Suppose for the sake of contradiction that there exists some $a\in A$ such that $g(n)\neq a$ for any $n\in\N$. This implies that $a\neq\min(A\setminus\{g(1),\dots,g(n)\})$ for any $n\in\N$, which must mean that $a\notin A$, a contradiction.
+        \end{proof}
+    \end{lemma*}
+    \begin{proof}
+        Let $A$ be a countable set and let $B\subset A$ be an infinite set. By Definition 1.35 and 1.28, there exists a bijection $f:A\to\N$. Now consider the set $f(B)$. Clearly $\tilde{f}:B\to f(B)$ defined by $\tilde{f}(b)=f(b)$ is a function and a bijection. Since $f(B)\subset\N$ is infinite, there exists a bijection $g:f(B)\to\N$ by the lemma and Definition 1.35. It follows by Proposition 1.27 that $g\circ\tilde{f}:B\to\N$ is a bijection, proving that $B$ is countable by Definition 1.35, as desired.
+    \end{proof}
 \end{exercise}
 
 \begin{exercise}
     Prove that if there is an injection $f:A\to B$ where $B$ is countable and $A$ is infinite, then $A$ is countable.
+    \begin{proof}
+        Let $\tilde{f}:A\to f(A)$ be defined by $\tilde{f}(a)=f(a)$. To prove that $\tilde{f}$ is a function, Definition 1.16 tells us that it will suffice to show that for all $a\in A$, there exists a unique $b\in f(A)$ such that $\tilde{f}(a)=b$. Let $a$ be an arbitrary element of $A$. It follows by Definition 1.18 that $f(a)\in f(A)$, hence $\tilde{f}(a)\in A$ by the definition of $\tilde{f}$. Furthermore, since $f(a)$ is a unique object, $\tilde{f}(a)$ is also a unique object.\par
+        To prove that $\tilde{f}$ is bijective, Definition 1.20 tells us that it will suffice to show that $\tilde{f}$ is injective and surjective. We will verify these two characteristics in turn. To prove that $\tilde{f}$ is injective, Definition 1.20 tells us that we must demonstrate that $\tilde{f}(a)=\tilde{f}(a')$ implies $a=a'$. Let $\tilde{f}(a)=\tilde{f}(a')$. By the definition of $\tilde{f}$, $\tilde{f}(a)=f(a)$ and $\tilde{f}(a')=f(a')$. Thus, $f(a)=\tilde{f}(a)=\tilde{f}(a')=f(a')$, i.e., $f(a)=f(a')$. As such, by the injectivity of $f$, $a=a'$, as desired. To prove that $\tilde{f}$ is surjective, Definition 1.20 tells us that we must demonstrate that for all $b\in f(A)$, there exists an $a\in A$ such that $\tilde{f}(a)=b$. Let $b$ be an arbitrary element of $f(A)$. By Definition 1.18, it follows that $b=f(a)$ for some $a\in A$. But by the definition of $\tilde{f}$, we also have $f(a)=\tilde{f}(a)$, so transitivity implies that $\tilde{f}(a)=b$, as desired.\par
+        Since $A$ is infinite, Definition 1.30 tells us that no bijection $h:A\to[n]$ exists for any $n\in\N$. Consequently, since there exists a bijection $\tilde{f}:A\to f(A)$, no bijection $h:f(A)\to[n]$ exists, implying by Definition 1.30 that $f(A)$ is similarly infinite. In addition to being infinite, Definition 1.18 asserts that $f(A)\subset B$. Thus, Exercise 1.37 applies and proves that $f(A)$ is countable. It follows by Definition 1.35 that there exists a bijection $g:f(A)\to\N$. Since $\tilde{f}$ and $g$ are both bijective, Proposition 1.27 implies that $g\circ\tilde{f}:A\to\N$ is bijective. Therefore, $A$ and $\N$ are in bijective correspondence by Definition 1.28, meaning that $A$ is countable by Definition 1.35.
+    \end{proof}
 \end{exercise}
+
+\begin{exercise}
+    Prove that $\N\times\N$ is countable by considering the function $f:\N\times\N\to\N$ given by $f(n,m)=(10^n-1)10^m$.
+    \begin{lemma*}[Informal\footnote{Dr. Cartee approved this.}]
+        If $10^a+10^b=10^c+10^d$ for $a,b,c,d\in\N$, then either $a=c$ and $b=d$, or $a=d$ and $b=c$.
+        \begin{figure}[h!]
+            \centering
+            \begin{subfigure}[b]{0.18\linewidth}
+                \centering
+                \begin{tikzpicture}
+                    \footnotesize
+                    \node{$100\cdots 00$};
+
+                    \scriptsize
+                    \node at (0,-1.1) {\textcolor{white}{$10^d$ causes this}};
+                \end{tikzpicture}
+                \caption{$10^a$.}
+                \label{fig:base10a}
+            \end{subfigure}
+            \begin{subfigure}[b]{0.18\linewidth}
+                \centering
+                \begin{tikzpicture}
+                    \footnotesize
+                    \node{$100\cdots 010\cdots 00$};
+
+                    \scriptsize
+                    \node at (0,-1.1) {\textcolor{white}{$10^d$ causes this}};
+                \end{tikzpicture}
+                \caption{$10^a+10^b$.}
+                \label{fig:base10b}
+            \end{subfigure}
+            \begin{subfigure}[b]{0.6\linewidth}
+                \centering
+                \begin{tikzpicture}
+                    \footnotesize
+                    \node{$100\cdots 010\cdots 00$};
+
+                    \small
+                    \node (cases) at (-5.5,0) {Two cases};
+                    \node (1c) at (-2.5,-0.7) {$10^c$ causes this};
+                    \node (1d) at (-2.5,-1.1) {$10^d$ causes this};
+                    \node (2d) at (-2.5,0.7) {$10^d$ causes this};
+                    \node (2c) at (-2.5,1.1) {$10^c$ causes this};
+
+                    \begin{scope}[semithick,-stealth]
+                        \draw (cases) to[out=0,in=180] ($(2c.west)!0.5!(2d.west)$);
+                        \draw (cases) to[out=0,in=180] ($(1c.west)!0.5!(1d.west)$);
+
+                        \draw (1c) to[out=0,in=-90] (-0.97,-0.2);
+                        \draw (1d) to[out=0,in=-90] (0.07,-0.2);
+                        \draw (2d) to[out=0,in=90] (-0.97,0.2);
+                        \draw (2c) to[out=0,in=90] (0.07,0.2);
+                    \end{scope}
+                \end{tikzpicture}
+                \caption{Possible matchings of $10^c$ and $10^d$.}
+                \label{fig:base10c}
+            \end{subfigure}
+            \caption{Base-10 representations (ignoring the case where $a=b$).}
+            \label{fig:base10}
+        \end{figure}
+        \begin{proof}
+            Refer to Figure \ref{fig:base10} throughout the following discussion. Think about the base-10 representation of $10^a$ --- it will be a 1 followed by a bunch of 0s. When we add $10^b$ to $10^a$, either one of the 0s becomes a 1, the 1 becomes a 2, or a further string consisting of a 1 (possibly followed by 0s) is concatenated to the beginning of the existing number. In any of these cases, it is clear that for this number to be written in the form $10^c+10^d$, one of those two terms ($10^c$ or $10^d$) must account for one of the 1s, and the other for the other 1 (or both for the 2, in that case).
+        \end{proof}
+    \end{lemma*}
+    \begin{proof}
+        We wish to prove that $f$ is injective, so that Exercise 1.38 applies. By Definition 1.20, proving that $f$ is injective necessitates showing that $f(a,b)=f(c,d)$ implies that $(a,b)=(c,d)$ for all $(a,b),(c,d)\in\N\times\N$. Let $(a,b),(c,d)$ be arbitrary elements $\N\times\N$, and suppose that
+        \begin{align*}
+            f(a,b) &= f(c,d)
+            \intertext{Substituting the definition of $f$ and algebraically manipulating, we get}
+            (10^a-1)(10^b) &= (10^c-1)(10^d)\\
+            10^{a+b}-10^b &= 10^{c+d}-10^d\\
+            10^{a+b}+10^d &= 10^{c+d}+10^b
+        \end{align*}
+        By the lemma, either $a+b=b$ and $c+d=d$, or $a+b=c+d$ and $b=d$. In the first case, we must have $a=0$ and $c=0$ for the equalities to hold. But since $0\notin\N$, this implies that $a,c\notin\N$, a contradiction. Thus this case does not hold and it must be that the second case is true. In the second case, $b=d$, so by the cancellation law for addition, $a=c$. Since $a=c$ and $b=d$, Definition 1.15 tells us that $(a,b)=(c,d)$, as desired.\par
+        Having proven that there exists an injection $f:\N\times\N\to\N$ where $\N$ is (clearly) countable and $\N\times\N$ is (clearly) infinite, Exercise 1.38 implies that $\N\times\N$ is countable, as desired.
+    \end{proof}
+\end{exercise}
+
+
+\subsection{Discussion}
+\begin{itemize}
+    \item \marginnote{10/13:}What are your office hours? Mondays 4-6 PM
+    \item Do I need to submit the LaTeX assignment to you? Email it to him.
+    \item Edit this document to reflect switch to section 22.
+    \item Script 2 sign up sheet is on Canvas (sign up within 24 hours).
+\end{itemize}
 \newpage
 
 
