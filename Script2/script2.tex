@@ -1,0 +1,154 @@
+\documentclass[../main.tex]{subfiles}
+
+\pagestyle{main}
+\renewcommand{\sectionmark}[1]{\markboth{#1\ \thesection}{}}
+\setcounter{section}{1}
+
+\begin{document}
+
+
+
+
+\section{Script}
+\subsection{Journal}
+\begin{definition}\label{dfn:2.1}\marginnote{10/15:}
+    Let $X$ be a set. A \textbf{relation} $R$ on $X$ is a subset of $X\times X$. The statement $(x,y)\in R$ is read "$x$ is related to $y$ by the relation $R$" and is often denoted $x\sim y$.\par\medskip
+    \noindent A relation is \textbf{reflexive} if $x\sim x$ for all $x\in X$.\\
+    A relation is \textbf{symmetric} if $y\sim x$ whenever $x\sim y$.\\
+    A relation is \textbf{transitive} if $x\sim z$ whenever $x\sim y$ and $y\sim z$.\\
+    A relation is an \textbf{equivalence relation} if it is reflexive, symmetric, and transitive.
+\end{definition}
+\smallskip
+
+\begin{exercise}\label{exr:2.2}
+    Determine which of the following are equivalence relations.
+    \begin{enumerate}[label={\alph*)},ref={\theexercise\alph*}]
+        \item \label{exr:2.2a}Any set $X$ with the relation $=$. So $x\sim y$ if and only if $x=y$.
+        \begin{proof}
+            To prove that the relation $=$ is reflexive, Definition \ref{dfn:2.1} tells us that it will suffice to show that $x\sim x$ for all $x\in X$. Clearly, $x=x$ for all $x\in X$. It follows by the definition of $=$ that $x\sim x$ for all $x\in X$. For symmetry, we must verify that $x\sim y$ implies $y\sim x$ for any $x,y\in X$. Let $x\sim y$ for some $x,y\in X$. Consequently, by the definition of $=$, $x=y$. It follows that $y=x$, and thus that $y\sim x$. For transitivity, we must show that $x\sim y$ and $y\sim z$ imply that $x\sim z$ for any $x,y,z\in X$. Let $x\sim y$ and $y\sim z$ for some $x,y,z\in X$. By the definition of $=$, $x\sim y$ and $y\sim z$ imply that $x=y$ and $y=z$, respectively. Thus, $x=y=z$, so $x=z$, meaning that $x\sim z$ by the definition of the relation $=$. Since the relation $=$ is reflexive, symmetric, and transitive, it is an equivalence relation.
+        \end{proof}
+        \item \label{exr:2.2b}$\Z$ with the relation $<$.
+        \begin{proof}
+            The relation $<$ is neither reflexive nor symmetric, although it is transitive. Since demonstrating that $<$ does not satisfy any one of the three properties proves that $<$ is not an equivalence relation, we shall arbitrarily choose to prove that $<$ is not reflexive. Consider $1\in\Z$, and note that $1=1$. Since $1=1$, $1\nless 1$ by the trichotomy. Thus, $1\nsim 1$ by the relation $<$, proving that $<$ is not reflexive for all $z\in Z$, i.e., $<$ is not an equivalence relation.
+        \end{proof}
+        \item \label{exr:2.2c}Any subset $X$ of $\Z$ with the relation $\leq$. So $x\sim y$ if and only if $x\leq y$.
+        \begin{proof}
+            Here, we demonstrate a failure of symmetry. Let $X=\{1,2\}$. Clearly, $X\subset\Z$. Now, $1\leq 2$, so $1\sim 2$ by the relation $\leq$, but $2\nleq 1$ so $2\nsim 1$. Thus, $x\sim x'$ for $x,x'\in X$ does not necessarily imply that $x'\sim x$. It follows that $\leq$ is not an equivalence relation on \emph{any} subset of $\Z$.
+        \end{proof}
+        \item \label{exr:2.2d}$X=\Z$ with $x\sim y$ if and only if $y-x$ is divisible by 5.
+        \begin{proof}
+            To prove that the described relation is an equivalence relation, Definition \ref{dfn:2.1} tells us that we must verify that it is reflexive, symmetric, and transitive. To prove these properties, it will suffice to show that $x\sim x$ for all $x\in X$, $x\sim y$ implies $y\sim x$ for any $x,y\in X$, and $x\sim y$ and $y\sim z$ implies $x\sim z$ for any $x,y,z\in X$, respectively. Let's begin.\par
+            To prove that $x\sim x$ for all $x\in X$, it will suffice to show that $\frac{x-x}{5}\in X$ for an arbitrary element $x\in X$. Let $x$ be such an object. It follows that $\frac{x-x}{5}=\frac{0}{5}=0$. Since $0\in X$, $\frac{x-x}{5}\in X$, as desired.\par
+            To prove that $x\sim y$ implies that $y\sim x$ for any $x,y\in X$, it will suffice to show that $\frac{x-y}{5}\in X$ given that $\frac{y-x}{5}\in X$. Since $\frac{y-x}{5}\in X$, it follows by the set theoretic definition of $\Z$ that $-\frac{y-x}{5}\in X$. But $-\frac{y-x}{5}=\frac{x-y}{5}$, so $\frac{x-y}{5}\in X$, as desired.\par
+            To prove that $x\sim y$ and $y\sim z$ implies that $x\sim y$ for any $x,y,z\in X$, it will suffice to show that $\frac{z-x}{5}\in X$ given that $\frac{y-x}{5}\in X$ and $\frac{z-y}{5}\in X$. Since $\frac{y-x}{5}\in X$ and $\frac{z-y}{5}\in X$, it follows by the closure of addition for integers that $\left( \frac{z-y}{5}+\frac{y-x}{5} \right)\in X$. But $\frac{z-y}{5}+\frac{y-x}{5}=\frac{z-y+y-x}{5}=\frac{z-x}{5}$, so $\frac{z-x}{5}\in X$, as desired.
+        \end{proof}
+        \item \label{exr:2.2e}$X=\{(a,b)\mid a,b\in\Z,b\neq 0\}$ with the relation $\sim$ defined by $(a,b)\sim(c,d)\Longleftrightarrow ad=bc$.
+        \begin{proof}
+            Reflexivity: Let $(a,b)$ be an arbitrary element of $X$. Since $a,b\in\Z$ and integer multiplication is commutative, $ab=ba$. Therefore, by the definition of the relation $\sim$, $(a,b)\sim(a,b)$.\par
+            Symmetry: Let $(a,b)\sim(c,d)$ for some $(a,b),(c,d)\in X$. By the definition of the relation $\sim$, $ad=bc$. Thus, $cb=da$ by the symmetry of $=$ (see part (a)) and the commutativity of integer multiplication. Consequently, by the definition of the relation $\sim$, $(c,d)\sim(a,b)$.\par
+            Transitivity: Let $(a,b)\sim(c,d)$ and $(c,d)\sim(e,f)$ for some $(a,b),(c,d),(e,f)\in X$. By consecutive applications of the definition of $\sim$, $ad=bc$ and $cf=de$. Now if we consider $ad=bc$, we can multiply an equal quantity to each side and still preserve the equality. As such, we choose to multiply $cf=de$ to both sides, creating the equation $ad\cdot cf=bc\cdot de$. By the commutativity of multiplication, we have $afcd=becd$. By the cancellation law for multiplication, we have $af=be$ (we cancel out $cd$ from both sides). Therefore, by the definition of the relation $\sim$, $(a,b)\sim(e,f)$.
+        \end{proof}
+    \end{enumerate}
+\end{exercise}
+
+\begin{remark}\label{rmk:2.3}
+    A \textbf{partition} of a set is a collection of non-empty disjoint subsets whose union is the original set. Any equivalence relation on a set creates a partition of that set by collecting into subsets all of the elements that are equivalent (related) to each other. When the partition of a set arises from an equivalence relation in this manner, the subsets are referred to as \textbf{equivalence classes}.
+\end{remark}
+
+\begin{remark}\label{rmk:2.4}
+    If we think of the set $X$ in Exercise \ref{exr:2.2e} as representing the collection of all fractions whose denominators are not zero, then the relation $\sim$ may be thought of as representing the equivalence of two fractions.
+\end{remark}
+
+\begin{definition}\label{dfn:2.5}
+    As a set, the \textbf{rational numbers}, denoted $\Q$, are the equivalence classes in the set $X=\{(a,b)\mid a,b\in\Z,b\neq 0\}$ under the equivalence relation $\sim$ as defined in Exercise \ref{exr:2.2e}. If $(a,b)\in X$, we denote the equivalence class of this element as $\eqclass{a}{b}$. So
+    \begin{equation*}
+        \eqclass{a}{b} = \{(x_1,x_2)\in X\mid(x_1,x_2)\sim(a,bb)\}
+        = \{(x_1,x_2)\in X\mid x_1b=x_2a\}
+    \end{equation*}
+    Then,
+    \begin{equation*}
+        \Q = \left\{\eqclass{a}{b}\middle|(a,b)\in X\right\}
+    \end{equation*}
+\end{definition}
+
+\begin{exercise}\label{exr:2.6}
+    $\eqclass{a}{b}=\eqclass{a'}{b'}\Longleftrightarrow(a,b)\sim(a',b')$
+    \begin{proof}
+        To prove this claim, we must prove the two implications
+        \begin{align*}
+            \eqclass{a}{b}=\eqclass{a'}{b'} &\Longrightarrow (a,b)\sim(a',b')&
+            (a,b)\sim(a',b') &\Longrightarrow \eqclass{a}{b}=\eqclass{a'}{b'}
+        \end{align*}\par
+        Suppose first that $\eqclass{a}{b}=\eqclass{a'}{b'}$. Then by Definition \ref{dfn:2.5},
+        \begin{equation*}
+            \{(x_1,x_2)\in X\mid (x_1,x_2)\sim(a,b)\} = \{(x_1,x_2)\in X\mid (x_1,x_2)\sim(a',b')\}
+        \end{equation*}
+        Since $(a,b)\sim(a,b)$ by Exercise \ref{exr:2.2e} and clearly $(a,b)\in X$, it follows that $(a,b)\in\{(x_1,x_2)\in X\mid (x_1,x_2)\sim(a,b)\}$. Consequently, set equality implies that $(a,b)\in\{(x_1,x_2)\in X\mid (x_1,x_2)\sim(a',b')\}$. Thus, $(a,b)\sim(a',b')$, as desired.\par
+        Now suppose that $(a,b)\sim(a',b')$. To prove that $\eqclass{a}{b}=\eqclass{a'}{b'}$, Definition \ref{dfn:2.5} tells us that it will suffice to show that
+        \begin{equation*}
+            \{(x_1,x_2)\in X\mid (x_1,x_2)\sim(a,b)\} = \{(x_1,x_2)\in X\mid (x_1,x_2)\sim(a',b')\}
+        \end{equation*}
+        Let $(x_1,x_2)$ be an arbitrary element of $\{(x_1,x_2)\in X\mid (x_1,x_2)\sim(a,b)\}$. It follows that $(x_1,x_2)\sim(a,b)$. Thus, since $(a,b)\sim(a',b')$, the transitivity of $\sim$ (see Exercise \ref{exr:2.2e}) implies that $(x_1,x_2)\sim(a',b')$. This coupled with the fact that $(x_1,x_2)\in X$ means that $(x_1,x_2)\in\{(x_1,x_2)\in X\mid (x_1,x_2)\sim(a',b')\}$. The proof is symmetric if we first let that $(x_1,x_2)$ be an arbitrary element of $\{(x_1,x_2)\in X\mid (x_1,x_2)\sim(a',b')\}$.
+    \end{proof}
+\end{exercise}
+
+\begin{definition}\label{dfn:2.7}
+    We define the binary operations addition and multiplication on $\Q$ as follows. If $\eqclass{a}{b},\eqclass{c}{d}\in\Q$, then
+    \begin{gather*}
+        \eqclass{a}{b}\plusQ\eqclass{c}{d} = \eqclass{ad+bc}{bd}\\
+        \eqclass{a}{b}\cdotQ\eqclass{c}{d} = \eqclass{ac}{bd}
+    \end{gather*}
+    We use the notation $\plusQ$ and $\cdotQ$ to represent addition and multiplication in $\Q$ so as to distinguish these operations from the usual addition ($+$) and multiplication ($\cdot$) in $\Z$.
+\end{definition}
+
+\begin{theorem}\label{trm:2.8}
+    Addition in $\Q$ is well-defined. That is, if $(a,b)\sim(a',b')$ and $(c,d)\sim(c',d')$, then
+    \begin{equation*}
+        \eqclass{a}{b}\plusQ\eqclass{c}{d} = \eqclass{a'}{b'}\plusQ\eqclass{c'}{d'}
+    \end{equation*}
+    \begin{lemma*}
+        If $(a,b)\sim(a',b')$ and $(c,d)\sim(c',d')$, then $(ad+bc,bd)\sim(a'd'+b'c',b'd')$.
+        \begin{proof}
+            By consecutive applications of the definition of $\sim$, we have that
+            \begin{align*}
+                ab' &= ba'&
+                    cd' &= dc'
+                \intertext{It follows by the multiplicative property of equality that}
+                ab'dd' &= ba'dd'&
+                    bb'cd' &= bb'dc'
+            \end{align*}
+            The above two results can be combined via the additive property of equality, giving the following, which will further be algebraically manipulated.
+            \begin{align*}
+                ab'dd'+bb'cd' &= ba'dd'+bb'dc'\\
+                adb'd'+bcb'd' &= bda'd'+bdb'c'\\
+                (ad+bc)(b'd') &= (bd)(a'd'+b'c')
+            \end{align*}
+            The last line above implies by the definition of $\sim$ that $(ad+bc,bd)\sim(a'd'+b'c',b'd')$, as desired.
+        \end{proof}
+    \end{lemma*}
+    \begin{proof}
+        Suppose for the sake of contradiction that
+        \begin{equation*}
+            \eqclass{a}{b}\plusQ\eqclass{c}{d} \neq \eqclass{a'}{b'}\plusQ\eqclass{c'}{d'}\text{ for some }\eqclass{a}{b},\eqclass{c}{d},\eqclass{a'}{b'},\eqclass{c'}{d'}\in\Q
+        \end{equation*}
+        Since
+        \begin{align*}
+            \eqclass{a}{b}\plusQ\eqclass{c}{d} &= \eqclass{ad+bc}{bd}&
+            \eqclass{a'}{b'}\plusQ\eqclass{c'}{d'} &= \eqclass{a'd'+b'c'}{b'd'}
+        \end{align*}
+        by Definition \ref{dfn:2.7}, the supposition implies that
+        \begin{equation*}
+            \eqclass{ad+bc}{bd} \neq \eqclass{a'd'+b'c'}{b'd'}
+        \end{equation*}
+        By Exercise \ref{exr:2.6}, this means that $(ad+bc,bd)\nsim(a'd'+b'c',b'd')$. But since $(a,b)\sim(a',b')$ and $(c,d)\sim(c',d')$ by hypothesis, the lemma tells us that $(ad+bc,bd)\sim(a'd'+b'c',b'd')$, a contradiction. Therefore,
+        \begin{equation*}
+            \eqclass{a}{b}\plusQ\eqclass{c}{d} = \eqclass{a'}{b'}\plusQ\eqclass{c'}{d'}
+        \end{equation*}
+        under the given conditions, as desired.
+    \end{proof}
+\end{theorem}
+
+
+
+
+\end{document}
