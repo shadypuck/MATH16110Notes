@@ -3,13 +3,14 @@
 \pagestyle{main}
 \renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter}{#1}}
 \setcounter{chapter}{1}
+\externaldocument{../main}
 
 \begin{document}
 
 
 
 
-\chapter{The Rationals}
+\chapter{The Rationals}\label{sct:2}
 \section{Journal}
 \begin{definition}\label{dfn:2.1}\marginnote{10/15:}
     Let $X$ be a set. A \textbf{relation} $R$ on $X$ is a subset of $X\times X$. The statement $(x,y)\in R$ is read "$x$ is related to $y$ by the relation $R$" and is often denoted $x\sim y$.\par\medskip
@@ -38,15 +39,15 @@
         \item \label{exr:2.2d}$X=\Z$ with $x\sim y$ if and only if $y-x$ is divisible by 5.
         \begin{proof}
             To prove that the described relation is an equivalence relation, Definition \ref{dfn:2.1} tells us that we must verify that it is reflexive, symmetric, and transitive. To prove these properties, it will suffice to show that $x\sim x$ for all $x\in X$, $x\sim y$ implies $y\sim x$ for any $x,y\in X$, and $x\sim y$ and $y\sim z$ implies $x\sim z$ for any $x,y,z\in X$, respectively. Let's begin.\par
-            To prove that $x\sim x$ for all $x\in X$, it will suffice to show that $\frac{x-x}{5}\in X$ for an arbitrary element $x\in X$. Let $x$ be such an object. It follows that $\frac{x-x}{5}=\frac{0}{5}=0$. Since $0\in X$, $\frac{x-x}{5}\in X$, as desired.\par
-            To prove that $x\sim y$ implies that $y\sim x$ for any $x,y\in X$, it will suffice to show that $\frac{x-y}{5}\in X$ given that $\frac{y-x}{5}\in X$. Since $\frac{y-x}{5}\in X$, it follows by the set theoretic definition of $\Z$ that $-\frac{y-x}{5}\in X$. But $-\frac{y-x}{5}=\frac{x-y}{5}$, so $\frac{x-y}{5}\in X$, as desired.\par
-            To prove that $x\sim y$ and $y\sim z$ implies that $x\sim y$ for any $x,y,z\in X$, it will suffice to show that $\frac{z-x}{5}\in X$ given that $\frac{y-x}{5}\in X$ and $\frac{z-y}{5}\in X$. Since $\frac{y-x}{5}\in X$ and $\frac{z-y}{5}\in X$, it follows by the closure of integer addition that $\left( \frac{z-y}{5}+\frac{y-x}{5} \right)\in X$. But $\frac{z-y}{5}+\frac{y-x}{5}=\frac{z-y+y-x}{5}=\frac{z-x}{5}$, so $\frac{z-x}{5}\in X$, as desired.
+            To prove that $x\sim x$ for all $x\in X$, the definition of $\sim$ and Script \ref{sct:0} tell us that it will suffice to show that $x-x=5a$ for an arbitrary $x\in X$ and some $a\in\Z$. Let $x$ be an arbitrary element of $X$. It follows that $x-x=0=5(0)$ where $0=a$ is clearly an element of $\Z$. In sum, $x-x=5a$ for an $a\in\Z$, as desired.\par
+            To prove that $x\sim y$ implies that $y\sim x$ for any such $x,y\in X$, the definition of $\sim$ and Script \ref{sct:0} tell us that it will suffice to show that $x-y=5a$ given that $y-x=5b$ for $x,y\in X$ and some $a,b\in\Z$. Let $y-x=5b$. It follows that $-(y-x)=-5b$. But since $-(y-x)=x-y$ and $-5b=5(-b)$, this means that $x-y=5(-b)$ where $-b=a$ is clearly an element of $\Z$. In sum, $x-y=5a$ for an $a\in\Z$, as desired.\par
+            To prove that $x\sim y$ and $y\sim z$ imply that $x\sim y$ for any such $x,y,z\in X$, the definition of $\sim$ and Script \ref{sct:0} tell us that it will suffice to show that $z-x=5a$ given that $y-x=5b$ and $z-y=5c$ for $x,y,z\in X$ and some $a,b,c\in\Z$. Let $y-x=5b$ and $z-y=5c$. It follows that $z-y+y-x=5c+5b$. Thus, $z-x=5(b+c)$ where $b+c=a$ is clearly an element of $\Z$. In sum, $z-x=5a$ for an $a\in\Z$, as desired.
         \end{proof}
         \item \label{exr:2.2e}$X=\{(a,b)\mid a,b\in\Z,b\neq 0\}$ with the relation $\sim$ defined by $(a,b)\sim(c,d)\Longleftrightarrow ad=bc$.
         \begin{proof}
-            Reflexivity: Let $(a,b)$ be an arbitrary element of $X$. Since $a,b\in\Z$ and integer multiplication is commutative, $ab=ba$. Therefore, by the definition of the relation $\sim$, $(a,b)\sim(a,b)$.\par
+            Reflexivity: Let $(a,b)$ be an arbitrary element of $X$. Since $a,b\in\Z$ and integer multiplication is commutative, it is true that $ab=ba$. Therefore, by the definition of the relation $\sim$, $(a,b)\sim(a,b)$.\par
             Symmetry: Let $(a,b)\sim(c,d)$ for some $(a,b),(c,d)\in X$. By the definition of the relation $\sim$, $ad=bc$. Thus, $cb=da$ by the symmetry of $=$ (see part (a)) and the commutativity of integer multiplication. Consequently, by the definition of the relation $\sim$, $(c,d)\sim(a,b)$.\par
-            Transitivity: Let $(a,b)\sim(c,d)$ and $(c,d)\sim(e,f)$ for some $(a,b),(c,d),(e,f)\in X$. By consecutive applications of the definition of $\sim$, $ad=bc$ and $cf=de$. Now if we consider $ad=bc$, we can multiply an equal quantity to each side and still preserve the equality. As such, we choose to multiply $cf=de$ to both sides, creating the equation $ad\cdot cf=bc\cdot de$. By the commutativity of multiplication, we have $afcd=becd$. By the cancellation law for multiplication, we have $af=be$ (we cancel out $cd$ from both sides). Therefore, by the definition of the relation $\sim$, $(a,b)\sim(e,f)$.
+            Transitivity: Let $(a,b)\sim(c,d)$ and $(c,d)\sim(e,f)$ for some $(a,b),(c,d),(e,f)\in X$. By consecutive applications of the definition of $\sim$, $ad=bc$ and $cf=de$. We now divide into two cases ($c\neq 0$ and $c=0$ --- the reason for doing so will become clear later). Suppose first that $c\neq 0$. By the multiplicative property of equality, we can multiply an equal quantity to each side of $ad=bc$ and still preserve the equality. As such, we choose to multiply $cf=de$ to both sides, creating the equation $ad\cdot cf=bc\cdot de$. By the commutativity of multiplication, we have $afcd=becd$. Since $c\neq 0$ by assumption and $d\neq 0$ by the definition of $X$, $cd\neq 0$ and the cancellation law for multiplication applies, giving us $af=be$. Therefore, by the definition of the relation $\sim$, $(a,b)\sim(e,f)$. Now suppose that $c=0$. Consequently, $bc=0$, implying by the equality $ad=bc$ that $ad=0$. Thus, $a=0$ or $d=0$ (or both) by the zero product property. Since $d\neq 0$ by the definition of $X$, we must have $a=0$. A similar analysis can be performed on the equation $cf=de$ to show that $e=0$. Since $a=0$ and $e=0$, $af=0$ and $be=0$, implying by transitivity that $af=be$. Therefore, by the definition of the relation $\sim$, $(a,b)\sim(e,f)$.
         \end{proof}
     \end{enumerate}
 \end{exercise}
@@ -62,7 +63,7 @@
 \begin{definition}\label{dfn:2.5}
     As a set, the \textbf{rational numbers}, denoted $\Q$, are the equivalence classes in the set $X=\{(a,b)\mid a,b\in\Z,b\neq 0\}$ under the equivalence relation $\sim$ as defined in Exercise \ref{exr:2.2e}. If $(a,b)\in X$, we denote the equivalence class of this element as $\eqclass{a}{b}$. So
     \begin{equation*}
-        \eqclass{a}{b} = \{(x_1,x_2)\in X\mid(x_1,x_2)\sim(a,bb)\}
+        \eqclass{a}{b} = \{(x_1,x_2)\in X\mid(x_1,x_2)\sim(a,b)\}
         = \{(x_1,x_2)\in X\mid x_1b=x_2a\}
     \end{equation*}
     Then,
@@ -74,21 +75,7 @@
 \begin{exercise}\label{exr:2.6}
     $\eqclass{a}{b}=\eqclass{a'}{b'}\Longleftrightarrow(a,b)\sim(a',b')$
     \begin{proof}
-        To prove this claim, we must prove the two implications
-        \begin{align*}
-            \eqclass{a}{b}=\eqclass{a'}{b'} &\Longrightarrow (a,b)\sim(a',b')&
-            (a,b)\sim(a',b') &\Longrightarrow \eqclass{a}{b}=\eqclass{a'}{b'}
-        \end{align*}\par
-        Suppose first that $\eqclass{a}{b}=\eqclass{a'}{b'}$. Then by Definition \ref{dfn:2.5},
-        \begin{equation*}
-            \{(x_1,x_2)\in X\mid (x_1,x_2)\sim(a,b)\} = \{(x_1,x_2)\in X\mid (x_1,x_2)\sim(a',b')\}
-        \end{equation*}
-        Since $(a,b)\sim(a,b)$ by Exercise \ref{exr:2.2e} and clearly $(a,b)\in X$, it follows that $(a,b)\in\{(x_1,x_2)\in X\mid (x_1,x_2)\sim(a,b)\}$. Consequently, set equality implies that $(a,b)\in\{(x_1,x_2)\in X\mid (x_1,x_2)\sim(a',b')\}$. Thus, $(a,b)\sim(a',b')$, as desired.\par
-        Now suppose that $(a,b)\sim(a',b')$. To prove that $\eqclass{a}{b}=\eqclass{a'}{b'}$, Definition \ref{dfn:2.5} tells us that it will suffice to show that
-        \begin{equation*}
-            \{(x_1,x_2)\in X\mid (x_1,x_2)\sim(a,b)\} = \{(x_1,x_2)\in X\mid (x_1,x_2)\sim(a',b')\}
-        \end{equation*}
-        Let $(x_1,x_2)$ be an arbitrary element of $\{(x_1,x_2)\in X\mid (x_1,x_2)\sim(a,b)\}$. It follows that $(x_1,x_2)\sim(a,b)$. Thus, since $(a,b)\sim(a',b')$, the transitivity of $\sim$ (see Exercise \ref{exr:2.2e}) implies that $(x_1,x_2)\sim(a',b')$. This coupled with the fact that $(x_1,x_2)\in X$ means that $(x_1,x_2)\in\{(x_1,x_2)\in X\mid (x_1,x_2)\sim(a',b')\}$. The proof is symmetric if we first let that $(x_1,x_2)$ be an arbitrary element of $\{(x_1,x_2)\in X\mid (x_1,x_2)\sim(a',b')\}$.
+        Suppose first that $\eqclass{a}{b}=\eqclass{a'}{b'}$. Since $(a,b)\sim(a,b)$ by Exercise \ref{exr:2.2e} and clearly $(a,b)\in X$, it follows by Definition \ref{dfn:2.5} that $(a,b)\in\eqclass{a}{b}$. Consequently, set equality implies that $(a,b)\in\eqclass{a'}{b'}$. But by Definition \ref{dfn:2.5}, this means that $(a,b)\sim(a',b')$, as desired. Now suppose that $(a,b)\sim(a',b')$. To prove that $\eqclass{a}{b}=\eqclass{a'}{b'}$, Definition \ref{dfn:1.2} tells us that we must verify that every element of $\eqclass{a}{b}$ is an element of $\eqclass{a'}{b'}$ and vice versa. Let $(x_1,x_2)$ be an arbitrary element of $\eqclass{a}{b}$. It follows by Definition \ref{dfn:2.5} that $(x_1,x_2)\in X$ and that $(x_1,x_2)\sim(a,b)$. The latter result combined with the hypothesis that $(a,b)\sim(a',b')$ implies by the transitivity of $\sim$ (see Exercise \ref{exr:2.2e}) that $(x_1,x_2)\sim(a',b')$. This new finding coupled with the fact that $(x_1,x_2)\in X$ implies by Definition \ref{dfn:2.5} that $(x_1,x_2)\in\eqclass{a'}{b'}$, as desired. The proof is symmetric if we first let that $(x_1,x_2)$ be an arbitrary element of $\eqclass{a'}{b'}$.
     \end{proof}
 \end{exercise}
 
@@ -106,46 +93,189 @@
     \begin{equation*}
         \eqclass{a}{b}\plusQ\eqclass{c}{d} = \eqclass{a'}{b'}\plusQ\eqclass{c'}{d'}
     \end{equation*}
-    \begin{lemma*}
-        If $(a,b)\sim(a',b')$ and $(c,d)\sim(c',d')$, then $(ad+bc,bd)\sim(a'd'+b'c',b'd')$.
-        \begin{proof}
-            By consecutive applications of the definition of $\sim$, we have that
-            \begin{align*}
-                ab' &= ba'&
-                    cd' &= dc'
-                \intertext{It follows by the multiplicative property of equality that}
-                ab'dd' &= ba'dd'&
-                    bb'cd' &= bb'dc'
-            \end{align*}
-            The above two results can be combined via the additive property of equality, giving the following, which will further be algebraically manipulated.
-            \begin{align*}
-                ab'dd'+bb'cd' &= ba'dd'+bb'dc'\\
-                adb'd'+bcb'd' &= bda'd'+bdb'c'\\
-                (ad+bc)(b'd') &= (bd)(a'd'+b'c')
-            \end{align*}
-            The last line above implies by the definition of $\sim$ that $(ad+bc,bd)\sim(a'd'+b'c',b'd')$, as desired.
-        \end{proof}
-    \end{lemma*}
     \begin{proof}
-        Suppose for the sake of contradiction that
-        \begin{equation*}
-            \eqclass{a}{b}\plusQ\eqclass{c}{d} \neq \eqclass{a'}{b'}\plusQ\eqclass{c'}{d'}\text{ for some }\eqclass{a}{b},\eqclass{c}{d},\eqclass{a'}{b'},\eqclass{c'}{d'}\in\Q
-        \end{equation*}
-        Since
+        By consecutive applications of the definition of $\sim$, we have from the hypotheses that
         \begin{align*}
-            \eqclass{a}{b}\plusQ\eqclass{c}{d} &= \eqclass{ad+bc}{bd}&
-            \eqclass{a'}{b'}\plusQ\eqclass{c'}{d'} &= \eqclass{a'd'+b'c'}{b'd'}
+            ab' &= ba'&
+                cd' &= dc'
+            \intertext{It follows by the multiplicative property of equality that}
+            ab'dd' &= ba'dd'&
+                bb'cd' &= bb'dc'
         \end{align*}
-        by Definition \ref{dfn:2.7}, the supposition implies that
-        \begin{equation*}
-            \eqclass{ad+bc}{bd} \neq \eqclass{a'd'+b'c'}{b'd'}
-        \end{equation*}
-        By Exercise \ref{exr:2.6}, this means that $(ad+bc,bd)\nsim(a'd'+b'c',b'd')$. But since $(a,b)\sim(a',b')$ and $(c,d)\sim(c',d')$ by hypothesis, the lemma tells us that $(ad+bc,bd)\sim(a'd'+b'c',b'd')$, a contradiction. Therefore,
-        \begin{equation*}
-            \eqclass{a}{b}\plusQ\eqclass{c}{d} = \eqclass{a'}{b'}\plusQ\eqclass{c'}{d'}
-        \end{equation*}
-        under the given conditions, as desired.
+        The above two results can be combined via the additive property of equality, giving the following, which will be algebraically manipulated further.
+        \begin{align*}
+            ab'dd'+bb'cd' &= ba'dd'+bb'dc'\\
+            adb'd'+bcb'd' &= bda'd'+bdb'c'\\
+            (ad+bc)(b'd') &= (bd)(a'd'+b'c')
+        \end{align*}
+        The last line above implies by the definition of $\sim$ that $(ad+bc,bd)\sim(a'd'+b'c',b'd')$. It follows by Exercise \ref{exr:2.6} that
+        \begin{align*}
+            \eqclass{ad+bc}{bd} &= \eqclass{a'd'+b'c'}{b'd'}
+            \intertext{Therefore, by consecutive applications of Definition \ref{dfn:2.7},}
+            \eqclass{a}{b}\plusQ\eqclass{c}{d} &= \eqclass{a'}{b'}\plusQ\eqclass{c'}{d'}
+        \end{align*}
+        as desired.
     \end{proof}
+\end{theorem}
+
+\begin{theorem}\label{trm:2.9}
+    Multiplication in $\Q$ is well-defined. That is, if $(a,b)\sim(a',b')$ and $(c,d)\sim(c',d')$, then
+    \begin{equation*}
+        \eqclass{a}{b}\cdotQ\eqclass{c}{d} = \eqclass{a'}{b'}\cdotQ\eqclass{c'}{d'}
+    \end{equation*}
+    \begin{proof}
+        By consecutive applications of the definition of $\sim$, we have from the hypotheses that $ab'=ba'$ and $cd'=dc'$. Multiplying these equations together, we have $ab'cd'=ba'dc'$. This can be algebraically rearranged into $(ac)(b'd')=(bd)(a'c')$. It follows by the definition of $\sim$ that $(ac,bd)\sim(a'c',b'd')$. But this implies by Exercise \ref{exr:2.6} that
+        \begin{align*}
+            \eqclass{ac}{bd} &= \eqclass{a'c'}{b'd'}
+            \intertext{Consequently, by Definition \ref{dfn:2.7},}
+            \eqclass{a}{b}\cdotQ\eqclass{c}{d} &= \eqclass{a'}{b'}\cdotQ\eqclass{c'}{d'}
+        \end{align*}
+        as desired.
+    \end{proof}
+\end{theorem}
+
+\begin{theorem}\label{trm:2.10}\leavevmode
+    \begin{enumerate}[label={\alph*\textup{)}},ref={\thetheorem\alph*}]
+        \item \label{trm:2.10a}Commutativity of addition
+        \begin{equation*}
+            \eqclass{a}{b}\plusQ\eqclass{c}{d} = \eqclass{c}{d}\plusQ\eqclass{a}{b}\text{ for all }\eqclass{a}{b},\eqclass{c}{d}\in\Q
+        \end{equation*}
+        \begin{proof}
+            By Definition \ref{dfn:2.7},
+            \begin{align*}
+                \eqclass{a}{b}\plusQ\eqclass{c}{d} &= \eqclass{ad+bc}{bd}
+                \intertext{With integer algebra, we can rearrange the above expression into}
+                &= \eqclass{cb+da}{db}\\
+                \intertext{By Definition \ref{dfn:2.7} again, the above is}
+                &= \eqclass{c}{d}\plusQ\eqclass{a}{b}
+            \end{align*}
+        \end{proof}
+        \item \label{trm:2.10b}Associativity of addition
+        \begin{equation*}
+            \left( \eqclass{a}{b}\plusQ\eqclass{c}{d} \right)\plusQ\eqclass{e}{f} = \eqclass{a}{b}\plusQ\left( \eqclass{c}{d}\plusQ\eqclass{e}{f} \right)\text{ for all }\eqclass{a}{b},\eqclass{c}{d},\eqclass{e}{f}\in\Q
+        \end{equation*}
+        \begin{proof}
+            By consecutive applications of Definition \ref{dfn:2.7},
+            \begin{align*}
+                \left( \eqclass{a}{b}\plusQ\eqclass{c}{d} \right)\plusQ\eqclass{e}{f} &= \eqclass{ad+bc}{bd}\plusQ\eqclass{e}{f}\\
+                &= \eqclass{(ad+bc)(f)+(bd)(e)}{(bd)(f)}
+                \intertext{With integer algebra, we can rearrange the above as follows.}
+                &= \eqclass{adf+bcf+bde}{bdf}\\
+                &= \eqclass{(a)(df)+(b)(df+de)}{(b)(df)}
+                \intertext{Now apply Definition \ref{dfn:2.7} twice, again.}
+                &=\eqclass{a}{b}\plusQ\left( \eqclass{cf+de}{df} \right)\\
+                &=\eqclass{a}{b}\plusQ\left( \eqclass{c}{d}\plusQ\eqclass{e}{f} \right)
+            \end{align*}
+        \end{proof}
+        \item \label{trm:2.10c}Existence of an additive identity
+        \begin{equation*}
+            \eqclass{a}{b}\plusQ\eqclass{0}{1} = \eqclass{a}{b}\text{ for all }\eqclass{a}{b}\in\Q
+        \end{equation*}
+        \begin{proof}
+            Via Definition \ref{dfn:2.7} and integer algebra, we can show that
+            \begin{align*}
+                \eqclass{a}{b}\plusQ\eqclass{0}{1} &= \eqclass{a\cdot 1+b\cdot 0}{b\cdot 1}\\
+                &= \eqclass{a}{b}
+            \end{align*}
+            as desired.
+        \end{proof}
+        \item \label{trm:2.10d}Existence of additive inverses
+        \begin{equation*}
+            \eqclass{a}{b}\plusQ\eqclass{-a}{b} = \eqclass{0}{1}\text{ for all }\eqclass{a}{b}\in\Q
+        \end{equation*}
+        \begin{proof}
+            Through various application of Definition \ref{dfn:2.7} and integer algebra, we can show that
+            \begin{align*}
+                \eqclass{a}{b}\plusQ\eqclass{-a}{b} &= \eqclass{ab+b\cdot -a}{bb}\\
+                &= \eqclass{ab-ab}{bb}\\
+                &= \eqclass{0}{bb}
+                \intertext{Since $0\cdot 1=0$ and $bb\cdot 0=0$, transitivity implies that $(0)(1)=(bb)(0)$. By the definition of $\sim$, this means that $(0,bb)\sim(0,1)$. It follows by Exercise \ref{exr:2.6} that the above equals the following, as desired.}
+                &= \eqclass{0}{1}
+            \end{align*}
+        \end{proof}
+        \item \label{trm:2.10e}Commutativity of multiplication
+        \begin{equation*}
+            \eqclass{a}{b}\cdotQ\eqclass{c}{d} = \eqclass{c}{d}\cdotQ\eqclass{a}{b}\text{ for all }\eqclass{a}{b},\eqclass{c}{d}\in\Q
+        \end{equation*}
+        \begin{proof}
+            Via Definition \ref{dfn:2.7} and integer algebra, we can show that
+            \begin{align*}
+                \eqclass{a}{b}\cdotQ\eqclass{c}{d} &= \eqclass{ac}{bd}\\
+                &= \eqclass{ca}{db}\\
+                &= \eqclass{c}{d}\cdotQ\eqclass{a}{b}
+            \end{align*}
+            as desired.
+        \end{proof}
+        \item \label{trm:2.10f}Associativity of multiplication
+        \begin{equation*}
+            \left( \eqclass{a}{b}\cdotQ\eqclass{c}{d} \right)\cdotQ\eqclass{e}{f} = \eqclass{a}{b}\cdotQ\left( \eqclass{c}{d}\cdotQ\eqclass{e}{f} \right)\text{ for all }\eqclass{a}{b},\eqclass{c}{d},\eqclass{e}{f}\in\Q
+        \end{equation*}
+        \begin{proof}
+            Through various application of Definition \ref{dfn:2.7} and integer algebra, we can show that
+            \begin{align*}
+                \left( \eqclass{a}{b}\cdotQ\eqclass{c}{d} \right)\cdotQ\eqclass{e}{f} &= \eqclass{ac}{bd}\cdotQ\eqclass{e}{f}\\
+                &= \eqclass{(ac)(e)}{(bd)(f)}\\
+                &= \eqclass{(a)(ce)}{(b)(df)}\\
+                &=\eqclass{a}{b}\cdotQ\left( \eqclass{ce}{df} \right)\\
+                &=\eqclass{a}{b}\cdotQ\left( \eqclass{c}{d}\cdotQ\eqclass{e}{f} \right)
+            \end{align*}
+            as desired.
+        \end{proof}
+        \item \label{trm:2.10g}Existence of a multiplicative identity
+        \begin{equation*}
+            \eqclass{a}{b}\cdotQ\eqclass{1}{1} = \eqclass{a}{b}\text{ for all }\eqclass{a}{b}\in\Q
+        \end{equation*}
+        \begin{proof}
+            Via Definition \ref{dfn:2.7} and integer algebra, we can show that
+            \begin{align*}
+                \eqclass{a}{b}\cdotQ\eqclass{1}{1} &= \eqclass{a\cdot 1}{b\cdot 1}\\
+                &= \eqclass{a}{b}
+            \end{align*}
+            as desired.
+        \end{proof}
+        \item \label{trm:2.10h}Existence of multiplicative inverses for nonzero elements
+        \begin{equation*}
+            \eqclass{a}{b}\cdotQ\eqclass{b}{a} = \eqclass{1}{1}\text{ for all }\eqclass{a}{b}\in\Q\text{ such that }\eqclass{a}{b}\neq\eqclass{0}{1}
+        \end{equation*}
+        \begin{lemma*}
+            For all $\eqclass{a}{a}\in\Q$, $\eqclass{a}{a}=\eqclass{1}{1}$.
+            \begin{proof}
+                Since $(a)(1)=(a)(1)$, we have by the definition of $\sim$ that $(a,a)\sim(1,1)$. It follows by Exercise \ref{exr:2.6} that $\eqclass{a}{a}=\eqclass{1}{1}$, as desired.
+            \end{proof}
+        \end{lemma*}
+        \begin{proof}
+            By Definition \ref{dfn:2.7},
+            \begin{align*}
+                \eqclass{a}{b}\cdotQ\eqclass{b}{a} &= \eqclass{ab}{ba}
+                \intertext{Since $ab=ba$, we have by the lemma that the above equals the following, as desired.}
+                &= \eqclass{1}{1}
+            \end{align*}
+            as desired.
+        \end{proof}
+        \item \label{trm:2.10i}Distributivity
+        \begin{equation*}
+            \eqclass{a}{b}\cdotQ\left( \eqclass{c}{d}\plusQ\eqclass{e}{f} \right) = \left( \eqclass{a}{b}\cdotQ\eqclass{c}{d} \right)\plusQ\left( \eqclass{a}{b}\cdotQ\eqclass{e}{f} \right)\text{ for all }\eqclass{a}{b},\eqclass{c}{d},\eqclass{e}{f}\in\Q
+        \end{equation*}
+        \begin{proof}
+            By Definition \ref{dfn:2.7} and integer algebra,
+            \begin{align*}
+                \eqclass{a}{b}\cdotQ\left( \eqclass{c}{d}\plusQ\eqclass{e}{f} \right) &= \eqclass{a}{b}\cdotQ\eqclass{cf+de}{df}\\
+                &= \eqclass{a(cf+de)}{bdf}\\
+                &= \eqclass{acf+ade}{bdf}
+                \intertext{Use Theorem \ref{trm:2.10g}.}
+                &= \eqclass{acf+ade}{bdf}\cdotQ\eqclass{1}{1}
+                \intertext{Use the lemma from the proof of Theorem \ref{trm:2.10h}.}
+                &= \eqclass{acf+ade}{bdf}\cdotQ\eqclass{b}{b}
+                \intertext{Use various applications of Definition \ref{dfn:2.7} and integer algebra to finish.}
+                &= \eqclass{(acf+ade)b}{(bdf)b}\\
+                &= \eqclass{acfb+adeb}{bdfb}\\
+                &= \eqclass{(ac)(bf)+(bd)(ae)}{(bd)(bf)}\\
+                &= \eqclass{ac}{bd}\plusQ\eqclass{ae}{bf}\\
+                &= \left( \eqclass{a}{b}\cdotQ\eqclass{c}{d} \right)\plusQ\left( \eqclass{a}{b}\cdotQ\eqclass{e}{f} \right)
+            \end{align*}
+            as desired.
+        \end{proof}
+    \end{enumerate}
 \end{theorem}
 
 
