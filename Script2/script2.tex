@@ -278,6 +278,14 @@
     \end{enumerate}
 \end{theorem}
 
+\begin{theorem}\label{trm:2.11}\marginnote{\emph{10/20:}}
+    $\Q$ is countable.
+    \begin{proof}
+        By Exercise \ref{exr:1.39}, $\N\times\N$ is countable, i.e.\footnote{Let $A$ be a set (such as $\N\times\N$). Technically, Definition \ref{dfn:1.35} must be invoked to move from "$A$ is countable" to "$A$ is in bijective correspondence with $\N$," and Definition \ref{dfn:1.28} must be invoked to move from "$A$ is in bijective correspondence with $\N$" to "there exists a bijection $f:A\to\N$." However, as we are no longer in Script \ref{sct:1}, such justifications will not be supplied beyond this footnote.}, there exists a bijection $f:\N\times\N\to\N$. By Exercise \ref{exr:1.36}, $\Z$ is countable, i.e., there exists a bijection $g:\Z\to\N$. It follows that $h:\Z\times\Z\to\N$ defined by $h(a,b)=f(g(a),g(b))$ is a bijection. Since $\Z\times(\Z\setminus\{0\})\subset\Z\times\Z$, Exercise \ref{exr:1.37} implies $\Z\times(\Z\setminus\{0\})$ is countable.\par
+        Now the definitions of $\Q$ and $X$ (see Definition \ref{dfn:2.5} and Exercise \ref{exr:2.2e}) imply, among other things, that for all $\eqclass{a}{b}\in\Q$, $a,b\in\Z$ and $b\neq 0$, i.e., $a\in \Z$ and $b\in\Z\setminus\{0\}$. Thus, the sets $\Q$ and $\Z\times(\Z\setminus\{0\})$ are intimately related, but are \emph{not} related by an \emph{obvious} bijection. For example, the lemma from Theorem \ref{trm:2.10h} proved that there are infinitely many "distinct" elements of $\Q$ related to the single element $\eqclass{1}{1}$. Thus, if we were to define a function $f:\Q\to\Z\times(\Z\setminus\{0\})$ by $f\left( \eqclass{a}{b} \right)=(a,b)$, the equivalence class $\eqclass{1}{1}$, for example, would map to $(1,1)$, $(2,2)$, $(3,3)$, and infinitely many more distinct objects of $\Z\times(\Z\setminus\{0\})$, contradicting Definition \ref{dfn:1.16} and asserting that $f$ is not a function. However, we can see that, in a sense, $\Q\subset\Z\times(\Z\setminus\{0\})$, implying by Exercise \ref{exr:1.37} that $\Q$ is countable.
+    \end{proof}
+\end{theorem}
+
 
 
 
