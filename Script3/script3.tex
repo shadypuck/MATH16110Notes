@@ -1,0 +1,73 @@
+\documentclass[../main.tex]{subfiles}
+
+\pagestyle{main}
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter}{#1}}
+\setcounter{chapter}{2}
+\externaldocument{../main}
+
+\begin{document}
+
+
+
+
+\chapter{Introducing a Continuum}
+\section{Journal}
+\begin{axiom}\label{axm:3.1}\marginnote{\emph{10/20:}}
+    A continuum is a nonempty set $C$.
+\end{axiom}
+
+\begin{definition}\label{dfn:3.1}
+    Let $X$ be a set. An \textbf{ordering} on the set $X$ is a subset $<$ of $X\times X$ with elements $(x,y)\in\, <$ written as $x<y$, satisfying the following properties:
+    \begin{enumerate}[label={\alph*)},ref={\thetheorem\alph*}]
+        \item \label{dfn:3.1a}(\emph{Trichotomy}) For all $x,y\in X$, exactly one of the following holds: $x<y$, $y<x$, or $x=y$.
+        \item \label{dfn:3.1b}(\emph{Transitivity}) For all $x,y,z\in X$, if $x<y$ and $y<z$, then $x<z$.
+    \end{enumerate}
+\end{definition}
+
+\begin{remark}\label{rmk:3.2}\leavevmode
+    \begin{enumerate}[label={\alph*)}]
+        \item In mathematics, "or" is understood to be inclusive unless stated otherwise. So in Definition \ref{dfn:3.1a} above, the word "exactly" is needed.
+        \item $x<y$ may also be written as $y>x$.
+        \item By $x\leq y$, we mean $x<y$ or $x=y$; similarly for $x\geq y$.
+        \item We often refer to elements of a continuum $C$ as \textbf{points}.
+    \end{enumerate}
+\end{remark}
+
+\begin{axiom}\label{axm:3.2}
+    A continuum $C$ has an ordering $<$.
+\end{axiom}
+
+\begin{definition}\label{dfn:3.3}
+    If $A\subset C$, then a point $a\in A$ is a \textbf{first} point of $A$ if for every element $x\in A$, either $a<x$ or $a=x$. Similarly, a point $b\in A$ is called a \textbf{last} point of $A$ if, for every $x\in A$, either $x<b$ or $x=b$.
+\end{definition}
+
+\begin{lemma}\label{lem:3.4}
+    If $A$ is a nonempty, finite subset of a continuum $C$, then $A$ has a first and last point.
+    \begin{proof}
+        We consider first points herein (the proof is symmetric for last points). If $A$ is a finite set, then $|A|=n$ for some $n\in\N$. Thus, if we prove the claim for each $n\in\N$ individually, we will have proven the claim. To prove a property pertaining to any natural number, we induct on $n$.\par
+        For the base case $n=1$, there is only one element (which we may call $a$) in $A$. Since $a=a$, i.e., "for every $x\in A$, either $a<x$ or $a=x$" is a true statement, it follows by Definition \ref{dfn:3.3} that $A$ has a first point. Now suppose inductively that we have proven the claim for $n$, i.e., we know that if $A$ is a nonempty, finite subset of a continuum $C$ with $|A|=n$, then $A$ has a first point. We wish to prove the same claim if $|A|=n+1$. Let $A_0$ be a nonempty, finite subset of a continuum $C$ with $|A_0|=n$, and let $\{a\}$ be the singleton set containing a point $a\in C$ such that $a\notin A_0$. (We are not guaranteed that such a point exists for all continua $C$, i.e., we could have $A_0=C$ meaning that $a\in C$ implies $a\in A_0$. However, in this case, we would have proven the claim for all subsets of this specific $C$, but not all subsets of \emph{all} continua, namely continua with more elements than $C$. So we may choose WLOG to let $C$ be one of these as-of-yet unconsidered $C$ with more elements.) Let $A=A_0\cup\{a\}$ so that by Theorem \ref{trm:1.34b}, $|A|=n+1$. By the induction hypothesis, there exists a first point $a_0\in A_0$ that clearly is also an element of $A$. Since $C$ has an ordering $<$ (see Axiom \ref{axm:3.2}), Definition \ref{dfn:3.1} asserts that either $a<a_0$, $a_0<a$, or $a=a_0$. We now divide into three cases. If $a<a_0$, then since $a_0\leq x$ for all $x\in A$ by Definition \ref{dfn:3.3}, Definition \ref{dfn:3.1} implies that $a\leq x$ for all $x\in A$. Thus, by Definition \ref{dfn:3.3}, $a$ is the first point in $A$, and we have proven the claim for $n+1$ in this case. If $a_0<a$, then it is still true that $a_0\leq x$ for all $x\in A$. This means by Definition \ref{dfn:3.3} that $a_0$ is still the first point in $A$, proving the claim for $n+1$ in this case. If $a=a_0$, then $a\in A_0$, contradicting the assumptions describing $a$, so we need not consider this final case. This closes the induction.
+    \end{proof}
+\end{lemma}
+
+\begin{theorem}\label{trm:3.5}
+    Suppose that $A$ is a set of $n$ distinct points in a continuum $C$, or in other words, $A\subset C$ has cardinality $n$. Then the symbols $a_1,\dots,a_n$ may be assigned to each point of $A$ so that $a_1<a_2<\cdots<a_n$, i.e., $a_i<a_{i+1}$ for all $1\leq i\leq n-1$.
+    \begin{proof}
+        We induct on $n$. For the base case $n=1$, denote the single element of $A$ by $a_1$. Since $a_i<a_{i+1}$ for all $1\leq i\leq n-1=0$ is vacuously true, the base case holds. Now suppose inductively that we have proven the claim for $n$, i.e., for a set $A\subset C$ satisfying $|A|=n$, the symbols $a_1,\dots,a_n$ may be assigned to each point of $A$ so that $a_1<a_2<\cdots<a_n$. We now wish to prove the claim with regards to a set $A\subset C$ with $|A|=n+1$. By Lemma \ref{lem:3.4}, there is a last point $a_{n+1}\in A$, which may be denoted as such (we will see why later). Since the set $A\setminus\{a_{n+1}\}$ has cardinality $n$, we have by the induction hypothesis that its $n$ elements can be named $a_1,\dots,a_n$ and ordered $a_1<a_2<\cdots<a_n$. Clearly these $n$ elements are elements of $A$ and all that's left to do is determine where $a_{n+1}$ fits into the established order. But by Definition \ref{dfn:3.3}, $x\leq a_{n+1}$ for all $x\in A$, i.e., $x<a_{n+1}$ for all $x\in A\setminus\{a_{n+1}\}$. Consequently, as its name would suggest, it is true that $a_1<a_2<\cdots<a_n<a_{n+1}$ for all $n+1$ so-named elements in $A$, as desired.
+    \end{proof}
+\end{theorem}
+
+\begin{definition}\label{dfn:3.6}
+    If $x,y,z\in C$ and either (i) both $x<y$ and $y<z$ or (ii) both $z<y$ and $y<x$, then we say that $y$ is \textbf{between} $x$ and $z$.
+\end{definition}
+
+\begin{corollary}\label{cly:3.7}
+    Of three distinct points in a continuum, one must be between the other two.
+    \begin{proof}
+        Let $A$ be a subset of the described continuum containing the three distinct points. It follows by Theorem \ref{trm:3.5} that the symbols $a_1,a_2,a_3$ may be assigned to each point of $A$ so that $a_1<a_2<a_3$. Thus, $a_1<a_2$ and $a_2<a_3$, so $a_2$ is between $a_1$ and $a_3$ by Definition \ref{dfn:3.6}.
+    \end{proof}
+\end{corollary}
+
+
+
+
+\end{document}
