@@ -31,9 +31,33 @@
 \end{exercise}
 
 \subsection*{Additional Exercises}
-\begin{enumerate}
+\begin{enumerate}[ref={\thechapter.\arabic*}]
+    \item \label{axr:0.1}\marginnote{10/13:}Prove that if $A$ is a non-empty subset of $\N$, then $A$ has a least element, i.e., there is some $n_0\in A$ such that for all $n\in A$, we have $n_0\leq n$.
+    \item \label{axr:0.2}Prove the following variants of the Principle of Mathematical Induction:
+    \begin{enumerate}
+        \item \label{axr:0.2a}For each $n\in\N$, let $P(n)$ be a proposition and let $n_0$ be some natural number. Suppose the following two results:
+        \begin{center}
+            \begin{minipage}[c]{0.47\linewidth}
+                \begin{enumerate}[label={(\Alph*)},parsep=0pt]
+                    \item $P(n_0)$ is true.
+                    \item If $P(k)$ is true, then $P(k+1)$ is also true.
+                \end{enumerate}
+            \end{minipage}
+        \end{center}
+        Then $P(n)$ is true for all natural numbers $n$ such that $n\geq n_0$.
+        \item \label{axr:0.2b}For each $n\in\N$, let $P(n)$ be a proposition. Suppose the following two results:
+        \begin{center}
+            \begin{minipage}[c]{0.73\linewidth}
+                \begin{enumerate}[label={(\Alph*)},parsep=0pt]
+                    \item $P(1)$ is true.
+                    \item If $P(r)$ is true for all $r$ such that $1\leq r\leq k$, then $P(k+1)$ is true.
+                \end{enumerate}
+            \end{minipage}
+        \end{center}
+        Then $P(n)$ is true for all natural numbers $n$.
+    \end{enumerate}
     \setcounter{enumi}{6}
-    \item \marginnote{10/8:}Let $n$ be a natural number and $k\leq n$ also be a natural number. Define
+    \item \label{axr:0.7}\marginnote{10/8:}Let $n$ be a natural number and $k\leq n$ also be a natural number. Define
     \begin{equation*}
         \binom{n}{k} = \frac{n!}{k!(n-k)!}
     \end{equation*}
@@ -61,6 +85,7 @@
                 For part (a), we know by the definition of $\binom{n}{k}$ that $\binom{n}{0}=\frac{n!}{0!(n-0)!}$ and by the definition of a factorial that $\frac{n!}{0!(n-0)!}=\frac{1\cdot n!}{n!}=1$. Thus, $\binom{n}{0}=1$, as desired.\par
                 For part (b), we proceed in a similar manner to the above: $\binom{n}{n}=\frac{n!}{n!(n-n)!}=\frac{n!}{n!\cdot 1}=1$.\par
                 For part (c), we repeatedly apply the definition of $\binom{n}{k}$ and of a factorial in the following algebra. Note that we proceed from the right side of the equality we seek to prove since it makes the algebra flow more logically (via simplification rather than expansion).
+                \allowdisplaybreaks
                 \begin{align*}
                     \binom{n}{k-1}+\binom{n}{k} &= \frac{n!}{(k-1)!(n-(k-1))!}+\frac{n!}{k!(n-k)!}\\
                     &= \frac{n!}{(k-1)!(n-k+1)!}+\frac{n!}{k(k-1)!(n-k)!}\\
@@ -106,8 +131,12 @@
         \end{align*}
         This closes the induction.
     \end{proof}
-    \stepcounter{enumi}
-    \item From Peano's Postulates (below), prove the following claims.
+    \item \label{axr:0.8}\marginnote{10/15:}Let $a,b\in\Z$. We say that $b$ is \textbf{divisible} by $a$ if there is an integer $m$ such that $b=ma$. It is easily shown that
+    \begin{enumerate}[label={\roman*)},ref={\theenumi-\roman*}]
+        \item \label{axr:0.8-i}if both $b_1$ and $b_2$ are divisible by $a$, then so is their sum;
+        \item \label{axr:0.8-ii}if $b$ is divisible by $a$, then so is $kb$ for any integer $k$.
+    \end{enumerate}
+    \item \label{axr:0.9}\marginnote{10/8:}From Peano's Postulates (below), prove the following claims.
     \begin{axioms}[Peano's Postulates]
         The natural numbers are defined as a set $\N$ together with a unary "successor" function $S:\N\to\N$ and a special element $1\in\N$ satisfying the following postulates.
         \begin{enumerate}[label={\Roman*.}]
@@ -123,20 +152,20 @@
             then $A=\N$.
         \end{enumerate}
     \end{axioms}
-    \begin{enumerate}[label={(\alph*)}]
-        \item \textbf{Bonus exercise}. Show that
+    \begin{enumerate}[label={(\alph*)},ref={\theenumi\alph*}]
+        \item \label{axr:0.9a}\textbf{Bonus exercise}. Show that
         \begin{equation*}
             \N = \{1,S(1),S(S(1)),S(S(S(1))),\cdots\}
         \end{equation*}
         \begin{proof}
             We wish to eventually use Axiom V to show that the set on the right side of the above equality (which we shall call $A$) is equal to $\N$. Thus, we begin by demonstrating that $A$ is a subset of $\N$. To do so, we must verify that every element of $A$ is an element of $\N$. Now $A$ consists of 1 and elements in the codomain of $S$, so since $1\in\N$ (Axiom I) and any element of the codomain of $S$ is clearly an element of $\N$ (because the codomain of $S$ \emph{is} $\N$), $A\subset\N$. Moving on, as previously referenced, $1\in A$, so the first property of Axiom V holds. Additionally, the pattern defining $A$ clearly indicates that for any $a\in A$, $S(a)\in A$, so the second property of Axiom V holds. Therefore, by Axiom V, $A=\N$.
         \end{proof}
-        \item Prove that the Principle of Mathematical Induction follows from Peano's Postulates.
+        \item \label{axr:0.9b}Prove that the Principle of Mathematical Induction follows from Peano's Postulates.
         \begin{proof}
             We wish to prove, using only Axioms I-V above and set theoretic results, that if $P(n)$ is a proposition pertaining to each natural number $n$, $P(1)$ is true, and the truth of $P(k)$ implies that $P(S(n))$\footnote{Addition has not yet been defined. Although we do not yet "know" that $n+1=S(n)$ we must assume it for the sake of this proof.} is also true, then $P(n)$ is true for all natural numbers $n$. We will do this by defining a set $A$ such that "$P(n)$ is true" is logically equivalent to $n\in A$. Then if we can show that $n\in A$ for all $n\in\N$ (i.e., that $A=\N$), we will have verified that $P(n)$ is true for all $n\in\N$ as desired. Lastly, note that we will show that $A=\N$ by demonstrating that $A$ satisfies the stipulations of Axiom V. Let's begin.\par
             Let $A=\{n\in\N\mid P(n)\text{ is true}\}$. Since every element of $A$ is an element of $\N$ by the definition of $A$, $A\subset\N$. Additionally, since $P(1)$ is true by hypothesis and $1\in\N$ by Axiom I, we know by the definition of $A$ that $1\in A$. Now suppose $n\in A$. It follows that $n\in\N$ and $P(n)$ is true. But by hypothesis, the truth of $P(n)$ implies that $P(S(n))$ is true. This, combined with the fact that $S(n)\in\N$ by Axiom II, shows that $S(n)\in A$. Having now proven that $A\subset\N$, $1\in A$, and $n\in A$ implies $S(n)\in A$, Axiom V tells us that $A=\N$, as desired.
         \end{proof}
-        \item Define a special element $0\notin\N$ and define $\N_0=\N\cup\{0\}$. Let $s:\N_0\to\N$ be defined by
+        \item \label{axr:0.9c}Define a special element $0\notin\N$ and define $\N_0=\N\cup\{0\}$. Let $s:\N_0\to\N$ be defined by
         \begin{align*}
             s(0) &= 1\\
             s(n) &= S(n)\text{, for }n\in\N
@@ -205,7 +234,8 @@
             \end{align*}
             This closes the induction.
         \end{proof}
-        \item \leavevmode\vspace{-1.6em}
+        \pagebreak
+        \item \label{axr:0.9d}\leavevmode\vspace{-1.6em}
         \begin{definition*}
             We define multiplication $x\cdot y$ for $x,y\in\N_0$ inductively on $\N_0$ by
             \begin{align*}
@@ -226,16 +256,16 @@
                 &= x
             \end{align*}
         \end{proof}
-        \item \leavevmode\vspace{-1.6em}
+        \item \label{axr:0.9e}\leavevmode\vspace{-1.6em}
         \begin{definition*}
             We define $<$ on $\N_0$ by
             \begin{center}
                 $x<y$ if and only if $y=x+u$ for some $u\in\N$.
             \end{center}
         \end{definition*}
-        \begin{enumerate}
-            \item Prove that $1<n$ for all $n\in(\N\setminus\{1\})$.
-            \item Prove that if $a,x,y\in\N$ with $x<y$, then $a\cdot x<a\cdot y$.
+        \begin{enumerate}[ref={\theenumii-\roman*}]
+            \item \label{axr:0.9e-i}Prove that $1<n$ for all $n\in(\N\setminus\{1\})$.
+            \item \label{axr:0.9e-ii}Prove that if $a,x,y\in\N$ with $x<y$, then $a\cdot x<a\cdot y$.
         \end{enumerate}
         \begin{proof}[Proof of i]
             We induct on $n$. For the base case $n=2$, we have $2=s(1+0)=1+s(0)=1+1$, so $1<2$. Now suppose inductively that $1<n$ for some $n\in\N$; we wish to prove that $1<n+1$. By the induction hypothesis and the definition of $<$, $n=1+u$. Thus, $n+1=1+u+1$ by the inverse of the cancellation law for addition. Since $u+1\in\N$ by part (c) Theorem part (i), we have that $n+1=1+(u+1)$, implying that $1<n+1$. This closes the induction.
@@ -257,6 +287,18 @@
                 (a+1)\cdot x &< (a+1)\cdot y
             \end{align*}
         \end{proof}
+        \item \label{axr:0.9f}\marginnote{10/6:}\leavevmode\vspace{-1.6em}
+        \begin{definition*}
+            For $n\in\N$ and $k\in\N_0$, we define $n^k$ inductively by
+            \begin{align*}
+                n^0 &= 1\\
+                n^{k+1} &= n\cdot n^k
+            \end{align*}
+        \end{definition*}
+        \begin{enumerate}[ref={\theenumii-\roman*}]
+            \item \label{axr:0.9f-i}Prove that $n<n^2$ for all $n\in\N\setminus\{1\}$.
+            \item \label{axr:0.9f-ii}Prove that $n^k<n^{k+1}$ for all $n\in\N\setminus\{1\}$.
+        \end{enumerate}
     \end{enumerate}
 \end{enumerate}
 

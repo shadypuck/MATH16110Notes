@@ -33,7 +33,7 @@
 
 \section{Discussion}
 \begin{itemize}
-    \item How much of the proof of Additional Exercise 7 proof could be left out as unnecessary verbage?
+    \item \marginnote{10/8:}How much of the proof of Additional Exercise \ref{axr:0.7} proof could be left out as unnecessary verbage?
 \end{itemize}
 
 
@@ -56,7 +56,7 @@
     \item What he wrote for the beginning of the proof of Theorem \ref{trm:1.12} (see Figure \ref{fig:sampleTrm1-12Proof}) is acceptable on an exam; in our exams, it will be the same as when presenting to class (we do not need complete sentences).
     \item Can we say "A similar argument works in reverse?"
     \item \marginnote{10/6:}Vacuous truths were introduced.
-    \item If you had to prove your answers to Additional Exercise 1, you would write out the elements of the first set, and rewrite the elements with each additional constraint.
+    \item If you had to prove your answers to Additional Exercise \ref{axr:1.1}, you would write out the elements of the first set, and rewrite the elements with each additional constraint.
     \begin{itemize}
         \item For example, $(\{n\in\Z\mid n\text{ is divisible by }2\}\cap\N)\cup\{-5\}=(\{\cdots,-4,-2,0,2,4,\cdots\}\cap\{1,2,3,\cdots\})\cup\{-5\}=\{2,4,6,\cdots\}\cup\{-5\}$.
     \end{itemize}
@@ -69,7 +69,8 @@
     \item \marginnote{10/13:}What are your office hours? Mondays 4-6 PM.
     \item Do I need to submit the LaTeX assignment to you? Email it to him!
     \item Edit this document to reflect switch to section 22!
-    \item Script 2 sign up sheet is on Canvas (sign up within 24 hours)!
+    \item Script \ref{sct:2} sign up sheet is on Canvas (sign up within 24 hours)!
+    \item \marginnote{10/15:}Informal explanation of $10^a+10^b=10^c+10^d$ is ok.
 \end{itemize}
 
 
@@ -91,11 +92,38 @@
     \end{itemize}
     \item Rewrite Theorem \ref{trm:2.8} as a direct proof.
     \item Journal format: Turning in what I have in this document is fine.
-    \item Informal explanation of $10^a+10^b=10^c+10^d$ is ok.
+    \item \marginnote{10/20:}Edit Exercise \ref{exr:2.2d} to use Additional Exercise \ref{axr:0.8-i}!
+    \item Do we have to prove injectivity for $h$ in Theorem \ref{trm:2.11}? (Injectivity implies bijectivity by Exercise \ref{exr:1.38}.)
+    \begin{itemize}
+        \item Yes, we still have to prove injectivity here.
+    \end{itemize}
+    \item Technically, you have to prove that $\N$ is countable, but Cartee won't be looking for it --- you won't have to prove it for credit.
+    \item You can also use a lemma that a surjection $f:A\to B$ where $A$ is countable and $B$ is infinite implies that $B$ is countable.
+    \item $\gcd(a,b)$ is defined as the largest natural number by which $a$ and $b$ are both divisible.
+    \item We want to pick the pair in the equivalence class that has the lowest possible, positive denominator. Think about it in terms of the well-ordering principle. You get a huge set of pairs, look at the subset with positive denominators, then look at just the denominators. You would have to explain why one denominator corresponds to one ordered pair.
+    \item Use $f(\eqclass{a}{b})=(a',b')$ to denote that $a\neq a'$ and $b\neq b'$ in every case although the numbers are related.
+    \item Two things in the same equivalence class go to the same place, whereas two things in different equivalent classes go to different places.
+    \item We're restricting the range with the well-ordering principle, not the domain.
 \end{itemize}
 
 
+
 \subfile{Script3/script3.tex}
+
+
+\section{Discussion}
+\begin{itemize}
+    \item Show that $|\{x\}|=1$? Perhaps in a lemma by defining a singleton set. Also make sure that it's clear that $A\cap\{x\}=\emptyset$ to use Theorem \ref{trm:1.34b}.
+    \begin{itemize}
+        \item Using $B=A\setminus\{x\}$ might help in identifying that $x$ exists, and would help in $B\cap\{x\}=\emptyset$. Thus, $|\{x\}|+|B|=|A|$, it follows by subtraction that $|B|=n$. Potentially as a lemma so I can use it in Theorem \ref{trm:3.5}, too?
+    \end{itemize}
+    \item Consider case in Theorem \ref{trm:3.5} that $A$ is empty.
+    \item What is a limit point?
+    \begin{itemize}
+        \item A point $p$ would be a limit point of a set $A$ if there's a point $p$ to which the elements of $A$ converge. So on an open interval, the limit points would be the two "end points" and every point therein.
+        \item No limit points on the integers. Yes on the rationals and reals.
+    \end{itemize}
+\end{itemize}
 
 
 

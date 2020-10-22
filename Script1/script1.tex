@@ -168,7 +168,7 @@
     Let $f:\N\to\N$ be defined by $f(n)=n^2$. Is $f$ injective? Is $f$ surjective?
     \begin{proof}
         $f$ is injective: Let $f(n)=f(n')$. Then $n^2=(n')^2$, implying that $n=n'$ (note that this last step is not permissible in all number systems, but it is within the naturals).\par
-        $f$ is not surjective: For example, $2\in\N$ but there exists no natural number $n$ such that $f(n)=n^2=2$ (suppose for the sake of contradiction that there exists a natural number $n$ such that $n^2=2$. Since $n^2=2\neq 1$, we know that $n<2$ [a natural number is less than its square if its square is unequal to 1, as proven in Script \ref{sct:0} Additional Exercise 9e part (i)]. Thus, $n=1$ since 1 is the only natural number less than 2. But then $n^2=1^2=1\neq 2$, a contradiction).
+        $f$ is not surjective: For example, $2\in\N$ but there exists no natural number $n$ such that $f(n)=n^2=2$ (suppose for the sake of contradiction that there exists a natural number $n$ such that $n^2=2$. Since $n^2=2\neq 1$, we know that $n<2$ [a natural number is less than its square if its square is unequal to 1, as proven in Additional Exercise \ref{axr:0.9f-i}]. Thus, $n=1$ since 1 is the only natural number less than 2. But then $n^2=1^2=1\neq 2$, a contradiction).
     \end{proof}
 \end{exercise}
 
@@ -375,7 +375,7 @@
         Every infinite subset of the natural numbers is countable.
         \begin{proof}
             Let $A\subset\N$ be infinite. To prove that $A$ is countable, Definition \ref{dfn:1.35} tells us that it will suffice to show that there exists a bijection $g:\N\to A$. Let's begin.\par
-            We define $g$ recursively with strong induction, as follows (note that $A=A\setminus\{\}$ where $\{\}=\emptyset$). By the well-ordering principle (see Script 0), there exists a minimum element $\min(A\setminus\{\})\in A\setminus\{\}$; we define $g(1)=\min(A\setminus\{\})$. Now suppose inductively that we have defined $g(1),g(2),\dots,g(n)$. Then we can define $g(n+1)$ by defining $g(n+1)=\min(A\setminus\{g(1),g(2),\dots,g(n)\})$\footnote{Basically, what this definition is doing is mapping 1 to the least element of $A$, 2 to the second-least element of $A$, 3 to the third-least element of $A$, and so on and so forth. Notice how the least element of $A$ is denoted by $g(1)$, and $g(2)$ (for example) is equal to $\min(A\setminus\{g(1)\})$, i.e., the minimum value in $A$ if $A$'s least element did not exist, i.e., the second-least element in $A$. Additionally, $g(3)=\min(A\setminus\{g(1),g(2)\})$, so we can see how $g(3)$ is the third-least element in $A$ by the same logic used in discussing $g(2)$. Obviously, the pattern continues for all $n\in\N$.}. By the principle of strong mathematical induction (see Script \ref{sct:0}), it follows that $g$ is defined for all $n\in\N$, and it is obvious that $g$ is not multiply defined for any $n\in\N$. Thus, $g$ is a function as defined in Definition \ref{dfn:1.16}.\par
+            We define $g$ recursively with strong induction, as follows (note that $A=A\setminus\{\}$ where $\{\}=\emptyset$). By the well-ordering principle (see Additional Exercise \ref{axr:0.1}), there exists a minimum element $\min(A\setminus\{\})\in A\setminus\{\}$; we define $g(1)=\min(A\setminus\{\})$. Now suppose inductively that we have defined $g(1),g(2),\dots,g(n)$. Then we can define $g(n+1)$ by defining $g(n+1)=\min(A\setminus\{g(1),g(2),\dots,g(n)\})$\footnote{Basically, what this definition is doing is mapping 1 to the least element of $A$, 2 to the second-least element of $A$, 3 to the third-least element of $A$, and so on and so forth. Notice how the least element of $A$ is denoted by $g(1)$, and $g(2)$ (for example) is equal to $\min(A\setminus\{g(1)\})$, i.e., the minimum value in $A$ if $A$'s least element did not exist, i.e., the second-least element in $A$. Additionally, $g(3)=\min(A\setminus\{g(1),g(2)\})$, so we can see how $g(3)$ is the third-least element in $A$ by the same logic used in discussing $g(2)$. Obviously, the pattern continues for all $n\in\N$.}. By the principle of strong mathematical induction (see Additional Exercise \ref{axr:0.2b}), it follows that $g$ is defined for all $n\in\N$, and it is obvious that $g$ is not multiply defined for any $n\in\N$. Thus, $g$ is a function as defined in Definition \ref{dfn:1.16}.\par
             To prove that $g$ is bijective, Definition \ref{dfn:1.20} tells us that it will suffice to show that $g$ is injective and surjective. We will prove each of these qualities in turn. To prove that $g$ is injective, the contrapositive of Definition \ref{dfn:1.20} necessitates that we verify that $n\neq n'$ implies $g(n)\neq g(n')$. Suppose that $n\neq n'$. Then by the trichotomy, either $n>n'$ or $n<n'$. If $n>n'$, then $g(n)=\min(A\setminus\{g(1),\dots,g(n'),\dots,g(n-1)\})$, meaning that $g(n)$ cannot equal $g(n')$ since $g(n)$ is an element of a set (namely, $A\setminus\{g(1),\dots,g(n'),\dots,g(n-1)\}$) of which $g(n')$ is explicitly not a member. The proof is symmetric if $n<n'$. To prove that $g$ is surjective, Definition \ref{dfn:1.20} tells us that we must verify that for all $a\in A$, there exists an $n\in\N$ such that $g(n)=a$. Suppose for the sake of contradiction that there exists some $a\in A$ such that $g(n)\neq a$ for any $n\in\N$. This implies that $a\neq\min(A\setminus\{g(1),\dots,g(n)\})$ for any $n\in\N$, which must mean that $a\notin A$, a contradiction.
         \end{proof}
     \end{lemma*}
@@ -473,18 +473,20 @@
 \end{exercise}
 
 \subsection*{Additional Exercises}
-\begin{enumerate}
-    \item \marginnote{10/6:}In each of the following, write out the elements of the sets.
-    \begin{enumerate}
-        \item[a)] $(\{n\in\Z\mid n\text{ is divisible by }2\}\cap\N)\cup\{-5\}$
+\begin{enumerate}[ref={\thechapter.\arabic*}]
+    \item \label{axr:1.1}\marginnote{10/6:}In each of the following, write out the elements of the sets.
+    \begin{enumerate}[label={\alph*)},ref={\theenumi\alph*}]
+        \item \label{axr:1.1a}$(\{n\in\Z\mid n\text{ is divisible by }2\}\cap\N)\cup\{-5\}$
         \begin{proof}
             The elements are $-5$ as well as 2, 4, 6, and every other even natural number.
         \end{proof}
-        \item[c)] $\{[n]\mid n\in\N,1\leq n\leq 3\}$
+        \stepcounter{enumii}
+        \item \label{axr:1.1c}$\{[n]\mid n\in\N,1\leq n\leq 3\}$
         \begin{proof}
             The elements are the three sets $\{1\}$, $\{1,2\}$, and $\{1,2,3\}$.
         \end{proof}
-        \item[k)] $\{\{a\}\cup\{b\}\mid a\in\N,b\in\N,1\leq a\leq 4,3\leq b\leq 5\}$
+        \setcounter{enumii}{10}
+        \item \label{axr:1.1k}$\{\{a\}\cup\{b\}\mid a\in\N,b\in\N,1\leq a\leq 4,3\leq b\leq 5\}$
         \begin{proof}
             The elements are the 11 sets $\{1,3\}$, $\{1,4\}$, $\{1,5\}$, $\{2,3\}$, $\{2,4\}$, $\{2,5\}$, $\{3\}$, $\{3,4\}$, $\{3,5\}$, $\{4\}$, and $\{4,5\}$.
         \end{proof}
