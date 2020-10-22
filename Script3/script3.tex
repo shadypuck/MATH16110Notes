@@ -75,6 +75,87 @@
     \end{proof}
 \end{corollary}
 
+\begin{axiom}\label{axm:3.3}
+    A continuum $C$ has no first or last point.
+\end{axiom}
+
+\begin{definition}\label{dfn:3.8}
+    We define an ordering on $\Z$ by $m<n$ if $n=m+c$ for some $c\in\N$.
+\end{definition}
+
+\begin{exercise}\label{exr:3.9}\leavevmode
+    \begin{enumerate}[label={\alph*)},ref={\thetheorem\alph*}]
+        \item \label{exr:3.9a}Prove that with this ordering $\Z$ satisfies Axioms 1-3.
+        \begin{proof}
+            Clearly, $\Z$ is a nonempty set, so Axiom \ref{axm:3.1} is immediately satisfied.\par
+            Axiom \ref{axm:3.2} asserts that $\Z$ must have an ordering $<$. As such, we must verify that the ordering given by Definition \ref{dfn:3.8} satisfies the stipulations of Definition \ref{dfn:3.1}. To prove that $<$ satisfies the trichotomy, it will suffice to show that for all $x,y\in\Z$, exactly one of the following holds: $x<y$, $y<x$, or $x=y$. Let $x,y$ be arbitrary elements of $\Z$. We divide into three cases. First, suppose for the sake of contradiction that $x<y$ and $y<x$. By Definition \ref{dfn:3.8}, this implies that $y=x+c$ and $x=y+c'$ for some $c,c'\in\N$. Substituting, we have $y=y+c'+c$, or $0=c'+c$ by the cancellation law of addition. But since $c',c\in\N$, the closure of addition on $\N$ implies that $(c'+c)\in\N$. Therefore, $c'+c\neq 0$, a contradiction. Second, suppose for the sake of contradiction that $x<y$ and $x=y$. By Definition \ref{dfn:3.8}, this implies that $y=x+c$ for some $c\in\N$. Substituting, we have $y=y+c$, or $0=c$ by the cancellation law of addition. But since $c\in\N$, $c\neq 0$, a contradiction. The proof of the third case ($y<x$ and $x=y$) is symmetric to that of the second case. To prove that $<$ is transitive, it will suffice to show that for all $x,y,z\in\Z$, if $x<y$ and $y<z$, then $x<z$. Let $x,y,z$ be arbitrary elements of $\Z$ for which it is true that $x<y$ and $y<z$. By Definition \ref{dfn:3.8}, we have $y=x+c$ and $z=y+c'$ for some $c,c'\in\N$. Substituting, we have $z=x+c+c'$. Since $(c+c')\in\N$ by the closure of addition on $\N$, Definition \ref{dfn:3.8} implies that $x<z$.\par
+            Axiom \ref{axm:3.3} asserts that $\Z$ must have no first or last point. Suppose for the sake of contradiction that $\Z$ has some first point $a$. Then by Definition \ref{dfn:3.3}, $a\leq x$ for every $x\in\Z$. However, under the closure of subtraction on $\Z$, $(a-1)\in\Z$. Since $(a-1)+1=a$, Definition \ref{dfn:3.8} asserts that $a-1<a$, a contradiction. The proof is symmetric for the last point.
+        \end{proof}
+        \item \label{exr:3.9b}Show that for any $p=\eqclass{a}{b}\in\Q$, there is some $(a_1,b_1)\in p$ with $0<b_1$.
+        \begin{proof}
+            Let $\eqclass{a}{b}$ be an arbitrary element of $\Q$. It follows by Definition \ref{dfn:2.5} that $(a,b)\in X$. Since we also have $(a,b)\sim(a,b)$ by Exercise \ref{exr:2.2e}, Definition \ref{dfn:2.5} implies that $(a,b)\in\eqclass{a}{b}$. By the trichotomy (see Definition \ref{dfn:3.1}) of the ordering defined by Definition \ref{dfn:3.8} on $\Z$ which Exercise \ref{exr:3.9a} just proved is valid, we have $0<b$, $b<0$, or $0=b$. We divide into three cases. First, suppose that $0<b$. Then $(a,b)$ is an element $(a_1,b_1)\in\eqclass{a}{b}$ for which $0<b_1$, and we are done. Second, suppose that $b<0$. Since $(-a)(b)=(-b)(a)$, we have by the definition of $\sim$ that $(-a,-b)\sim(a,b)$. Additionally, we have by the closure of integer multiplication that $-a,-b\in\Z$, and since $b\neq 0$ by Exercise \ref{exr:2.2e}, $-b\neq 0$. Thus, by Exercise \ref{exr:2.2e}, $(-a,-b)\in X$. This coupled with the previously proven fact that $(-a,-b)\sim(a,b)$ implies by Definition \ref{dfn:2.5} that $(-a,-b)\in\eqclass{a}{b}$. Now recall that $b<0$ by hypothesis, so we may use Definition \ref{dfn:3.8} to see that $b+c=0$ for some $c\in\N$. It follows that $-(b+c)=0$, i.e., $-b-c=0$, i.e., $-b=0+c$, meaning that $0<-b$ by Definition \ref{dfn:3.8}. Thus, $(-a,-b)$ is an element $(a_1,b_1)\in\eqclass{a}{b}$ for which $0<b_1$. Third, suppose that $b=0$. But this contradicts Exercise \ref{exr:2.2e} which asserts that $b\neq 0$, so we need not consider this case.
+        \end{proof}
+        \item \label{exr:3.9c}Define an ordering $\lQ$ on $\Q$ as follows. For $p,q\in\Q$, let $(a_1,b_1)\in p$ be such that $0<b_1$ and let $(a_2,b_2)\in q$ be such that $0<b_2$. Then we define $p\lQ q$ if $a_1b_2<a_2b_1$. Show that $\lQ$ is a well-defined relation on $\Q$.
+        \begin{proof}
+            For the relation $\lQ$ to be well-defined, Definition \ref{dfn:3.1} tells us that it must satisfy the trichotomy and be transitive.\par
+            To prove that $\lQ$ satisfies the trichotomy, it will suffice to show that for all $p,q\in\Q$, exactly one of the following holds: $p\lQ q$, $q\lQ p$, or $p=q$. Let $p,q$ be arbitrary elements of $\Q$, let $(a,b)\in p$ be such that $0<b$ (we know that such an element exists by Exercise \ref{exr:3.9b}), and let $(c,d)\in q$ be such that $0<d$. We divide into three cases. First, suppose for the sake of contradiction that $p\lQ q$ and $q\lQ p$. Then $ad<bc$ and $cb<da$ by the definition of $\lQ$. But this violates the trichotomy known to hold for the ordering $<$ on the integers by Exercise \ref{exr:3.9a}, a contradiction. Second, suppose for the sake of contradiction that $p\lQ q$ and $p=q$. By the definition of $\lQ$, $ad<bc$. Additionally, by Exercise \ref{exr:2.6}, $(a,b)\sim(c,d)$, implying by Exercise \ref{exr:2.2e} that $ad=bc$. But once again, the simultaneous results that $ad<bc$ and $ad=bc$ violate the trichotomy of the integers, a contradiction. The proof of the third case is symmetric to that of the second.\par
+            To prove that $\lQ$ is transitive, it will suffice to show that for all $p,q,r\in\Q$, if $p\lQ q$ and $q\lQ r$, then $p\lQ r$. Let $p,q,r$ be arbitrary elements of $\Q$ for which it is true that $p\lQ q$ and $q\lQ r$, let $(a,b)\in p$ be such that $0<b$, let $(c,d)\in q$ be such that $0<d$, and let $(e,f)\in r$ such that $0<f$. By the definition of $\lQ$, we have $ad<bc$ and $cf<de$. By Definition \ref{dfn:3.8}, this implies that $bc=ad+g$ and $de=cf+g'$ for some $g,g'\in\N$. Thus, by the multiplicative property of equality,
+            \begin{align*}
+                bcf &= adf+gf&
+                bde &= bcf+bg'
+            \end{align*}
+            so that by the additive property of equality
+            \begin{align*}
+                bcf+bde &= adf+gf+bcf+bg'\\
+                bde &= adf+gf+bg'
+            \end{align*}
+            Since $0<b$ and $0<f$ for $b,f\in\Z$, we know that $b,f\in\N$. Since $g,g'\in\N$ as well by hypothesis, the closures of multiplication and subsequently of addition for $\N$ guarantee that $(gf+bg')\in\N$. Thus, by Definition \ref{dfn:3.8}, $adf<bde$. Now suppose for the sake of contradiction that $af\not<be$. By Definition \ref{dfn:3.1}, this implies that either $af=be$ or $be<af$. We divide into two cases. First, suppose that $af=be$. Then by the multiplicative property of equality, $adf=bde$, contradicting the fact that $adf<bde$. Second, suppose that $be<af$. Then by Definition \ref{dfn:3.8}, $af=be+g$ for some $g\in\N$. Thus, $adf=bde+gd$ where $gd\in\N$ by the closure of multiplication for the natural numbers ($d\in\N$ since $d\in\Z$ and $0<d$ by hypothesis). Thus, $bcd<adf$ by Definition \ref{dfn:3.8}, contradicting the fact that $adf<bde$. Therefore, it must be true that $af<be$. It follows by the definition of $\lQ$ that $p\lQ r$.
+        \end{proof}
+        \item \label{exr:3.9d}Show that $\Q$ with the ordering $\lQ$ satisfies Axioms 1-3.
+        \begin{proof}
+            Clearly, $\Q$ is a nonempty set, so Axiom \ref{axm:3.1} is immediately satisfied.\par
+            By Exercise \ref{exr:3.9c}, $\Q$ has an ordering, so Axiom \ref{axm:3.2} is satisfied.\par
+            Axiom \ref{axm:3.3} asserts that $\Q$ must have no first or last point. Suppose for the sake of contradiction that $\Q$ has some first point $p$. Then by Definition \ref{dfn:3.3}, $p\lQ x$ or $p=x$ for all $x\in\Q$. Let $(a,b)\in p$ be such that $0<b$ (see Exercise \ref{exr:3.9b}). Under the closure of integer subtraction, $(a-1)\in\Z$, so $\eqclass{a-1}{b}\in\Q$. Since $ba=ba-b+b=b(a-1)+b$ where $b\in\N$ since $b\in\Z$ and $0<b$, Definition \ref{dfn:3.8} implies that $(a-1)b<ba$. It follows by the definition of $\lQ$ that $\eqclass{a-1}{b}\lQ\eqclass{a}{b}=p$, a contradiction. The argument is symmetric for the last point.
+        \end{proof}
+    \end{enumerate}
+\end{exercise}
+
+\begin{definition}\label{dfn:3.10}
+    If $a,b\in C$ and $a<b$, then the set of points between $a$ and $b$ is called a \textbf{region} and denoted by $\underline{ab}$.
+\end{definition}
+
+\begin{remark}\label{rmk:3.11}
+    One often sees the notation $(a,b)$ for regions. We will reserve the notation $(a,b)$ for ordered pairs in a product $A\times B$. These are very different things.
+\end{remark}
+
+\begin{theorem}\label{trm:3.12}
+    If $x$ is a point of a continuum $C$, then there exists a region $\underline{ab}$ such that $x\in\underline{ab}$.
+    \begin{proof}
+        Let $x$ be an arbitrary point in a continuum $C$. By Axiom \ref{axm:3.2}, $C$ has an ordering $<$, which we will frequently make use of throughout the remainder of this proof. By Axiom \ref{axm:3.3}, $C$ has no first or last points, so it cannot be true that $x\leq y$ for all $y\in C$, nor can it be true that $x\geq y$ for all $y\in C$. This implies that there exists an $a\in C$ such that $a<x$ and that there exists a $b\in C$ such that $b>x$. Since $a<x$ and $x<b$, Definition \ref{dfn:3.6} implies that $x$ is between $a$ and $b$. Note also that by Definition \ref{dfn:3.1} (specifically transitivity), $a<b$. Therefore, since $a,b\in C$, $a<b$, and $x$ is between $a$ and $b$, Definition \ref{dfn:3.10} implies that $x\in\underline{ab}$.
+    \end{proof}
+\end{theorem}
+
+\begin{definition}\label{dfn:3.13}
+    Let $A$ be a subset of a continuum $C$. A point $p$ of $C$ is called a \textbf{limit point} of $A$ if every region $R$ containing $p$ has nonempty intersection with $A\setminus\{p\}$. Explicitly, this means:
+    \begin{center}
+        for every region $R$ with $p\in R$, we have $R\cap(A\setminus\{p\})\neq\emptyset$.
+    \end{center}
+    Notice that we do not require that a limit point $p$ of $A$ be an element of $A$. We will use the notation $LP(A)$ to denote the set of limit points of $A$.
+\end{definition}
+
+\begin{theorem}\label{trm:3.14}
+    If $p$ is a limit point of $A$ and $A\subset B$, then $p$ is a limit point of $B$.
+    \begin{lemma*}
+        Let $A,B,C$ be sets such that $A\subset B$. Then $A\cap C\subset B\cap C$.
+        \begin{proof}
+            Let $x$ be an arbitrary element of $A\cap C$. By Definition \ref{dfn:1.6}, this implies that $x\in A$ and $x\in C$. Since $x\in A$ and $A\subset B$, Definition \ref{dfn:1.3} implies that $x\in B$. Thus, $x\in B$ and $x\in C$, so $x\in B\cap C$ by Definition \ref{dfn:1.6}.
+        \end{proof}
+    \end{lemma*}
+    \begin{proof}
+        To prove that a limit point $p$ of $A\subset B$ is a limit point of $B$, Definition \ref{dfn:3.13} tells us that it will suffice to show that for every region $R$ with $p\in R$, we have $R\cap(B\setminus\{p\})\neq\emptyset$. Let $p$ be a limit point of $A$, and let $R$ be an arbitrary region with $p\in R$. Then by Definition \ref{dfn:3.13}, we have $R\cap(A\setminus\{p\})\neq\emptyset$. Thus, by Definition \ref{dfn:1.8}, there is an element $x\in R\cap(A\setminus\{p\})$. Since $A\setminus\{p\}\subset B\setminus\{p\}$ (because $A\subset B$ and $\{p\}=\{p\}$), it follows by the lemma that $R\cap(A\setminus\{p\})\subset R\cap(B\setminus\{p\})$. Consequently, by Definition \ref{dfn:1.3}, the previously referenced object $x\in R\cap(A\setminus\{p\})$ is also an element of $R\cap(B\setminus\{p\})$. Thus, by Definition \ref{dfn:1.8}, $R\cap(B\setminus\{p\})\neq\emptyset$, as desired.
+    \end{proof}
+\end{theorem}
+
 
 
 
