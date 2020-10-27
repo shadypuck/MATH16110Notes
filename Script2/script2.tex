@@ -30,24 +30,25 @@
         \end{proof}
         \item \label{exr:2.2b}$\Z$ with the relation $<$.
         \begin{proof}
-            The relation $<$ is neither reflexive nor symmetric, although it is transitive. Since demonstrating that $<$ does not satisfy any one of the three properties proves that $<$ is not an equivalence relation, we shall arbitrarily choose to prove that $<$ is not reflexive. Consider $1\in\Z$, and note that $1=1$. Since $1=1$, $1\nless 1$ by the trichotomy. Thus, $1\nsim 1$ by the relation $<$, proving that $<$ is not reflexive for all $z\in Z$.
+            Consider $1\in\Z$, and note that $1=1$. Since $1=1$, $1\nless 1$ by the trichotomy. Thus, $1\nsim 1$ by the relation $<$, proving that $<$ is not reflexive for all $z\in\Z$. Therefore, by Definition \ref{dfn:2.1}, $<$ is not an equivalence relation.
         \end{proof}
         \item \label{exr:2.2c}Any subset $X$ of $\Z$ with the relation $\leq$. So $x\sim y$ if and only if $x\leq y$.
         \begin{proof}
-            Here, we demonstrate a failure of symmetry. Let $X=\{1,2\}$. Clearly, $X\subset\Z$. Now, $1\leq 2$, so $1\sim 2$ by the relation $\leq$, but $2\nleq 1$ so $2\nsim 1$. Thus, $x\sim y$ for $x,y\in X$ does not necessarily imply that $y\sim x$. It follows that $\leq$ is not an equivalence relation on \emph{any} subset of $\Z$.
+            Let $X=\{1,2\}$. Clearly, $X\subset\Z$. Now, $1\leq 2$, so $1\sim 2$ by the relation $\leq$, but $2\nleq 1$ so $2\nsim 1$. Thus, $x\sim y$ for $x,y\in X$ does not necessarily imply that $y\sim x$. It follows by Definition \ref{dfn:2.1} that $\leq$ is not an equivalence relation on \emph{any} subset of $\Z$.
         \end{proof}
         \item \label{exr:2.2d}$X=\Z$ with $x\sim y$ if and only if $y-x$ is divisible by 5.
         \begin{proof}
             To prove that the described relation is an equivalence relation, Definition \ref{dfn:2.1} tells us that we must verify that it is reflexive, symmetric, and transitive. To prove these properties, it will suffice to show that $x\sim x$ for all $x\in X$, $x\sim y$ implies $y\sim x$ for any $x,y\in X$, and $x\sim y$ and $y\sim z$ implies $x\sim z$ for any $x,y,z\in X$, respectively. Let's begin.\par
             To prove that $x\sim x$ for all $x\in X$, the definition of $\sim$ and Additional Exercise \ref{axr:0.8} tell us that it will suffice to show that $x-x=5a$ for an arbitrary $x\in X$ and some $a\in\Z$. Let $x$ be an arbitrary element of $X$. It follows that $x-x=0=5(0)$ where $0=a$ is clearly an element of $\Z$. In sum, $x-x=5a$ for an $a\in\Z$, as desired.\par
-            To prove that $x\sim y$ implies that $y\sim x$, the definition of $\sim$ tells us that it will suffice to show that $x-y$ is divisible by 5 given that $y-x$ is so divisible for $x,y\in X$. Let $y-x$ be divisible by 5. It follows by Additional Exercise \ref{axr:0.8-ii} that $-1\cdot(y-x)$ is divisible by 5 (since $-1$ is clearly an integer). But since $-(y-x)=x-y$, this means that $x-y$ is divisible by 5, as desired.\par
-            To prove that $x\sim y$ and $y\sim z$ imply that $x\sim z$, the definition of $\sim$ tells us that it will suffice to show that $z-x$ is divisible by 5 given that $y-x$ and $z-y$ are so divisible for $x,y,z\in X$. Let $y-x$ and $z-y$ be divisible by 5. It follows by Additional Exercise \ref{axr:0.8-i} that $(z-y)+(y-x)$ is divisible by 5. But since $(z-y)+(y-x)=z-x$, this means that $z-x$ is divisible by 5, as desired.
+            To prove that $x\sim y$ implies that $y\sim x$, the definition of $\sim$ tells us that it will suffice to show that $x-y$ is divisible by 5 given that $y-x$ is so divisible for $x,y\in X$. Let $y-x$ be divisible by 5. It follows by Additional Exercise \ref{axr:0.8-ii} that $-1\cdot(y-x)$ is divisible by 5 (since $-1\in\Z$). But since $-(y-x)=x-y$, this means that $x-y$ is divisible by 5, as desired.\par
+            To prove that $x\sim y$ and $y\sim z$ imply that $x\sim z$, the definition of $\sim$ tells us that it will suffice to show that $z-x$ is divisible by 5 given that $y-x$ and $z-y$ are also so divisible for $x,y,z\in X$. Let $y-x$ and $z-y$ be divisible by 5. It follows by Additional Exercise \ref{axr:0.8-i} that $(z-y)+(y-x)$ is divisible by 5. But since $(z-y)+(y-x)=z-x$, this means that $z-x$ is divisible by 5, as desired.
         \end{proof}
         \item \label{exr:2.2e}$X=\{(a,b)\mid a,b\in\Z,b\neq 0\}$ with the relation $\sim$ defined by $(a,b)\sim(c,d)\Longleftrightarrow ad=bc$.
         \begin{proof}
             Reflexivity: Let $(a,b)$ be an arbitrary element of $X$. Since $a,b\in\Z$ and integer multiplication is commutative, it is true that $ab=ba$. Therefore, by the definition of the relation $\sim$, $(a,b)\sim(a,b)$.\par
             Symmetry: Let $(a,b)\sim(c,d)$ for some $(a,b),(c,d)\in X$. By the definition of the relation $\sim$, $ad=bc$. Thus, $cb=da$ by the symmetry of $=$ (see Exercise \ref{exr:2.2a}) and the commutativity of integer multiplication. Therefore, by the definition of the relation $\sim$, $(c,d)\sim(a,b)$.\par
-            Transitivity: Let $(a,b)\sim(c,d)$ and $(c,d)\sim(e,f)$ for some $(a,b),(c,d),(e,f)\in X$. By consecutive applications of the definition of $\sim$, $ad=bc$ and $cf=de$. We now divide into two cases ($c\neq 0$ and $c=0$; the reason for doing so will become clear later). Suppose first that $c\neq 0$. By the multiplicative property of equality, we can multiply an equal quantity to each side of $ad=bc$ and still preserve the equality. As such, we choose to multiply $cf=de$ to both sides, creating the equation $ad\cdot cf=bc\cdot de$. By the commutativity of multiplication, we have $afcd=becd$. Since $c\neq 0$ by assumption and $d\neq 0$ by the definition of $X$, $cd\neq 0$ and the cancellation law for multiplication applies, giving us $af=be$. Therefore, by the definition of the relation $\sim$, $(a,b)\sim(e,f)$. Now suppose that $c=0$. Consequently, $bc=0$, implying by the equality $ad=bc$ that $ad=0$. Thus, $a=0$ or $d=0$ (or both) by the zero product property. Since $d\neq 0$ by the definition of $X$ ($d$ is the second element in the ordered pair $(c,d)$), we must have $a=0$. A similar analysis can be performed on the equation $cf=de$ to show that $e=0$. Since $a=0$ and $e=0$, $af=0$ and $be=0$, implying by transitivity that $af=be$. Therefore, by the definition of the relation $\sim$, $(a,b)\sim(e,f)$.
+            Transitivity: Let $(a,b)\sim(c,d)$ and $(c,d)\sim(e,f)$ for some $(a,b),(c,d),(e,f)\in X$. By consecutive applications of the definition of $\sim$, $ad=bc$ and $cf=de$. We now divide into two cases ($c\neq 0$ and $c=0$; the reason for doing so will become clear later). Suppose first that $c\neq 0$. By the multiplicative property of equality, we can multiply $cf=de$ to both sides, creating the equation $ad\cdot cf=bc\cdot de$. By the commutativity of multiplication, we have $afcd=becd$. Since $c\neq 0$ by assumption and $d\neq 0$ by the definition of $X$, $cd\neq 0$ and the cancellation law for multiplication applies, giving us $af=be$. Therefore, by the definition of the relation $\sim$, $(a,b)\sim(e,f)$. Now suppose that $c=0$. Consequently, $bc=0$, implying by the equality $ad=bc$ that $ad=0$. Thus, $a=0$ or $d=0$ (or both) by the zero product property. Since $d\neq 0$ by the definition of $X$ ($d$ is the second element in the ordered pair $(c,d)$), we must have $a=0$. A similar analysis can be performed on the equation $cf=de$ to show that $e=0$. Since $a=0$ and $e=0$, $af=0$ and $be=0$, implying by transitivity that $af=be$. Therefore, by the definition of the relation $\sim$, $(a,b)\sim(e,f)$.\par
+            Since the relation $\sim$ is reflexive, symmetric, and transitive, Definition \ref{dfn:2.1} tells us that it is an equivalence relation.
         \end{proof}
     \end{enumerate}
 \end{exercise}
@@ -124,7 +125,7 @@
         \eqclass{a}{b}\cdotQ\eqclass{c}{d} = \eqclass{a'}{b'}\cdotQ\eqclass{c'}{d'}
     \end{equation*}
     \begin{proof}
-        By consecutive applications of the definition of $\sim$, we have from the hypotheses that $ab'=ba'$ and $cd'=dc'$. Multiplying these equations together, we have $ab'cd'=ba'dc'$. This can be algebraically rearranged into $(ac)(b'd')=(bd)(a'c')$. It follows by the definition of $\sim$ that $(ac,bd)\sim(a'c',b'd')$. But this implies by Exercise \ref{exr:2.6} that
+        By consecutive applications of the definition of $\sim$, we have from the hypotheses that $ab'=ba'$ and $cd'=dc'$. Thus, by the multiplicative property of equality, $ab'cd'=ba'dc'$. This can be algebraically rearranged into $(ac)(b'd')=(bd)(a'c')$. It follows by the definition of $\sim$ that $(ac,bd)\sim(a'c',b'd')$. But this implies by Exercise \ref{exr:2.6} that
         \begin{align*}
             \eqclass{ac}{bd} &= \eqclass{a'c'}{b'd'}
             \intertext{Consequently, by Definition \ref{dfn:2.7},}
@@ -237,17 +238,11 @@
         \begin{equation*}
             \eqclass{a}{b}\cdotQ\eqclass{b}{a} = \eqclass{1}{1}\text{ for all }\eqclass{a}{b}\in\Q\text{ such that }\eqclass{a}{b}\neq\eqclass{0}{1}
         \end{equation*}
-        \begin{lemma*}
-            For all $\eqclass{a}{a}\in\Q$, $\eqclass{a}{a}=\eqclass{1}{1}$.
-            \begin{proof}
-                Since $(a)(1)=(a)(1)$, we have by the definition of $\sim$ that $(a,a)\sim(1,1)$. It follows by Exercise \ref{exr:2.6} that $\eqclass{a}{a}=\eqclass{1}{1}$, as desired.
-            \end{proof}
-        \end{lemma*}
         \begin{proof}
             By Definition \ref{dfn:2.7},
             \begin{align*}
                 \eqclass{a}{b}\cdotQ\eqclass{b}{a} &= \eqclass{ab}{ba}
-                \intertext{Since $ab=ba$, we have by the lemma that the above equals the following, as desired.}
+                \intertext{Since $(ab)(1)=(ba)(1)$, we have by the definition of $\sim$ that $(ab,ba)\sim(1,1)$. It follows by Exercise \ref{exr:2.6} that the above equals the following, as desired.}
                 &= \eqclass{1}{1}
             \end{align*}
         \end{proof}
