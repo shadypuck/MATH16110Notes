@@ -125,6 +125,36 @@
     \end{itemize}
     \item \marginnote{10/22:}For Exercises \ref{exr:3.9a} and \ref{exr:3.9c}, it is necessary to show that at least one of the three trichotomy statements holds.
     \item \marginnote{10/27:}Do we have to show the explicit proof of both cases in the second part of Lemma \ref{lem:3.16}, or can we just say, "the proof is symmetric?"
+    \item In Theorem \ref{trm:3.18}, you can define two functions $\min:C\times C\to C$ and $\max:C\times C\to C$, where $C$ is the continuum in which the two regions exist, by
+    \begin{align*}
+        \min(i,j) &=
+        \begin{cases}
+            i & i\leq j\\
+            j & i>j
+        \end{cases}\\
+        \max(i,j) &=
+        \begin{cases}
+            i & i\geq j\\
+            j & i<j
+        \end{cases}
+    \end{align*}
+    for any $i,j\in C$.
+    \begin{itemize}
+        \item This allows you to define $m=\max(a,c)$ and $n=\min(b,d)$. It can then be proven that $m<n$ in every case, that $\underline{ab}\cap\underline{cd}=\underline{mn}$, and that $x\in\underline{mn}$.
+    \end{itemize}
+    \item Note that Lemmas \ref{lem:3.16} and \ref{lem:3.17} cannot be used to prove Theorem \ref{trm:3.18} --- the ordering in the script is just misleading (these lemmas will only be needed later).
+    \item You don't need to treat all four cases in Theorem \ref{trm:3.18}; rather, just two and then the others are covered by WLOG.
+    \begin{itemize}
+        \item $
+            a>c\wedge b\leq d \xRightarrow{\text{rename}} c>a\wedge d\leq b
+            \Rightarrow (a\leq c\wedge b>d)\vee(a\leq c\wedge b=d)
+        $, where both of the latter two cases are covered by one of the original cases.
+    \end{itemize}
+    \item What is the base case in Corollary \ref{cly:3.19}? Although the question does not explicitly state that we can, we should use $n_0=2$ and the form of induction in Additional Exercise \ref{axr:0.2a}.
+    \item In Corollary \ref{cly:3.19}, use summation notation, e.g., $\bigcap_{i=1}^k R_i$!
+    \item Do the forward implication of Theorem \ref{trm:3.20} by contrapositive.
+    \item Use Theorem \ref{trm:3.18} to justify $R_1\cap R_2=R$ in the proof of Theorem \ref{trm:3.20}.
+    \item Do I have to prove the two set theory things I use in my proof of Theorem \ref{trm:3.20}?
 \end{itemize}
 
 
