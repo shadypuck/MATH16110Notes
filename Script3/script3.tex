@@ -60,7 +60,7 @@
     \begin{proof}
         We divide into two cases ($|A|=0$ and $|A|\in\N$).\par
         If $|A|=0$, then the statements "the symbols $a_1,\dots,a_n$ may be assigned to each point of $A$" and "$a_i<a_{i+1}$ for all $1\leq i\leq n-1=-1$" are both vacuously true.\par
-        If $|A|\in\N$, we induct on $|A|=n$. For the base case $n=1$, denote the single element of $A$ by $a_1$. Since $a_i<a_{i+1}$ for all $1\leq i\leq n-1=0$ is vacuously true, the base case holds. Now suppose inductively that we have proven the claim for $n$, i.e., for a set $A\subset C$ satisfying $|A|=n$, the symbols $a_1,\dots,a_n$ may be assigned to each point of $A$ so that $a_1<a_2<\cdots<a_n$. We now wish to prove the claim with regards to a set $A\subset C$ with $|A|=n+1$. By Lemma \ref{lem:3.4}, there is a last point $a_{n+1}\in A$, which may be denoted as such (we will rigorously confirm this later). Since the set $A\setminus\{a_{n+1}\}$ has cardinality $n$ (see the lemma from Lemma \ref{lem:3.4}), we have by the induction hypothesis that its $n$ elements can be named $a_1,\dots,a_n$ and ordered $a_1<a_2<\cdots<a_n$. Clearly these $n$ elements are elements of $A$ and all that's left to do is determine where $a_{n+1}$ fits into the established order. But by Definition \ref{dfn:3.3}, $x\leq a_{n+1}$ for all $x\in A$, i.e., $x<a_{n+1}$ for all $x\in A\setminus\{a_{n+1}\}$. Consequently, as its name would suggest, it is true that $a_1<a_2<\cdots<a_n<a_{n+1}$, as desired.
+        If $|A|\in\N$, we induct on $|A|=n$. For the base case $n=1$, denote the single element of $A$ by $a_1$. Since $a_i<a_{i+1}$ for all $1\leq i\leq n-1=0$ is vacuously true, the base case holds. Now suppose inductively that we have proven the claim for $n$, i.e., for a set $A\subset C$ satisfying $|A|=n$, the symbols $a_1,\dots,a_n$ may be assigned to each point of $A$ so that $a_1<a_2<\cdots<a_n$. We now wish to prove the claim with regard to a set $A\subset C$ with $|A|=n+1$. By Lemma \ref{lem:3.4}, there is a last point $a_{n+1}\in A$, which may be denoted as such (we will rigorously confirm this later). Since the set $A\setminus\{a_{n+1}\}$ has cardinality $n$ (see the lemma from Lemma \ref{lem:3.4}), we have by the induction hypothesis that its $n$ elements can be named $a_1,\dots,a_n$ and ordered $a_1<a_2<\cdots<a_n$. Clearly these $n$ elements are elements of $A$ and all that's left to do is determine where $a_{n+1}$ fits into the established order. But by Definition \ref{dfn:3.3}, $x\leq a_{n+1}$ for all $x\in A$, i.e., $x<a_{n+1}$ for all $x\in A\setminus\{a_{n+1}\}$. Consequently, as its name would suggest, it is true that $a_1<a_2<\cdots<a_n<a_{n+1}$, as desired.
     \end{proof}
 \end{theorem}
 
@@ -227,6 +227,46 @@
         Now suppose that there exists a point $x\in C$ between between $p$ and $q$. Let $R=\underline{ax}$ and let $S=\underline{xb}$. It follows from the hypothesis by Definition \ref{dfn:3.6} that $p<x$ and $x<q$. Thus, Definitions \ref{dfn:3.6} and \ref{dfn:3.10} imply by the facts that $a<p$ and $p<x$, and $x<q$ and $q<b$ that $p\in R$ and $q\in S$, respectively. To prove that $R$ and $S$ are disjoint, Definition \ref{dfn:1.9} tells us tht it will suffice to show that $R\cap S=\emptyset$. Suppose for the sake of contradiction that there exists an object $y\in R\cap S$. By Definition \ref{dfn:1.6}, this implies that $y\in R$ and $y\in S$ (and, hence, that $y\in C$). Thus, by consecutive applications of Definitions \ref{dfn:3.10} and \ref{dfn:3.6}, we have that $a<y$, $y<x$, $x<y$, and $y<b$. But by Definition \ref{dfn:3.1}, we cannot have $y<x$ and $x<y$, a contradiction. Therefore, since $x\notin R\cap S$ for all $x$, Definition \ref{dfn:1.8} implies that $R\cap S=\emptyset$, as desired.
     \end{proof}
 \end{theorem}
+
+\begin{corollary}\label{cly:3.23}\marginnote{\emph{10/29:}}
+    A subset of a continuum $C$ consisting of one point has no limit points.
+    \begin{proof}
+        Let $\{x\}\subset C$. To prove that $\{x\}$ has no limit points, Definition \ref{dfn:3.13} tells us that it will suffice to show that for all $p\in C$, there exists a region $R$ with $p\in R$ such that $R\cap(\{x\}\setminus\{p\})=\emptyset$. Let $p$ be an arbitrary point in $C$. We divide into two cases ($p=x$ and $p\neq x$). Suppose first that $p=x$. If we let $R$ be any region of $C$, it follows that
+        \begin{align*}
+            R\cap(\{x\}\setminus\{p\}) &= R\cap(\{x\}\setminus\{x\})\\
+            &= R\cap\emptyset\\
+            &= \emptyset
+        \end{align*}
+        as desired. Now suppose that $p\neq x$. Since $p$ and $x$ are distinct points, Theorem \ref{trm:3.22} applies and implies that there exist disjoint regions $R$ and $S$ containing $p$ and $x$, respectively. Consequently, by Definition \ref{dfn:1.9}, $x\notin R$. Thus,
+        \begin{align*}
+            R\cap(\{x\}\setminus\{p\}) &= R\cap\{x\}\\
+            &= \emptyset
+        \end{align*}
+        as desired.
+    \end{proof}
+\end{corollary}
+
+\begin{theorem}\label{trm:3.24}
+    A finite subset $A$ of a continuum $C$ has no limit points.
+    \begin{proof}
+        We divide into two cases ($|A|=0$ and $|A|\in\N$).\par
+        If $|A|=0$, then $A=\emptyset$. Clearly it follows that for an arbitrary $p\in C$ and any region $R$ of $C$,
+        \begin{align*}
+            R\cap(A\setminus\{p\}) &= R\cap(\emptyset\setminus\{p\})\\
+            &= R\cap\emptyset\\
+            &= \emptyset
+        \end{align*}
+        proving by the contrapositive of Definition \ref{dfn:3.13} that $p$ is not a limit point of $A$, as desired.\par
+        If $|A|\in\N$, we induct on $|A|=n$. For the base case $n=1$, $A$ is a subset of $C$ consisting of one point. Thus, Corollary \ref{cly:3.23} applies and implies that $A$ has no limit points, proving the base case. Now suppose inductively that we have proven the claim for $n$, i.e., we know that a finite subset $A$ of a continuum $C$ satisfying $|A|=n$ has no limit points. We now wish to prove the claim with regard to a subset $A$ of a continuum $C$ with $|A|=n+1$. Let $a$ be any element of $A$, and let $B=A\setminus\{a\}$. Since $(n+1)\in\N$ (because $n$ and 1 are), all of the tenets of the lemma of Lemma \ref{lem:3.4} are satisfied, implying that $|B|=n$. This revelation combined with the fact that $B\subset C$ means that the induction hypothesis applies; consequently, $B$ has no limit points. Since $B$ has no limit points and $\{a\}$ has no limit points (see Corollary \ref{cly:3.23}), Theorem \ref{trm:3.20} applies and implies that $B\cup\{a\}=(A\setminus\{a\})\cup\{a\}=A$ has no limit points as well, as desired.
+    \end{proof}
+\end{theorem}
+
+\begin{corollary}\label{cly:3.25}
+    If $A$ is a finite subset of a continuum $C$ and $x\in A$, then there exists a region $R$ containing $x$, such that $A\cap R=\{x\}$.
+    \begin{proof}
+        Since $A$ is a finite subset of a continuum $C$, Theorem \ref{trm:3.24} implies that $A$ has no limit points. Thus, for an arbitrary $x\in A$, $x$ is not a limit point of $A$. Consequently, Definition \ref{dfn:3.13} implies that there exists a region $R$ of $C$ with $x\in R$ such that $R\cap(A\setminus\{x\})=\emptyset$. Moreover, since $x\in A$ and $x\in R$, Definition \ref{dfn:1.6} implies that $x\in A\cap R$. Now suppose for the sake of contradiction that there exists some object $y\in A\cap R$ such that $y\neq x$. Then by Definition \ref{dfn:1.6}, $y\in A$ and $y\in R$. The former discovery combined with the fact that $y\neq x$, i.e., $y\notin\{x\}$ reveals that $y\in A\setminus\{x\}$ by Definition \ref{dfn:1.11}. Thus, since $y\in R$ and $y\in A\setminus\{x\}$, $y\in R\cap(A\setminus\{x\})$. It follows since $R\cap(A\setminus\{x\})=\emptyset$ that $y\in\emptyset$, but this contradicts Definition \ref{dfn:1.8}. Therefore, $x$ is the only element of $A\cap R$, so $A\cap R=\{x\}$, as desired.
+    \end{proof}
+\end{corollary}
 
 
 
