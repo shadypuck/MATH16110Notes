@@ -1,0 +1,67 @@
+\documentclass[../main.tex]{subfiles}
+
+\pagestyle{main}
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter}{#1}}
+\setcounter{chapter}{3}
+\externaldocument{../main}
+
+\begin{document}
+
+
+
+
+\chapter{The Topology of a Continuum}
+\section{Journal}
+\begin{definition}\label{dfn:4.1}\marginnote{11/3:}
+    A subset of a continuum is \textbf{closed} if it contains all of its limit points.
+\end{definition}
+
+\begin{theorem}\label{trm:4.2}
+    The sets $\emptyset$ and $C$ are closed.
+    \begin{proof}
+        Let $C$ be a continuum. We will address the two sets individually.\par
+        To prove that $\emptyset$ is closed, Definition \ref{dfn:4.1} tells us that it will suffice to show that $\emptyset\subset C$ and $\emptyset$ contains all of its limit points. By Exercise \ref{exr:1.10}, $\emptyset\subset C$. We now prove that $\emptyset$ has no limit points. Suppose for the sake of contradiction that some point $p\in C$ is a limit point of $\emptyset$. Then by Definition \ref{dfn:3.13}, for all regions $R$ with $p\in R$, $R\cap(\emptyset\setminus\{p\})\neq\emptyset$. But clearly, $R\cap(\emptyset\setminus\{p\})=R\cap\emptyset=\emptyset$, a contradiction. Therefore, since $\emptyset$ has no limit points, the statement "$\emptyset$ contains all of its limit points" is vacuously true.\par
+        To prove that $C$ is closed, Definition \ref{dfn:4.1} tells us that it will suffice to show that $C\subset C$ and $C$ contains all of its limit points. Since $C=C$, Theorem \ref{trm:1.7} implies that $C\subset C$. Now suppose for the sake of contradiction that $C$ does not contain all of its limit points. Then there exists a point $p\in C$ that is a limit point of $C$ such that $p\notin C$. But we cannot have $p\in C$ and $p\notin C$, so it must be that the initial hypothesis was incorrect, meaning that $C$ does, in fact, contain all of its limit points.
+    \end{proof}
+\end{theorem}
+
+\begin{theorem}\label{trm:4.3}
+    A subset of $C$ containing a finite number of points is closed.
+    \begin{proof}
+        Let $A$ be a finite subset of $C$. To prove that $A$ is closed, Definition \ref{dfn:4.1} tells us that it will suffice to show that $A$ contains all of its limit points. But by Theorem \ref{trm:3.24}, $A$ has no limit points, so the statement "$A$ contains all of its limit points" is vacuously true.
+    \end{proof}
+\end{theorem}
+
+\begin{definition}\label{dfn:4.4}
+    Let $X$ be a subset of $C$. The \textbf{closure} of $X$ is the subset $\overline{X}$ of $C$ defined by
+    \begin{equation*}
+        \overline{X} = X\cup LP(X)
+    \end{equation*}
+\end{definition}
+
+\begin{theorem}\label{trm:4.5}
+    $X\subset C$ is closed if and only if $X=\overline{X}$.
+    \begin{proof}
+        Suppose first that $X$ is closed. To prove that $X=\overline{X}$, Definition \ref{dfn:4.4} tells us that it will suffice to show that $X=X\cup LP(X)$. To show this, Definition \ref{dfn:1.2} tells us that we must verify that every element $x$ of $X$ is an element of $X\cup LP(X)$ and vice versa. First, let $x$ be an arbitrary element of $X$. Then by Definition \ref{dfn:1.5}, $x\in X\cup LP(X)$, as desired. Now let $x$ be an arbitrary element of $X\cup LP(X)$. Then by Definition \ref{dfn:1.5}, $x\in X$ or $x\in LP(X)$. We divide into two cases. If $x\in X$, then we are done. If $x\in LP(X)$, then $x\in X$ as desired for the following reason: Since $X$ is closed by hypothesis, Definition \ref{dfn:4.1} implies that $X$ contains all of its limit points, i.e., for all $y\in LP(X)$, $y\in X$; this implication notably applies to the $x$ in question.\par
+        Now suppose that $X=\overline{X}$. To prove that $X$ is closed, Definition \ref{dfn:4.1} tells us that it will suffice to show that $X$ contains all of its limit points. By Theorem \ref{trm:1.7}, $LP(X)\subset X\cup LP(X)$. This combined with the fact that $X=X\cup LP(X)$ (by Definition \ref{dfn:4.4}, since $X=\overline{X}$) implies that $LP(X)\subset X$. It follows by Definition \ref{dfn:1.3} that every element of $LP(X)$ is an element of $X$, i.e., every limit point of $X$ is an element of $X$, i.e., $X$ contains all of its limit points, as desired.
+    \end{proof}
+\end{theorem}
+
+\begin{theorem}\label{trm:4.6}
+    Let $X\subset C$. Then $\overline{X}=\overline{\overline{X}}$.
+    \begin{proof}
+        By Theorem \ref{trm:1.7}, $LP(X)\subset X\cup LP(X)$. Thus, $(X\cup LP(X))\cup LP(X)=X\cup LP(X)$. But this implies that $X\cup LP(X)=X\cup LP(X)\cup LP(X)$, meaning by several applications of Definition \ref{dfn:4.4} that $\overline{X}=\overline{\overline{X}}$, as desired.
+    \end{proof}
+\end{theorem}
+
+\begin{corollary}\label{cly:4.7}
+    Let $X\subset C$. Then $\overline{X}$ is closed.
+    \begin{proof}
+        By Theorem \ref{trm:4.6}, $\overline{X}=\overline{\overline{X}}$. Thus, if we let $Y=\overline{X}$, we know that $Y=\overline{Y}$. But by Theorem \ref{trm:4.5}, this implies that $Y$, i.e., $\overline{X}$, is closed, as desired.
+    \end{proof}
+\end{corollary}
+
+
+
+
+\end{document}
