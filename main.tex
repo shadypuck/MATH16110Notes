@@ -191,6 +191,83 @@
     \end{equation*}
     Add "which is yellow" to sentences to prove that there is no first point. Add "which is amusing" to sentences to prove that there is no last point. These modifiers can be added on indefinitely, and although you generally wouldn't, it's all grammatically correct.
     \item $\Z$ and $\Q$ both satisfy all of the axioms, and there is a bijection between them, yet one is dense and the other isn't. So\dots
+    \item \marginnote{11/3:}First attempt at formalizing "the same": Two continuua are the same iff they are in bijective correspondence.
+    \begin{itemize}
+        \item Flaws: A bijection between $\Z$ and $\Q$ is a necessary condition for them being "the same," but it's not a sufficient condition.
+        \item $\Q$ is "dense" whereas $\Z$ is not.
+        \item Thus, we must include a proto-definition of density (or somehow assert that the bijection "preserves the ordering").
+    \end{itemize}
+    \item Second attempt at formalizing "the same": Two continuua are the same iff there exists a bijection $f:A\to B$ such that $f(a)<f(b)$ iff $a<b$.
+    \begin{itemize}
+        \item Alternate formulation for density: Let $C$ be a continnuum. $C$ is dense iff for all regions $R\subset C$, $LP(R)\neq\emptyset$.
+        \item Flaws: If there are two continua $A,B$ that meet the condition "there exists a bijection $f:A\to B$ such that $f(a)<f(b)$ iff $a<b$," then the latter condition implies that they are either both dense or both not dense. Basically, dense/non-dense is a dichotomy; we need a categorization method that is a \emph{trichotomy} (as per Cartee), perhaps one that includes dense, "non-dense," and some third category.
+    \end{itemize}
+    \item Proof that the condition implies that $A$ and $B$ are either both dense or both not dense:
+    \begin{itemize}
+        \item Let $a,b$ be arbitrary elements of $A$ such that $a<b$.
+        \item If $A$ is dense, then there exists an element $c\in A$ such that $a<c<b$. Now if $B$ is not dense, then we cannot guarantee that there exists an element $d\in B$ such that $f(a)<d<f(b)$. Thus, we cannot guarantee that $f(a)<f(c)<f(b)$. So $B$ must be dense.
+        \item If $A$ is not dense, the proof is similar to the above argument in reverse.
+    \end{itemize}
+    \item Final conclusion: Constraints for two continua $A,B$ to be "the same":
+    \begin{enumerate}
+        \item There must exist a bijection $f:A\to B$.
+        \item $A$ and $B$ must be of the same density category (both dense, both semi-dense, or both buoyant).
+    \end{enumerate}
+    \item \textbf{Dense} (continuum): A continuum $C$ such that for all regions $R\subset C$, $LP(R)\neq\emptyset$.
+    \item \textbf{Semi-dense} (continuum): A continuum $C$ such that for some region $R\subset C$, $LP(R)\neq\emptyset$, and for some region $S\subset C$, $LP(S)=\emptyset$.
+    \item \textbf{Buoyant} (continuum): A continuum $C$ that is neither dense nor semi-dense. Equivalently, for all regions $R\subset C$, $LP(R)=\emptyset$.
+    \item Note that there are multiple semi-dense continuua that could be argued are different but are the same under this definition (say if there were only one dense "region" versus two dense "regions"). We might want to split into \textbf{hemi-dense} and other categories, but for now, we're going with this.
+    \item We conclude by considering three continua, one of each kind, as the concrete realizations requested by Exercise \ref{exr:3.27}: $\Z$ (buoyant), $\Q$ (dense), and $\Q\setminus\underline{01}$ (semi-dense).
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.32\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \footnotesize
+                \draw [<->] (-2,0) -- node[above=2mm]{$\Q$} node[below=1mm]{\textcolor{white}{0}} (2,0);
+            \end{tikzpicture}
+            \caption{Dense set.}
+            \label{fig:denseSemiBuoyanta}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.33\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \footnotesize
+                \draw [<-|] (-2,0) -- (0,0) node[above=2mm]{$\Q\setminus\underline{01}$} node[below=1mm]{0};
+                \draw [|->] (1,0) node[below=1mm]{1} -- (2,0);
+            \end{tikzpicture}
+            \caption{Semi-dense set.}
+            \label{fig:denseSemiBuoyantb}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.32\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \footnotesize
+                \foreach \x in {-1,0,1} {
+                    \fill (\x,0) circle (1pt) node[below=1mm]{$\x$};
+                }
+                \foreach \x in {-2,2} {
+                    \node at (\x,0) {$\cdots$};
+                }
+
+                \node [above=2mm] {$\Z$};
+            \end{tikzpicture}
+            \caption{Buoyant set.}
+            \label{fig:denseSemiBuoyantc}
+        \end{subfigure}
+        \caption{A dense, semi-dense, and buoyant number line.}
+        \label{fig:denseSemiBuoyant}
+    \end{figure}
+    \begin{itemize}
+        \item A pictoral representation is given above in Figure \ref{fig:denseSemiBuoyant} for each of these sets.
+    \end{itemize}
+    \item Additional problem: If there exists \emph{a} bijection $f:\Z\to\Q$ (which there is), shouldn't there be one that preserves ordering?
+    \begin{itemize}
+        \item For one, $f(1)$ cannot be mapped to the smallest, positive, nonzero element of $\Q$, since no such object exists.
+        \item Another thing is that since $\Q$ is dense, there exists a $p\in Q$ such that $f(1)<p<f(2)$. But there does not exist any integer between 1 and 2.
+        \item And yet \emph{an} element of $\Z$ does map to every element of $\Q$, so can't we "flip" which object maps to which other object? So if $f(2)=\frac{1}{2}$ and $f(z)=\frac{1}{4}$, then can't we let $f(2)=\frac{1}{4}$ and $f(z)=\frac{1}{2}$, and keep "flipping" indefinitely? But then, would we ever actually reach a "limit bijection" with the desired quality? It would simultaneously seem that we would have to and that we never could.
+        \item Basically, what the issue boils down to is a potential problem with the ZFC-axioms of set theory and the objects we've defined since. All of these results follow directly from what we assume, but there is the possibility that the base assumptions are wrong. If I can assemble my disparate ideas into a formal paradox (\`{a} la Russell's Paradox with respect to na\"{i}ve set theory), then I would be able to challenge this idea, but until then, I'll let it go.
+    \end{itemize}
 \end{itemize}
 
 
@@ -200,7 +277,7 @@
 
 \section{Discussion}
 \begin{itemize}
-    \item In Theorem \ref{trm:4.6}, does what I did suffice, or do we somehow need to prove that $X\cup LP(X)=(X\cup LP(X))\cup LP(X\cup LP(X))$?
+    \item Emily Wilson's more lyrical translation of \emph{The Odyssey}.
 \end{itemize}
 
 
