@@ -279,6 +279,14 @@
 \begin{itemize}
     \item \marginnote{11/3:}Emily Wilson's more lyrical translation of \emph{The Odyssey}.
     \item \marginnote{11/5:}In Theorem \ref{trm:4.6}, is there a simpler way to prove the lemma?
+    \begin{itemize}
+        \item Direct approach: $R\cap(LP(X)\setminus\{p\})\neq\emptyset$ implies $R$ contains at least one other limit point of $LP(X)$ besides $p$. Let $m$ be this point. Then $R\cap(X\setminus\{m\})\neq\emptyset$. Therefore, $R\cap X$ is infinite. So $R\cap(X\setminus\{p\})\neq\emptyset$ (it will just be "slightly less infinite"). Therefore, $p\in LP(X)$.
+    \end{itemize}
+    \item Alternate proof (Theorem \ref{trm:4.10} part 2): Now suppose that $G$ is open. Then by Definition \ref{dfn:4.8}, $C\setminus G$ is closed. Let $x$ be an arbitrary element of $G$. We wish to prove that there exists a region $R$ with $x\in R$ such that $R\cap(C\setminus G)=\emptyset$, i.e., $R\cap((C\setminus G)\setminus\{x\})=\emptyset$, i.e., $x\notin LP(C\setminus G)$. Since $C\setminus G$ is closed, $C\setminus G=(C\setminus G)\cup LP(C\setminus G)$ by Definition \ref{dfn:4.1}. Thus, for all $a\in G$, $a\notin C\setminus G$, i.e., $a\notin LP(C\setminus G)$ by the closure of $C\setminus G$. Additionally, we necessarily have that $a\in R$ where $R$ is some region. Thus, $R\cap((C\setminus G)\setminus\{a\})=\emptyset$, i.e., for all $r\in R$, $r\notin C\setminus G$. Thus, $R\subset C\setminus(C\setminus G)=G$.
+    \item Alternate proof (Corollary \ref{cly:4.11}): First, address "every $C\setminus R$ is closed." We must show that $LP(C\setminus R)\subset C\setminus R$. If $p\in LP(C\setminus R)$, then by Definition \ref{dfn:3.13}, $S\cap((C\setminus R)\setminus\{p\})\neq\emptyset$ for all $S\subset C$ such that $p\in S$. Now suppose for the sake of contradiction that $p\notin C\setminus R$. Then $S\cap(C\setminus R)\neq\emptyset$ for all $S\subset C$ with $p\in S$. But since $p\in R$, if we let $S=R$, then $R\cap(C\setminus R)\neq\emptyset$, a contradiction. Thus, $p\in C\setminus R$, so $C\setminus R$ is closed for all regions $R\subset C$.\par
+    We have by the first part that $C\setminus R$ is closed for all $R\subset C$. Thus, $R$ is open.
+    \item Shiv approached Theorem \ref{trm:4.14} inductively and then considered the infinite case. This is far overcomplicated and likely incorrect, though.
+    \item Definitions can be treated as if and only if. More accurately, a definition assigns a term to a certain characteristic in a way similar to if and only if but not identical.
 \end{itemize}
 
 

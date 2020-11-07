@@ -3,7 +3,6 @@
 \pagestyle{main}
 \renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter}{#1}}
 \setcounter{chapter}{2}
-\externaldocument{../main}
 
 \begin{document}
 
@@ -142,7 +141,7 @@
 \begin{theorem}\label{trm:3.14}
     If $p$ is a limit point of $A$ and $A\subset B$, then $p$ is a limit point of $B$.
     \begin{proof}
-        To prove that a limit point $p$ of $A\subset B$ is a limit point of $B$, Definition \ref{dfn:3.13} tells us that it will suffice to show that for every region $R$ with $p\in R$, we have $R\cap(B\setminus\{p\})\neq\emptyset$. Let $p$ be a limit point of $A$, and let $R$ be an arbitrary region with $p\in R$. Then by Definition \ref{dfn:3.13}, we have $R\cap(A\setminus\{p\})\neq\emptyset$. Thus, by Definition \ref{dfn:1.8}, there is an element $x\in R\cap(A\setminus\{p\})$. Since $A\setminus\{p\}\subset B\setminus\{p\}$ (because $A\subset B$), it follows (by the fact that for three sets $A,B,C$ such that $B\subset C$, $A\cap B\subset A\cap C$) that $R\cap(A\setminus\{p\})\subset R\cap(B\setminus\{p\})$. Consequently, by Definition \ref{dfn:1.3}, the previously referenced object $x\in R\cap(A\setminus\{p\})$ is also an element of $R\cap(B\setminus\{p\})$. Thus, by Definition \ref{dfn:1.8}, $R\cap(B\setminus\{p\})\neq\emptyset$, as desired.
+        To prove that a limit point $p$ of $A\subset B$ is a limit point of $B$, Definition \ref{dfn:3.13} tells us that it will suffice to show that for every region $R$ with $p\in R$, we have $R\cap(B\setminus\{p\})\neq\emptyset$. Let $p$ be a limit point of $A$, and let $R$ be an arbitrary region with $p\in R$ (we know that such a region exists because of Theorem \ref{trm:3.12}). Then by Definition \ref{dfn:3.13}, we have $R\cap(A\setminus\{p\})\neq\emptyset$. Thus, by Definition \ref{dfn:1.8}, there is an element $x\in R\cap(A\setminus\{p\})$. Since $A\setminus\{p\}\subset B\setminus\{p\}$ (because $A\subset B$), it follows (by the fact that for three sets $A,B,C$ such that $B\subset C$, $A\cap B\subset A\cap C$) that $R\cap(A\setminus\{p\})\subset R\cap(B\setminus\{p\})$. Consequently, by Definition \ref{dfn:1.3}, the previously referenced object $x\in R\cap(A\setminus\{p\})$ is also an element of $R\cap(B\setminus\{p\})$. Thus, by Definition \ref{dfn:1.8}, $R\cap(B\setminus\{p\})\neq\emptyset$, as desired.
     \end{proof}
 \end{theorem}
 

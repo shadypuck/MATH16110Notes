@@ -3,7 +3,6 @@
 \pagestyle{main}
 \renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter}{#1}}
 \setcounter{chapter}{3}
-\externaldocument{../main}
 
 \begin{document}
 
@@ -47,66 +46,12 @@
     \end{proof}
 \end{theorem}
 
-% \begin{itemize}
-%     \item Let $p$ be an arbitrary point of $C$ such that $p\notin LP(X)$.
-%     \item Definition \ref{dfn:3.13}: There exists a region $R$ with $p\in R$ such that $R\cap(X\setminus\{p\})=\emptyset$.
-%     \item Let $R=\underline{ab}$ where $a,b\in C$, and let $q$ be an arbitrary point of $\underline{ab}$ such that $q\neq p$.
-%     \item We divide into two cases (recall that $q=p$ is covered by the definition of $p$).
-%     \item Case 1 ($q<p$):
-%     \begin{itemize}
-%         \item Consider the region $\underline{ap}$.
-%         \item Prove two preliminary results.
-%         \item $q\in\underline{ap}$:
-%         \begin{itemize}
-%             \item To prove this, Definitions \ref{dfn:3.10} and \ref{dfn:3.6}: show that $a<q$ and $q<p$.
-%             \item We already know $q<p$ by hypothesis.
-%             \item Definitions \ref{dfn:3.10} and \ref{dfn:3.6}: $q\in\underline{ab} \Longrightarrow a<q\wedge q<b$.
-%         \end{itemize}
-%         \item $\underline{ap}\subset R$:
-%         \begin{itemize}
-%             \item To prove this, Definition \ref{dfn:1.3}: show that every element $x\in\underline{ap}$ is an element of $R$.
-%             \item Let $x$ be an arbitrary point of $\underline{ap}$.
-%             \item Definitions \ref{dfn:3.10} and \ref{dfn:3.6}: $a<x$ and $x<p$.
-%             \item Definitions \ref{dfn:3.10} and \ref{dfn:3.6}: $p\in R \Longrightarrow p\in\underline{ab} \Longrightarrow a<p\wedge p<b$.
-%             \item Definitions \ref{dfn:3.1}: $x<p\wedge p<b \Longrightarrow x<b$.
-%             \item Definitions \ref{dfn:3.6} and \ref{dfn:3.10}: $a<x\wedge x<b \Longrightarrow x\in\underline{ab} \Longrightarrow x\in R$.
-%         \end{itemize}
-%         \item Suppose (contradiction): there exists $x\in\underline{ap}\cap(X\setminus\{q\})$.
-%         \item Definition \ref{dfn:1.6}: $x\in\underline{ap}$ and $x\in X\setminus\{q\}$.
-%         \item Definition \ref{dfn:1.3}: $x\in\underline{ap}\wedge\underline{ap}\subset R \Longrightarrow x\in R$.
-%         \item Definitions \ref{dfn:3.10} and \ref{dfn:3.6}: $x\in\underline{ap} \Longrightarrow a<x\wedge x<p$.
-%         \item Definition \ref{dfn:3.1}: $x<p \Longrightarrow x\neq p \Longrightarrow x\notin\{p\}$.
-%         \item Definition \ref{dfn:1.11}: $x\in X\setminus\{q\} \Longrightarrow x\in X\wedge x\notin\{q\}$.
-%         \item Definition \ref{dfn:1.11}: $x\in X\wedge x\notin\{p\} \Longrightarrow x\in X\setminus\{p\}$.
-%         \item Definition \ref{dfn:1.6}: $x\in R\wedge x\in X\setminus\{p\} \Longrightarrow x\in R\cap(X\setminus\{p\})$.
-%         \item Definition \ref{dfn:1.2}: $x\in R\cap(X\setminus\{p\})\wedge R\cap(X\setminus\{p\})=\emptyset \Longrightarrow x\in\emptyset$.
-%         \item Contradicts Definition \ref{dfn:1.8}.
-%     \end{itemize}
-%     \item Case 2 ($p<q$): The proof is symmetric.
-%     \item Therefore, for all $q\in R$ (the objects equal to, less than, and greater than $p$), there exists a region $S$ with $q\in S$ (recall that we proved $q\in\underline{ap}$ in the case we treated, and $p\in R$ by definition) such that $S\cap(X\setminus\{q\})=\emptyset$.
-%     \item Definition \ref{dfn:3.13}: For all $q\in R$, $q\notin LP(X)$.
-%     \item Suppose (contradiction): there exists $x\in R\cap LP(X)$.
-%     \item Definition \ref{dfn:1.6}: $x\in R$ and $x\in LP(X)$.
-%     \item Contradicts $y\in R \Longrightarrow y\notin LP(X)$.
-%     \item Definition \ref{dfn:1.8}: $R\cap LP(X)=\emptyset$.
-%     \item Therefore, $R\cap(LP(X)\setminus\{p\})=\emptyset$.
-%     \item Definition \ref{dfn:1.13}: $p\notin LP(LP(X))$.
-% \end{itemize}
-
 \begin{theorem}\label{trm:4.6}\marginnote{\emph{11/5:}}
     Let $X\subset C$. Then $\overline{X}=\overline{\overline{X}}$.
     \begin{lemma*}
         If $p$ is an element of $LP(LP(X))$, then $p$ is an element of $LP(X)$.
         \begin{proof}
-            We will prove the claim by contrapositive. Because of the complexity of the argument used, a short outline follows. Essentially, we let $p\in C$ such that $p\notin LP(X)$. We show that this implies that there exists a region $R$ of $C$ with $p\in R$ such that for every point $q\in R$, $q\notin LP(X)$. This will imply that $R\cap LP(X)=\emptyset$, i.e., $R\cap(LP(X)\setminus\{p\})=\emptyset$, which means that $p$ is not an element of $LP(LP(X))$. Let's begin.\par\medskip
-            Let $p$ be an arbitrary point of $C$ such that $p\notin LP(X)$. Then by Definition \ref{dfn:3.13}, there exists a region $\underline{ab}$ (where $a,b\in C$) with $p\in\underline{ab}$ such that $\underline{ab}\cap(X\setminus\{p\})=\emptyset$. Now let $q$ be an arbitrary point of $\underline{ab}$ such that $q\neq p$. To prove that $q\notin LP(X)$, we divide into two cases ($q<p$ and $p<q$; recall that $q=p$ is covered by the definition of $p$, which directly asserts that $p\notin LP(X)$). Note that if no $q\in\underline{ab}$ exists such that $q\neq p$, then the statement "$q\notin LP(X)$" is vacuously true.\par\smallskip
-            Suppose first that $q<p$. Since $p\in\underline{ab}$, we have by Definitions \ref{dfn:3.10} and \ref{dfn:3.6} that $a<p$ and $p<b$. It follows from the former result and Definition \ref{dfn:3.10} that we the region $\underline{ap}$ is well defined. During our treatment of this case, we will spend a great deal of time examining this region. However, before we begin in earnest, we will prove two preliminary results (that $q\in\underline{ap}$ and that $\underline{ap}\subset\underline{ab}$).\par
-            To prove that $q\in\underline{ap}$, Definitions \ref{dfn:3.10} and \ref{dfn:3.6} tell us that it will suffice to show that $a<q$ and $q<p$. We already know that $q<p$ by hypothesis, and since $q\in\underline{ab}$ by definition, Definitions \ref{dfn:3.10} and \ref{dfn:3.6} imply that $a<q$ (and $q<b$, but this is unimportant), as desired.\par
-            To prove that $\underline{ap}\subset\underline{ab}$, Definition \ref{dfn:1.3} tells us that it will suffice to show that every element $x\in\underline{ap}$ is an element of $\underline{ab}$. Let $x$ be an arbitrary point of $\underline{ap}$. It follows by Definitions \ref{dfn:3.10} and \ref{dfn:3.6} that $a<x$ and $x<p$. By Definitions \ref{dfn:3.10} and \ref{dfn:3.6} again, the fact that $p\in\underline{ab}$ implies that $a<p$ and $p<b$. Thus, since $x<p$ and $p<b$, Definition \ref{dfn:3.1} asserts that $x<b$. Therefore, since $a<x$ and $x<b$, Definitions \ref{dfn:3.6} and \ref{dfn:3.10} imply that $x\in\underline{ab}$, as desired.\par
-            With these two claims proven, we may now begin in earnest. Suppose for the sake of contradiction that there exists an object $x\in\underline{ap}\cap(X\setminus\{q\})$. Then by Definition \ref{dfn:1.6}, $x\in\underline{ap}$ and $x\in X\setminus\{q\}$. We investigate each result in turn. Using the former result and the fact that $\underline{ap}\subset\underline{ab}$, Definition \ref{dfn:1.3} tells us that $x\in\underline{ab}$ (this is an important result; remember it). Additionally, $x\in\underline{ap}$ reveals via Definitions \ref{dfn:3.10} and \ref{dfn:3.6} that $a<x$ and $x<p$. By Definition \ref{dfn:3.1}, $x<p$ implies that $x\neq p$, i.e., that $x\notin\{p\}$ (this is another important result). This concludes our investigation of the first result. With respect to the latter result, Definition \ref{dfn:1.11} implies that $x\in X$ (this is our final important result) and $x\notin\{q\}$. We now combine the three important results into a whole that leads to a contradiction. First off, since $x\in X$ and $x\notin\{p\}$, Definition \ref{dfn:1.11} tells us that $x\in X\setminus\{p\}$. This combined with the fact that $x\in\underline{ab}$ implies by Definition \ref{dfn:1.6} that $x\in\underline{ab}\cap(X\setminus\{p\})$. Consequently, since we also know from early on in this proof that $\underline{ab}\cap(X\setminus\{p\})=\emptyset$, we have by Definition \ref{dfn:1.2} that $x\in\emptyset$. But this contradicts Definition \ref{dfn:1.8}. Therefore, we have that $\underline{ap}\cap(X\setminus\{q\})=\emptyset$ for all $q<p$.\par\smallskip
-            The proof is symmetric if $p<q$.\par\medskip
-            Therefore, for all $q\in\underline{ab}$ (the objects equal to, less than, and greater than $p$), there exists a region $S$ with $q\in S$ (recall that we proved $q\in\underline{ap}$ in the case we treated, and $p\in\underline{ab}$ by definition) such that $S\cap(X\setminus\{q\})=\emptyset$. It follows by the contrapositive of Definition \ref{dfn:3.13} that for all $q\in\underline{ab}$, $q\notin LP(X)$.\par\medskip
-            We are now very close to being done. To wrap it up, suppose for the sake of contradiction that there exists an object $x\in\underline{ab}\cap LP(X)$. Then by Definition \ref{dfn:1.6}, $x\in\underline{ab}$ and $x\in LP(X)$. But this contradicts the previously proven implication that if $x\in\underline{ab}$, we must also have $x\notin LP(X)$. Therefore, no object $x$ is an element of $\underline{ab}\cap LP(X)$, so by Definition \ref{dfn:1.8}, $\underline{ab}\cap LP(X)=\emptyset$. Consequently, $\underline{ab}\cap(LP(X)\setminus\{p\})=\emptyset$. Therefore, by the contrapositive of Definition \ref{dfn:1.13}, $p\notin LP(LP(X))$, as desired.
+            Let $p$ be an arbitrary element of $LP(LP(X))$. To prove that $p\in LP(X)$, Definition \ref{dfn:3.13} tells us that it will suffice to show that for all regions $R$ containing $p$, $R\cap(X\setminus\{p\})\neq\emptyset$. Let $R$ be an arbitrary region with $p\in R$ (we know that such a region exists because of Theorem \ref{trm:3.12}\footnote{This justification will not be supplied in similar cases beyond this point.}). Then since we know that $p\in LP(LP(X))$, we have by Theorem \ref{trm:3.26} that $R\cap LP(X)$ is infinite. Thus, we know that there exists an object $x\in R\cap LP(X)$ such that $x\neq p$. By Definition \ref{dfn:1.6}, it follows that $x\in R$ and $x\in LP(X)$. Since $x\in LP(X)$, Theorem \ref{trm:3.26} tells us that all regions containing $x$ (including $R$) have infinite intersection with $X$, i.e., $R\cap X$ is infinite. Consequently, $R\cap(X\setminus\{p\})$ is still infinite (since $\{p\}$ is finite), so $R\cap(X\setminus\{p\})\neq\emptyset$, as desired.
         \end{proof}
     \end{lemma*}
     \begin{proof}[Proof of Theorem \ref{trm:4.6}]
@@ -139,6 +84,47 @@
     The sets $\emptyset$ and $C$ are open.
     \begin{proof}
         We will address the two sets individually. to prove that $\emptyset$ is open, Definition \ref{dfn:4.8} tells us that it will suffice to show that $C\setminus\emptyset$ is closed. But $C\setminus\emptyset=C$, and by Theorem \ref{trm:4.2}, $C$ is closed. The proof is symmetric for $C$.
+    \end{proof}
+\end{theorem}
+
+\begin{theorem}\label{trm:4.10}
+    Let $G\subset C$. Then $G$ is open if and only if for all $x\in G$, there exists a region $R$ such that $x\in R$ and $R\subset G$.
+    \begin{proof}
+        To prove that $G$ is open if and only if for all $x\in G$, there exists a region $R$ such that $x\in R$ and $R\subset G$, we will take a similar approach to the proof of Theorem \ref{trm:3.20}. Indeed, to prove the dual implications "if there exists a region $R$ such that $x\in R$ and $R\subset G$ for all $x\in G$, then $G$ is open" and "if $G$ is open, then for all $x\in G$, there exists a region $R$ such that $x\in R$ and $R\subset G$," we will prove the first implication directly and the second one by contrapositive. Let's begin.\par
+        Suppose first that for all $x\in G$, there exists a region $R$ such that $x\in R$ and $R\subset G$. To prove that $G$ is open, Definition \ref{dfn:4.8} tells us that it will suffice to confirm that $C\setminus G$ is closed. To confirm this, Definition \ref{dfn:4.1} tells us that it will suffice to show that $C\setminus G$ contains all of its limit points. Suppose for the sake of contradiction that for some limit point $p$ of $C\setminus G$, $p\notin C\setminus G$. Since $p\notin C\setminus G$, Definition \ref{dfn:1.11} tells us that $p\notin C$ or $p\in G$. But we must have $p\in C$, so necessarily $p\in G$. It follows by the hypothesis that there exists a region $R$ such that $p\in R$ and $R\subset G$. The fact that $R\subset G$ implies that $R\cap(C\setminus G)=\emptyset$. Consequently, $R\cap((C\setminus G)\setminus\{p\})=\emptyset$. But this implies by Definition \ref{dfn:3.13} that $p$ is not a limit point of $C\setminus G$, a contradiction. Therefore, $C\setminus G$ contains all of its limit points, as desired.\par
+        Now suppose that for some $x\in G$, there does not exist a region $R$ such that $x\in R$ and $R\subset G$. To prove that $G$ is not open, Definition \ref{dfn:4.8} tells us that it will suffice to show that its complement $C\setminus G$ is not closed. To show this, Definition \ref{dfn:4.1} tells us that it will suffice to verify that $C\setminus G$ does not contain all of its limit points, i.e., it will suffice to find some limit point of $C\setminus G$ that is not an element of this set. Consider the $x\in G$ introduced by the hypothesis; we will prove that this $x$ is the desired limit point of $C\setminus G$ that is also not an element of $C\setminus G$. By Definition \ref{dfn:1.11}, $x\in G$ implies $x\notin C\setminus G$, so all that's left at this point is to prove that $x\in LP(C\setminus G)$. To do this, Definition \ref{dfn:3.13} tells us that it will suffice to demonstrate that for all $R$ with $x\in R$, $R\cap((C\setminus G)\setminus\{x\})\neq\emptyset$. Let $R$ be an arbitrary region with $x\in R$. By the hypothesis, $R\not\subset G$, so Definition \ref{dfn:1.3} implies that there exists some $y\in R$ such that $y\notin G$. Since $y\notin G$, we know two things: First, $y\neq x$ (since $x\in G$ and $y$ cannot be both an element of and not an element of $G$) and second, $y\in C\setminus G$ (see Definition \ref{dfn:1.11}). Consequently, we have $y\in R$ and $y\in C\setminus G$, so by Definition \ref{dfn:1.6}, $y\in R\cap(C\setminus G)$. It follows since $y\neq x$ by Definition \ref{dfn:1.11} that $y\in R\cap((C\setminus G)\setminus\{x\})$. Therefore, by Definition \ref{dfn:1.8}, $R\cap((C\setminus G)\setminus\{x\})\neq\emptyset$, as desired.
+    \end{proof}
+\end{theorem}
+
+\begin{corollary}\label{cly:4.11}
+    Every region $R$ is open. Every complement of a region $C\setminus R$ is closed.
+    \begin{proof}
+        Let $R$ be an arbitrary region. Clearly, for all $x\in R$, there exists a region (namely $R$) such that $x\in R$ and $R\subset R$. Thus, by Theorem \ref{trm:4.10}, $R$ is open, as desired. It follows by Definition \ref{dfn:4.8} that $C\setminus R$ is closed, as desired.
+    \end{proof}
+\end{corollary}
+
+\begin{corollary}\label{cly:4.12}
+    Let $G\subset C$. Then $G$ is open if and only if for all $x\in G$, there exists a subset $V\subset G$ such that $x\in V$ and $V$ is open.
+    \begin{proof}
+        Suppose first that $G$ is open. Then by Theorem \ref{trm:4.10}, for all $x\in G$, there exists a region $R$ such that $x\in R$ and $R\subset G$. Additionally, by Corollary \ref{cly:4.11}, each of these regions $R$ is open. Thus, $R$ is the desired open subset $V\subset G$ with $x\in V$.\par
+        Now suppose that for all $x\in G$, there exists a subset $V\subset G$ such that $x\in V$ and $V$ is open. To prove that $G$ is open, Theorem \ref{trm:4.10} tells us that it will suffice to show that for all $x\in G$, there exists a region $R$ such that $x\in R$ and $R\subset G$. Let $x$ be an arbitrary element of $G$. By the hypothesis, we know that $x\in V$ where $V$ is an open subset of $G$. It follows by Theorem \ref{trm:4.10} that there exists a region $R$ such that $x\in R$ and $R\subset V$. But by subset transitivity, for any $R$, $R\subset G$. Thus, there exists a region $R$ such that $x\in R$ and $R\subset G$, as desired.
+    \end{proof}
+\end{corollary}
+
+\begin{corollary}\label{cly:4.13}
+    Let $a\in C$. Then the sets $\{x\in C\mid x<a\}$ and $\{x\in C\mid a<x\}$ are open.
+    \begin{proof}
+        We divide into two cases.\par
+        First, consider the set $\{x\in C\mid x<a\}$, which we will henceforth call $G$ for ease of use. To prove that $G$ is open, Theorem \ref{trm:4.10} tells us that it will suffice to show that for all $y\in G$, there exists a region $R$ such that $y\in R$ and $R\subset G$. Let $y$ be an arbitrary element of $G$. By Axiom \ref{axm:3.3} and Definition \ref{dfn:3.3}, we can choose a $z<y$. Since we also have $y<a$ (by the definition of $G$ and the fact that $y\in G$), Definitions \ref{dfn:3.6} and \ref{dfn:3.10} assert that $y\in\underline{za}$. Now we must prove that $\underline{za}\subset G$, which Definition \ref{dfn:1.3} tells us we can do by showing that every element of $\underline{za}$ is an element of $G$. But since every element of $\underline{za}$ is less than $a$ (and greater than $z$, but this is not relevant) by Definitions \ref{dfn:3.10} and \ref{dfn:3.6}, they \emph{are} all elements of $G$ by the definition of $G$, as desired.\par
+        The proof is symmetric in the other case.
+    \end{proof}
+\end{corollary}
+
+\begin{theorem}\label{trm:4.14}
+    Let $G$ be a nonempty open set. Then $G$ is the union of a collection of regions.
+    \begin{proof}
+        Since $G$ is an open set, Theorem \ref{trm:4.10} implies that for all $x\in G$, there exists a region $R_x$ such that $x\in R_x$ and $R_x\subset G$. Thus, we can create the set $\mathcal{R}=\{R_x\mid x\in G\}$ and define its union $\bigcup_{x\in G}R_x$ by Definition \ref{dfn:1.13}. We now prove that $\bigcup_{x\in G}R_x=G$, which will suffice to show that $G$ can be described as a collection of regions.\par
+        To prove that $\bigcup_{x\in G}R_x=G$, Definition \ref{dfn:1.2} tells us that it will suffice to show that every element $y\in\bigcup_{x\in G}R_x$ is an element of $G$ and vice versa. Suppose first that $y$ is an arbitrary element of $\bigcup_{x\in G}R_x$. Then by Definition \ref{dfn:1.13}, $y\in R_x$ for some $x\in G$. Thus, since $R_x\subset G$ by definition, Definition \ref{dfn:1.3} implies that $y\in G$. Now suppose that $y$ is an arbitrary element of $G$. Then $y\in R_y$, so Definition \ref{dfn:1.13} implies that $y\in\bigcup_{x\in G}R_x$, as desired.
     \end{proof}
 \end{theorem}
 
