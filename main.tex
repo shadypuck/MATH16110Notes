@@ -104,6 +104,10 @@
     \item Use $f(\eqclass{a}{b})=(a',b')$ to denote that $a\neq a'$ and $b\neq b'$ in every case although the numbers are related.
     \item Two things in the same equivalence class go to the same place, whereas two things in different equivalent classes go to different places.
     \item We're restricting the range with the well-ordering principle, not the domain.
+    \item \marginnote{11/10:}The axiom of choice is necessary for my proof of Theorem \ref{trm:2.11} to work. See the edits to the proof of Lemma (a).
+    \begin{itemize}
+        \item However, a proof using the well-ordering principle (which works as a selector function) would be better than invoking the axiom of choice in the eyes of some mathematicians.
+    \end{itemize}
 \end{itemize}
 
 
@@ -288,6 +292,31 @@
     \item Shiv approached Theorem \ref{trm:4.14} inductively and then considered the infinite case. This is far overcomplicated and likely incorrect, though.
     \item Definitions can be treated as if and only if. More accurately, a definition assigns a term to a certain characteristic in a way similar to if and only if but not identical.
     \item \marginnote{11/10:}How much of a write up do we need for Exercise \ref{exr:4.15}, i.e., fully rigorous, semi-rigorous is ok, somewhere in between?
+    \begin{itemize}
+        \item Yes, go rigorous all the way.
+    \end{itemize}
+    \textbf{Axiom of choice}: A Cartesian product of nonempty sets is, itself, nonempty.
+    \begin{itemize}
+        \item If you have finitely many bins, then for each bin, you can pick one thing out of each bin.
+        \item If you have infinitely many bins, then you need the Axiom of choice to pick one thing out of each bin.
+        \begin{itemize}
+            \item We have nonempty bins, we take their Cartesian product, which is equivalent to picking out an element from each bin and assembling them into a set.
+            \item You need a selection function, or assume the axiom of choice.
+        \end{itemize}
+        \item You don't need the axiom of choice if you know that there is a consistent way of picking something out from any single set.
+        \begin{itemize}
+            \item Infinitely many pairs of shoes? You can always pick the left shoe.
+            \item Infinitely many pairs of socks (which are indistinguishable)? You need the axiom of choice.
+        \end{itemize}
+        \item Issue first came up in defining $f:\Q\to\Z\times\Z$. We wanted to send $\eqclass{a}{b}$ to a consistent object $(a_1,b_1)\in\Z\times\Z$. With the well-ordering principle, we had a consistent way of picking out an element of $\eqclass{a}{b}$ (the one with the smallest positive nonzero denominator).
+    \end{itemize}
+    \item So with respect to Theorem \ref{trm:4.14}, we need the axiom of choice.
+    \begin{itemize}
+        \item Wrong: we cannot iteratively apply Theorem \ref{trm:4.10} to each element $x\in G$ if $G$ is uncountably infinite. To be able to pick out a region for every $x$ "at the same time," we need the axiom of choice. We're taking issue with the creation of the set $\bigcup_{x\in G}R_x$, not actually proving that $\bigcup_{x\in G}R_x=G$, which can be well done for "one arbitrary element."
+        \item Wrong: in the proof, say, "...Thus, we can create the set $\mathcal{R}=\{R_x\mid x\in G\}$ [by the axiom of choice] and define its union..."
+        \item Right: We use the axiom of choice to pick 1 $R_x$ out of the set of all possible $R_x$ (we know that at least one exists by Theorem \ref{trm:4.10}, but there could be [and certainly in some cases are] infinitely many $R_x$ containing $x$ that are subsets of $G$). It is the act of choosing that necessitates the axiom of choice.
+    \end{itemize}
+    \item In Exercise \ref{exr:4.15}, show that the region containing 2 is not a subset of $\underline{12}\cup\{2\}$ and then invoke Theorem \ref{trm:4.10} to prove that it's not open. To prove that it's closed, still use my argument.
 \end{itemize}
 
 
