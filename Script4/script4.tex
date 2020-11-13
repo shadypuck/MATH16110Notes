@@ -170,6 +170,43 @@
     \end{proof}
 \end{exercise}
 
+\begin{corollary}\label{cly:4.20}\marginnote{\emph{11/17:}}
+    Let $G\subset C$ be nonempty. Then $G$ is open if and only if $G$ is the union of a collection of regions.
+    \begin{proof}
+        Suppose first that $G$ is open. Then by Theorem \ref{trm:4.14}, $G$ is the union of a collection of regions.\par
+        Now suppose that $G$ is the union of a collection of regions. Then by Corollary \ref{cly:4.11}, $G$ is the union of a collection of open subsets of $C$. Therefore, by Corollary \ref{cly:4.18}, $G$ is open.
+    \end{proof}
+\end{corollary}
+
+\begin{corollary}\label{cly:4.21}
+    If $\underline{ab}$ is a region in $C$, then $\ext\underline{ab}$ is open.
+    \begin{proof}
+        By Corollary \ref{cly:4.13}, $\{x\in C\mid x<a\}$ and $\{x\in C\mid b<x\}$ are open. It follows by Corollary \ref{cly:4.18} that $\{x\in C\mid x<a\}\cup\{x\in C\mid b<x\}$ is open. Therefore, since $\{x\in C\mid x<a\}\cup\{x\in C\mid b<x\}=\ext\underline{ab}$ by Lemma \ref{lem:3.16}, $\ext\underline{ab}$ is open, as desired.
+    \end{proof}
+\end{corollary}
+
+\begin{definition}\label{dfn:4.22}
+    Let $C$ be a continuum. We say that $C$ is \textbf{disconnected} if it may be written as $C=A\cup B$, where $A$ and $B$ are disjoint, non-empty, open sets. $C$ is \textbf{connected} if it is not disconnected.
+\end{definition}
+
+\begin{exercise}\label{exr:4.23}
+    Let $C$ be a connected continuum and $a\in C$. Prove that $C\setminus\{a\}$ is a disconnected continuum.
+    \begin{proof}
+        To prove that $C\setminus\{a\}$ is a disconnected continuum, Definition \ref{dfn:4.22} tells us that it will suffice to show that $C\setminus\{a\}=A\cup B$ where $A$ and $B$ are disjoint, non-empty, open sets. Let $A=\{x\in C\setminus\{a\}\mid x<a\}$ and let $B=\{x\in C\setminus\{a\}\mid a<x\}$. We now work our way through the conditions.\par
+        To show that $C\setminus\{a\}=A\cup B$, Definition \ref{dfn:1.2} tells us that it will suffice to confirm that every element $y\in C\setminus\{a\}$ is an element of $A\cup B$ and vice versa. Suppose first that $y\in C\setminus\{a\}$. Then $y\in C$ and $y\notin\{a\}$, i.e., $y\neq a$. Thus, we have by Definition \ref{dfn:3.1} that $y<a$ or $y>a$ (we cannot have $y=a$ since we have already established that $y\neq a$). We divide into two cases. If $y<a$, then since we also know that $y\in C\setminus\{a\}$, we have $y\in\{x\in C\setminus\{a\}\mid x<a\}$, i.e., $y\in A$, i.e., $y\in A\cup B$, as desired. On the other hand, if $y>a$, then for similar reasons to the other case, $y\in B$, so $y\in A\cup B$, as desired. Now suppose that $y\in A\cup B$. Then $y\in A$ or $y\in B$. We divide into two cases. If $y\in A$, then we have by the definition of $A$ that $y\in C\setminus\{a\}$. The proof is symmetric for the other case.\par
+        To show that $A$ and $B$ are disjoint, Definition \ref{dfn:1.9} tells us that it will suffice to verify that $A\cap B=\emptyset$. Suppose for the sake of contradiction that $y\in A\cap B$. Then $y\in A$ and $y\in B$. It follows by the definitions of $A$ and $B$ that $y<a$ and $a<y$. But this contradicts Definition \ref{dfn:3.1}. Therefore, no object $y$ is an element of $A\cap B$, so by Definition \ref{dfn:1.8}, $A\cap B=\emptyset$, as desired.\par
+        To show that $A$ and $B$ are non-empty, Definition \ref{dfn:1.8} tells us that it will suffice to find an object in $A$ and an object in $B$. We divide into two cases. By Axiom \ref{axm:3.3} and Definition \ref{dfn:3.3}, there exists an object $y\in C$ such that $y<a$. It follows from the latter condition and Definition \ref{dfn:3.1} that $y\neq a$, i.e., $y\notin\{a\}$. Thus, since $y\in C$ and $y\notin\{a\}$, $y\in C\setminus\{a\}$. This result combined with the fact that $y<a$ implies by the definition of $A$ that $y\in A$, as desired. The proof is symmetric in the other case.\par
+        To prove that $A$ and $B$ are open, we need look no farther than Corollary \ref{cly:4.13}.
+    \end{proof}
+\end{exercise}
+
+\begin{exercise}\label{exr:4.24}
+    Must every realization of a continuum be disconnected? Think about the realizations of the continuum from Exercise \ref{exr:3.27}. Are they connected/disconnected?
+    \begin{proof}
+        No. For example, $\Q$ from Exercise \ref{exr:3.27} is connected, while $\Z$ and $\Q\setminus\underline{01}$ are disconnected.
+    \end{proof}
+\end{exercise}
+
 
 
 
