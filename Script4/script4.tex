@@ -203,7 +203,20 @@
 \begin{exercise}\label{exr:4.24}
     Must every realization of a continuum be disconnected? Think about the realizations of the continuum from Exercise \ref{exr:3.27}. Are they connected/disconnected?
     \begin{proof}
-        No. For example, $\Q$ from Exercise \ref{exr:3.27} is connected, while $\Z$ and $\Q\setminus\underline{01}$ are disconnected.
+        No. For example, $\Q$ from Exercise \ref{exr:3.27} is connected, while $\Z$ and $\Q\setminus\underline{01}$ are disconnected. Let $\Q=A\cup B$, where $A,B$ are nonempty, disjoint, open sets. Then $A=\bigcup_\lambda R_\lambda$ and $B=C\setminus A=\bigcap_\lambda(C\setminus R_\lambda)$. Then $B$ is closed (Theorem \ref{trm:4.17}). So is $A$.
+
+
+        Lemma 1: Any subset of $\Z$ is closed.
+        Let $S\subset\Z$, and let $p\in\Z$. Let $R=\underline{(p-1)(p+1)}$. Clearly, $R$ contains $p$. But $R\cap(S\setminus\{p\})=\emptyset$. Since there are no limit points in $\Z$, $S$ must be closed.
+
+        Lemma 2: Any subset of $\Z$ is open.
+        Let $S\subset\Z$. Then by Lemma 1, $\Z\setminus S$ is closed. Thus, $S$ is open.
+
+        Let $a$ be an arbitrary integer, and let $b=a-1$. Then $\{x\in\Z\mid x<a\}$ and $\{x\in\Z\mid b<x\}$ satisfy the requirements to be $A$ and $B$. Thus, $\Z$ is disconnected. More succinctly, forego the lemmas and just use Corollary \ref{cly:4.13}.
+
+
+        Suppose we have a continuum $C$ that is disconnected. Thus, $C=A\cup B$, where $A,B$ are disjoint, nonempty, open sets. Since $C\setminus C=C\setminus(A\cup B)$, we have $\emptyset=(C\setminus A)\cap(C\setminus B)$. Thus, $C\setminus A$ and $C\setminus B$ are disjoint, and we also have that they're closed. Note also that $C\setminus A=B$ and $C\setminus B=A$.
+        Consider the continuum $\Q$. $\Q\setminus A$ and $\Q\setminus B$ are nonempty. Thus, there exists an element $x\in\Q\setminus A$. And there exists an $(x+q)\in\Q\setminus B$.\par\bigskip
     \end{proof}
 \end{exercise}
 
