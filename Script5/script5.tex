@@ -1,0 +1,64 @@
+\documentclass[../main.tex]{subfiles}
+
+\pagestyle{main}
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter}{#1}}
+\setcounter{chapter}{4}
+\setcounter{axiom}{3}
+
+\begin{document}
+
+
+
+
+\chapter{Connectedness and Boundedness}\label{sct:5}
+\section{Journal}
+\begin{axiom}\label{axm:5.4}\marginnote{\emph{11/19:}}
+    A continuum is connected.
+\end{axiom}
+
+\begin{theorem}\label{trm:5.1}
+    The only subsets of a continuum $C$ that are both open and closed are $\emptyset$ and $C$.
+    \begin{proof}
+        To prove that the only subsets of $C$ that are both open and closed are $\emptyset$ and $C$, it will suffice to show that if $A\subset C$ is both open and closed, then $A=\emptyset$ or $A=C$. Let $A\subset C$ be both open and closed. We divide into two cases ($A=\emptyset$ and $A\neq\emptyset$). If $A=\emptyset$, then we are done. On the other hand, if $A\neq\emptyset$, we have a bit more work to do. Basically, we will end up proving that the facts that $A$ is open, $A$ is closed, and $A\neq\emptyset$ imply that $A=C$. Let's begin.\par
+        First off, the fact that $A$ is closed implies by Definition \ref{dfn:4.8} that $C\setminus A$ is open. Additionally, we have by Script \ref{sct:1} that $A\cap(C\setminus A)=\emptyset$ and $A\cup(C\setminus A)=C$. Now suppose for the sake of contradiction that $A\neq C$. It follows since $A\subset C$ that we must have $C\not\subset A$, i.e., there is some object in $C$ that is not an element of $A$. This object would clearly be an element of $C\setminus A$ in this case, meaning that $C\setminus A$ is nonempty. Thus, we have that $A$ and $C\setminus A$ are disjoint, open, nonempty sets such that $A\cup(C\setminus A)=C$. Consequently, by consecutive applications of Definition \ref{dfn:4.22}, we know that $C$ is disconnected, i.e., $C$ is not connected. But this contradicts Axiom \ref{axm:5.4}, which asserts that $C$ is connected. Therefore, we must have that $A=C$, as desired.
+    \end{proof}
+\end{theorem}
+
+\begin{theorem}\label{trm:5.2}
+    For all $x,y\in C$, if $x<y$, then there exists a point $z\in C$ such that $z$ is between $x$ and $y$.
+    \begin{proof}
+        Suppose for the sake of contradiction that no point $z\in C$ exists such that $z$ is between $x$ and $y$. To find a contradiction, we will construct two sets $A$ and $B$ and prove that $A\cup B=C$, and that $A$ and $B$ are disjoint, nonempty, open sets. This will imply that $C$ is disconnected, contradicting Axiom \ref{axm:5.4}. Let's begin.\par
+        By consecutive applications of Corollary \ref{cly:4.13}, we have that $\{c\in C\mid c<y\}$ and $\{c\in C\mid x<c\}$ are open. It follows by consecutive applications of Definition \ref{dfn:4.8} that the complements of these two sets ($\{c\in C\mid c\geq y\}$ and $\{c\in C\mid x\geq c\}$, respectively) are closed. Let $A=\{c\in C\mid c\geq y\}$ and $B=\{c\in C\mid x\geq c\}$.\par
+        To prove that $A\cup B=C$, we suppose for the sake of contradiction that $A\cup B\neq C$. Since it is clear from their definitions that $A\subset C$ and $B\subset C$, we know that $A\cup B\subset C$. Thus, we must have $C\not\subset A\cup B$ for the supposition to hold. It follows that there exists a point $p\in C$ such that $p\notin A\cup B$. Since $p\notin A\cup B$, we have by Definition \ref{dfn:1.5} that $p\notin A$ and $p\notin B$. Consequently, by the definitions of $A$ and $B$, $p\ngeq y$ and $x\ngeq p$. Equivalently, $p<y$ and $x<p$. Thus, by Definition \ref{dfn:3.6}, $p$ is between $x$ and $y$. But this contradicts the assumption that no point of $C$ is between $x$ and $y$. Therefore, $A\cup B=C$, as desired.\par
+        To prove that $A\cap B=\emptyset$, we suppose for the sake of contradiction that there exists an object $p\in A\cap B$. Then by Definition \ref{dfn:1.6}, we have that $p\in A$ and $p\in B$. It follows by the definitions of $A$ and $B$ that $p\geq y$ and $x\geq p$. Thus, by transitivity, $x\geq y$. But by hypothesis, $x<y$, contradicting the trichotomy established by Definition \ref{dfn:3.1}. Therefore, $A\cap B=\emptyset$, as desired.\par
+        To prove that $A$ and $B$ are nonempty, Definition \ref{dfn:1.8} tells us that it will suffice to an element of each set. From their definitions, it is clear that $y\in A$ and $x\in B$, so we are done.\par
+        To prove that $A$ and $B$ are open, Definition \ref{dfn:4.8} tells us that it will suffice to show that $C\setminus A$ and $C\setminus B$, respectively, are closed. But since $A\cup B=C$ and $A\cap B=\emptyset$, we know that $C\setminus A=B$ and $C\setminus B=A$. Therefore, since $B$ and $A$ are closed as previously established, $C\setminus A$ and $C\setminus B$, respectively, are closed, too, as desired.\par
+        Since $C$ can be written as $A\cup B$ where $A$ and $B$ are disjoint, nonempty, open sets, we have by Definition \ref{dfn:4.22} that $C$ is disconnected. But this contradicts Axiom \ref{axm:5.4}, which asserts that $C$ is connected. Therefore, there must exist a point $z\in C$ such that $z$ is between $x$ and $y$, as desired.
+    \end{proof}
+\end{theorem}
+
+\begin{corollary}\label{cly:5.3}
+    Every region is infinite.
+    \begin{proof}
+        Let $\underline{ab}$ be a region, and suppose for the sake of contradiction that $\underline{ab}$ is finite. Then by Definitions \ref{dfn:1.30} and \ref{dfn:1.33}, $\underline{ab}=\emptyset$, or $\underline{ab}$ has cardinality $n$. We divide into two cases. Suppose first that $\underline{ab}=\emptyset$. Then by Definitions \ref{dfn:3.10} and \ref{dfn:3.6}, no point $p$ exists such that $a<p<b$. Thus, by the contrapositive of Theorem \ref{trm:5.2}, $a=b$. But this implies by Definition \ref{dfn:3.10} that $\underline{ab}$ is not a region (since $a\not<b$), a contradiction. Now suppose that $\underline{ab}$ has cardinality $n$. Then by Theorem \ref{trm:3.5}, the symbols $a_1,\dots,a_n$ may be assigned to each point of $\underline{ab}$ so that $a_1<a_2<\dots<a_n$. But by Theorem \ref{trm:5.2}, there exists a point $z\in C$ such that $z$ is between $a$ and $a_1$. Since $a<z<a_1<b$, we clearly have that $z\in\underline{ab}$, yet it was not assigned a symbol $a_k$, a contradiction. Therefore, $\underline{ab}$ is infinite, as desired.
+    \end{proof}
+\end{corollary}
+
+\begin{corollary}\label{cly:5.4}
+    Every point of $C$ is a limit point of $C$.
+    \begin{proof}
+        Let $p$ be an arbitrary element of $C$. To prove that $p$ is a limit point of $C$, Definition \ref{dfn:3.13} tells us that it will suffice to show that for all regions $R$ with $p\in R$, $R\cap(C\setminus\{p\})\neq\emptyset$. Let $R$ be an arbitrary region with $p\in R$. By Corollary \ref{cly:5.3}, $R$ is infinite, so there exists a point $q\in R$ such that $q\neq p$. Additionally, since $q\in R$, we have $q\in C$. Thus, since $q\in C$ and $q\neq p$ (i.e., $q\notin\{p\}$), we have by Definition \ref{dfn:1.11} that $q\in C\setminus\{p\}$. This combined with the fact that $q\in R$ implies by Definition \ref{dfn:1.6} that $q\in R\cap(C\setminus\{p\})$, so $R\cap(C\setminus\{p\})\neq\emptyset$, as desired.
+    \end{proof}
+\end{corollary}
+
+\begin{corollary}\label{cly:5.5}
+    Every point of the region $\underline{ab}$ is a limit point of $\underline{ab}$.
+    \begin{proof}
+        Let $p$ be an arbitrary element of $\underline{ab}$. It follows that $p\in C$. Thus, by Corollary \ref{cly:5.4}, $p\in LP(C)$. Consequently, since $C=\underline{ab}\cup(C\setminus\underline{ab})$, Theorem \ref{trm:3.20} implies that $p\in LP(\underline{ab})$ or $p\in LP(C\setminus\underline{ab})$. Suppose for the sake of contradiction that $p\in LP(C\setminus\underline{ab})$. Then $p\in LP((C\setminus(\{a\}\cup\underline{ab}\cup\{b\})\cup\{a\}\cup\{b\}))$. It follows by Definition \ref{dfn:3.15} that $p\in LP(\ext\underline{ab}\cup\{a\}\cup\{b\})$. Consequently, by Corollary \ref{cly:3.21}, $p\in LP(\ext\underline{ab})$, $p\in LP(\{a\})$, or $p\in LP(\{b\})$. But by Lemma \ref{lem:3.17}, the fact that $p\in\underline{ab}$ prohibits $p$ from being a limit point of $\ext\underline{ab}$, and by Corollary \ref{cly:3.23}, $p\notin LP(\{a\})$ and $p\notin LP(\{b\})$, either, a contradiction. Therefore, $p\notin LP(C\setminus\underline{ab})$, so we must have $p\in LP(\underline{ab})$, as desired.
+    \end{proof}
+\end{corollary}
+
+
+
+
+\end{document}
