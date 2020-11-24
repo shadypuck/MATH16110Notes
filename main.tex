@@ -330,11 +330,25 @@
         \item Needs to be done rigorously, but we did not figure it out today.
     \end{itemize}
     \item You can use the interval notation $(a,b)$ if you want, as long as it's clear from context what you mean.
+    \item \marginnote{11/19:}Proving set equality is an example of a \textbf{bidirectional inclusion proof}.
+    \item In Exercise \ref{exr:4.24}, we make use of the continued fraction approximation of $\sqrt{2}$, namely that
+    \begin{equation*}
+        \sqrt{2} = 2-\frac{2}{2+\sqrt{2}}
+    \end{equation*}
+    \item The important conclusion from Exercise \ref{exr:4.24} is that while $\Q$ exhibits \textbf{betweenness} (what we earlier called density), it still has holes.
 \end{itemize}
 
 
 
 \subfile{Script5/script5.tex}
+
+
+\section{Discussion}
+\begin{itemize}
+    \item Potentially I can suppose that $A$ is nonempty straightaway to avoid considering the case that $A=\emptyset$ in Theorem \ref{trm:5.1}.
+    \item Don't switch to $\leq$ and $\geq$ in Theorem \ref{trm:5.2}! Just use $C=(-\infty,y)\cup(x,+\infty)$, two provably open, disjoint, nonempty sets.
+    \item Theorem \ref{trm:5.2} could be done directly, in a sense. The fact that $C$ is continuous implies that if $A\cup B=C$, and $A$ and $B$ are nonempty, open sets, then $A$ and $B$ must not be disjoint. Critically, the implied-to-exist element of $A\cap B$ would be between $x$ and $y$ if $A$ and $B$ are defined as they are currently.
+\end{itemize}
 
 
 
