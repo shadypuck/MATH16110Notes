@@ -43,6 +43,98 @@
     \end{proof}
 \end{corollary}
 
+\begin{corollary}\label{cly:5.4}\marginnote{\emph{12/1:}}
+    Every point of $C$ is a limit point of $C$.
+    \begin{proof}
+        Let $p$ be an arbitrary element of $C$. To prove that $p$ is a limit point of $C$, Definition \ref{dfn:3.13} tells us that it will suffice to show that for all regions $R$ with $p\in R$, $R\cap(C\setminus\{p\})\neq\emptyset$. Let $R$ be an arbitrary region with $p\in R$. By Corollary \ref{cly:5.3}, $R$ is infinite, so there exists a point $q\in R$ such that $q\neq p$. Additionally, since $q\in R$, we have $q\in C$. Thus, since $q\in C$ and $q\neq p$ (i.e., $q\notin\{p\}$), we have by Definition \ref{dfn:1.11} that $q\in C\setminus\{p\}$. This combined with the fact that $q\in R$ implies by Definition \ref{dfn:1.6} that $q\in R\cap(C\setminus\{p\})$, so $R\cap(C\setminus\{p\})\neq\emptyset$, as desired.
+    \end{proof}
+\end{corollary}
+
+\begin{corollary}\label{cly:5.5}
+    Every point of the region $\underline{ab}$ is a limit point of $\underline{ab}$.
+    \begin{proof}
+        Let $p$ be an arbitrary element of $\underline{ab}$. It follows that $p\in C$. Thus, by Corollary \ref{cly:5.4}, $p\in LP(C)$. Consequently, since $C=\underline{ab}\cup(C\setminus\underline{ab})$, Theorem \ref{trm:3.20} implies that $p\in LP(\underline{ab})$ or $p\in LP(C\setminus\underline{ab})$. Suppose for the sake of contradiction that $p\in LP(C\setminus\underline{ab})$. Then $p\in LP((C\setminus(\{a\}\cup\underline{ab}\cup\{b\})\cup\{a\}\cup\{b\}))$. It follows by Definition \ref{dfn:3.15} that $p\in LP(\ext\underline{ab}\cup\{a\}\cup\{b\})$. Consequently, by Corollary \ref{cly:3.21}, $p\in LP(\ext\underline{ab})$, $p\in LP(\{a\})$, or $p\in LP(\{b\})$. But by Lemma \ref{lem:3.17}, the fact that $p\in\underline{ab}$ prohibits $p$ from being a limit point of $\ext\underline{ab}$, and by Corollary \ref{cly:3.23}, $p\notin LP(\{a\})$ and $p\notin LP(\{b\})$, either, a contradiction. Therefore, $p\notin LP(C\setminus\underline{ab})$, so we must have $p\in LP(\underline{ab})$, as desired.
+    \end{proof}
+\end{corollary}
+
+\begin{definition}\label{dfn:5.6}
+    Let $X$ be a subset of $C$. A point $u$ is called an \textbf{upper bound} of $X$ if for all $x\in X$, $x\leq u$. A point $l$ is called a \textbf{lower bound} of $X$ if for all $x\in X$, $l\leq x$. If there exists an upper bound of $X$, then we say that $X$ is \textbf{bounded above}. If there exists a lower bound of $X$, then we say that $X$ is \textbf{bounded below}. If $X$ is bounded above and below, then we simply say that $X$ is \textbf{bounded}.
+\end{definition}
+
+\begin{definition}\label{dfn:5.7}
+    Let $X$ be a subset of $C$. We say that $u$ is a \textbf{least upper bound} of $X$ and write $u=\sup X$ if:
+    \begin{enumerate}
+        \item $u$ is an upper bound of $X$;
+        \item if $u'$ is an upper bound of $X$, then $u\leq u'$.
+    \end{enumerate}
+    We say that $l$ is a \textbf{greatest lower bound} and write $l=\inf X$ if:
+    \begin{enumerate}
+        \item $l$ is a lower bound of $X$;
+        \item if $l'$ is a lower bound of $X$, then $l'\leq l$.
+    \end{enumerate}
+    The notation $\sup$ comes from the word \textbf{supremum}, which is another name for least upper bound. The notation $\inf$ comes from the word \textbf{infimum}, which is another name for greatest lower bound.
+\end{definition}
+
+\begin{exercise}\label{exr:5.8}
+    If $\sup X$ exists, then it is unique, and similarly for $\inf X$.
+    \begin{proof}
+        Let $X$ be a subset of a continuum $C$ such that $\sup X$ exists, and suppose that both $u$ and $u'$ are least upper bounds of $X$. It follows from the supposition and Definition \ref{dfn:5.7} that $u,u'$ are both upper bounds of $X$. Thus, since $u$ is a least upper bound of $X$ and $u'$ is an upper bound of $X$, we have by Definition \ref{dfn:5.7} again that $u\leq u'$. By a symmetric argument, we also have that $u'\leq u$. But since $u\leq u'$ and $u'\leq u$, $u=u'$, proving the uniqueness of $\sup X$.\par
+        The proof is symmetric for $\inf X$.
+    \end{proof}
+\end{exercise}
+
+\begin{exercise}\label{exr:5.9}
+    If $X$ has a first point $L$, then $\inf X$ exists and equals $L$. Similarly, if $X$ has a last point $U$, then $\sup X$ exists and equals $U$.
+    \begin{proof}
+        Let $L$ be the first point of $X$. Then by Definition \ref{dfn:3.3}, for all $x\in X$, $L\leq x$. Thus, by Definition \ref{dfn:5.6}, $L$ is a lower bound of $X$. Now suppose for the sake of contradiction that there exists a lower bound $L'$ of $X$ such that $L'>L$. Since $L'$ is a lower bound, Definition \ref{dfn:5.6} implies that for all $x\in X$, $L'\leq x$. But $L$ is an element of $X$ and $L<L'$, a contradiction. Therefore, if $L'$ is a lower bound of $X$, then $L'\leq L$. This result coupled with the fact that $L$ is a lower bound of $X$ implies by Definition \ref{dfn:5.7} that $L=\inf X$.\par
+        The proof is symmetric in the other case.
+    \end{proof}
+\end{exercise}
+
+\begin{exercise}\label{exr:5.10}
+    For this exercise, we assume that $C=\R$. Find $\sup X$ and $\inf X$ for each of the following subsets of $\R$, or state that they do not exist. You need not give proofs.
+    \begin{enumerate}
+        \item $X=\N$.
+        \begin{proof}[Answer]
+            $\sup X$ does not exist, but $\inf X=1$.
+        \end{proof}
+        \item $X=\Q$.
+        \begin{proof}[Answer]
+            Neither $\sup X$ nor $\inf X$ exists.
+        \end{proof}
+        \item $X=\left\{ \frac{1}{n}\mid n\in\N \right\}$.
+        \begin{proof}[Answer]
+            $\sup X=1$ and $\inf X=0$.
+        \end{proof}
+        \item $X=\{x\in\R\mid 0<x<1\}$.
+        \begin{proof}[Answer]
+            $\sup X=1$ and $\inf X=0$.
+        \end{proof}
+        \item $X=\{3\}\cup\{x\in\R\mid-7\leq x\leq -5\}$.
+        \begin{proof}[Answer]
+            $\sup X=3$ and $\inf X=-7$.
+        \end{proof}
+    \end{enumerate}
+\end{exercise}
+
+\begin{lemma}\label{lem:5.11}
+    Suppose that $X\subset C$ and $s=\sup X$. If $p<s$, then there exists an $x\in X$ such that $p<x\leq s$. Similarly, suppose that $X\subset C$ and $l=\inf X$. If $l<p$, then there exists an $x\in X$ such that $l\leq x<p$.
+    \begin{proof}
+        We divide into two cases ($s\in X$ and $s\notin X$).\par
+        Suppose first that $s\in X$. Let $x=s$. Then if $p<s$, we know that $p<x=s$, i.e., $p<x\leq s$ where $x\in X$ by definition, as desired.\par
+        Now suppose that $s\notin X$. Suppose for the sake of contradiction that for some $p<s$, no $x\in X$ exists such that $p<x\leq s$. Since $s$ is a least upper bound of $X$, Definitions \ref{dfn:5.7} and \ref{dfn:5.6} imply\footnote{Technically, Definition \ref{dfn:5.7} implies that $s$ is an upper bound of $X$ and Definition \ref{dfn:5.6} implies based off of this result that for all $x\in X$, $x\leq s$. However, to avoid having to write this every time, I will shorthand this concept in this fashion.} that for all $x\in X$, $x\leq s$. Consequently, by the supposition, it is true that for all $x\in X$, $x\leq p$ (if there existed an $x>p$, then this point would satisfy $p<x\leq s$, contradicting the supposition). Thus, by Definition \ref{dfn:5.6}, $p$ is a upper bound of $X$. But since $p<s$, it is not true that $s\leq s'$ for all upper bounds $s'$ of $X$, meaning by Definition \ref{dfn:5.7} that $s$ is not a least upper bound of $X$, a contradiction. Therefore, if $p<s$, then there exists an $x\in X$ such that $p<x\leq s$, as desired.\par\smallskip
+        The proof is symmetric in the other case.
+    \end{proof}
+\end{lemma}
+
+\begin{theorem}\label{trm:5.12}
+    Let $a<b$. The least upper bound and greatest lower bound of the region $\underline{ab}$ are $\sup\underline{ab}=b$ and $\inf\underline{ab}=a$.
+    \begin{proof}
+        To prove that $\sup\underline{ab}=b$, Definition \ref{dfn:5.7} tells us that it will suffice to show that $b$ is an upper bound of $\underline{ab}$ and that if $u$ is an upper bound of $\underline{ab}$, then $b\leq u$. For the first condition, Definition \ref{dfn:5.6} tells us that it will suffice to confirm that for all $x\in\underline{ab}$, $x\leq b$. Let $x$ be an arbitrary element of $\underline{ab}$. Then by Definitions \ref{dfn:3.10} and \ref{dfn:3.6}, we know that $a<x<b$, i.e., $x\leq b$, as desired. For the second condition, suppose for the sake of contradiction that $u$ is an upper bound of $\underline{ab}$ such that $u<b$. Then by Definition \ref{dfn:5.6}, for all $x\in\underline{ab}$, $x\leq u$. Additionally, since $\underline{ab}$ is infinite by Corollary \ref{cly:5.3}, we know that at least one such $x$ exists, which we shall hereafter refer to as $y$. Note that as an element of $\underline{ab}$, $y$ satisfies $a<y<b$ by Definitions \ref{dfn:3.10} and \ref{dfn:3.6}. Furthermore, since $u<b$, Theorem \ref{trm:5.2} implies that there exists a point $z$ such that $z$ is between $u$ and $b$. Thus, by Definition \ref{dfn:3.6}, $u<z<b$. Combining the last few results, we have $a<y\leq u<z<b$. Consequently, since $a<z<b$, we have by Definitions \ref{dfn:3.6} and \ref{dfn:3.10} that $z\in\underline{ab}$ and $u<z$, contradicting the statement that for all $x\in\underline{ab}$, $x\leq u$. Therefore, if $u$ is an upper bound of $\underline{ab}$, then $b\leq u$, as desired.\par
+        The proof is symmetric in the other case.
+    \end{proof}
+\end{theorem}
+
 
 
 
