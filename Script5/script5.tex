@@ -53,7 +53,7 @@
 \begin{corollary}\label{cly:5.5}
     Every point of the region $\underline{ab}$ is a limit point of $\underline{ab}$.
     \begin{proof}
-        Let $p$ be an arbitrary element of $\underline{ab}$. It follows that $p\in C$. Thus, by Corollary \ref{cly:5.4}, $p\in LP(C)$. Consequently, since $C=\underline{ab}\cup(C\setminus\underline{ab})$, Theorem \ref{trm:3.20} implies that $p\in LP(\underline{ab})$ or $p\in LP(C\setminus\underline{ab})$. Suppose for the sake of contradiction that $p\in LP(C\setminus\underline{ab})$. Then $p\in LP((C\setminus(\{a\}\cup\underline{ab}\cup\{b\})\cup\{a\}\cup\{b\}))$. It follows by Definition \ref{dfn:3.15} that $p\in LP(\ext\underline{ab}\cup\{a\}\cup\{b\})$. Consequently, by Corollary \ref{cly:3.21}, $p\in LP(\ext\underline{ab})$, $p\in LP(\{a\})$, or $p\in LP(\{b\})$. But by Lemma \ref{lem:3.17}, the fact that $p\in\underline{ab}$ prohibits $p$ from being a limit point of $\ext\underline{ab}$, and by Corollary \ref{cly:3.23}, $p\notin LP(\{a\})$ and $p\notin LP(\{b\})$, either, a contradiction. Therefore, $p\notin LP(C\setminus\underline{ab})$, so we must have $p\in LP(\underline{ab})$, as desired.
+        Suppose for the sake of contradiction that there exists a point $p\in\underline{ab}$ such that $p\notin LP(\underline{ab})$. Then since $p\notin LP(\underline{ab})$, we have by Definition \ref{dfn:3.13} that there exists a region $R$ with $p\in R$ such that $R\cap(\underline{ab}\setminus\{p\})=\emptyset$. It follows that from the facts that $p\in R$, $p\in\underline{ab}$, and $R\cap(\underline{ab}\setminus\{p\})=\emptyset$ that $R\cap\underline{ab}=\{p\}$. Additionally, since $R$ and $\underline{ab}$ are two regions with a point in common (namely $p$), Theorem \ref{trm:3.18} asserts that $R\cap\underline{ab}$ is a region. Consequently, by Corollary \ref{cly:5.3}, $R\cap\underline{ab}$ is infinite. But this contradicts the result that $R\cap\underline{ab}=\{p\}$, a notably finite set. Therefore, it must be that every point of the region $\underline{ab}$ is a limit point of $\underline{ab}$.
     \end{proof}
 \end{corollary}
 
@@ -96,23 +96,23 @@
     \begin{enumerate}
         \item $X=\N$.
         \begin{proof}[Answer]
-            $\sup X$ does not exist, but $\inf X=1$.
+            $\sup X$ does not exist because the natural numbers continue on forever to positive infinity. However, $\inf X=1$ since we know that $1\leq n$ for all $n\in\N$.
         \end{proof}
         \item $X=\Q$.
         \begin{proof}[Answer]
-            Neither $\sup X$ nor $\inf X$ exists.
+            Neither $\sup X$ nor $\inf X$ exists because the rational numbers continue on forever to both positive and negative infinity.
         \end{proof}
         \item $X=\left\{ \frac{1}{n}\mid n\in\N \right\}$.
         \begin{proof}[Answer]
-            $\sup X=1$ and $\inf X=0$.
+            For $n=1$, $\frac{1}{n}=1$. From here, as $n$ increases, $\frac{1}{n}$ decreases asymptotically toward zero but always remains a positive nonzero rational number. Thus, $\sup X=1$ and $\inf X=0$.
         \end{proof}
         \item $X=\{x\in\R\mid 0<x<1\}$.
         \begin{proof}[Answer]
-            $\sup X=1$ and $\inf X=0$.
+            $\sup X=1$ and $\inf X=0$. In the case of $\sup X$, any number slightly less than 1 would be included in $X$ and have a number in $X$ between it and 1 by Theorem \ref{trm:5.2}, i.e., greater than it. A symmetric argument can treat the other case.
         \end{proof}
         \item $X=\{3\}\cup\{x\in\R\mid-7\leq x\leq -5\}$.
         \begin{proof}[Answer]
-            $\sup X=3$ and $\inf X=-7$.
+            $\sup X=3$ (3 is the greatest element of the set) and $\inf X=-7$ (for a similar reason to part 4, above).
         \end{proof}
     \end{enumerate}
 \end{exercise}
@@ -120,9 +120,7 @@
 \begin{lemma}\label{lem:5.11}
     Suppose that $X\subset C$ and $s=\sup X$. If $p<s$, then there exists an $x\in X$ such that $p<x\leq s$. Similarly, suppose that $X\subset C$ and $l=\inf X$. If $l<p$, then there exists an $x\in X$ such that $l\leq x<p$.
     \begin{proof}
-        We divide into two cases ($s\in X$ and $s\notin X$).\par
-        Suppose first that $s\in X$. Let $x=s$. Then if $p<s$, we know that $p<x=s$, i.e., $p<x\leq s$ where $x\in X$ by definition, as desired.\par
-        Now suppose that $s\notin X$. Suppose for the sake of contradiction that for some $p<s$, no $x\in X$ exists such that $p<x\leq s$. Since $s$ is a least upper bound of $X$, Definitions \ref{dfn:5.7} and \ref{dfn:5.6} imply\footnote{Technically, Definition \ref{dfn:5.7} implies that $s$ is an upper bound of $X$ and Definition \ref{dfn:5.6} implies based off of this result that for all $x\in X$, $x\leq s$. However, to avoid having to write this every time, I will shorthand this concept in this fashion.} that for all $x\in X$, $x\leq s$. Consequently, by the supposition, it is true that for all $x\in X$, $x\leq p$ (if there existed an $x>p$, then this point would satisfy $p<x\leq s$, contradicting the supposition). Thus, by Definition \ref{dfn:5.6}, $p$ is a upper bound of $X$. But since $p<s$, it is not true that $s\leq s'$ for all upper bounds $s'$ of $X$, meaning by Definition \ref{dfn:5.7} that $s$ is not a least upper bound of $X$, a contradiction. Therefore, if $p<s$, then there exists an $x\in X$ such that $p<x\leq s$, as desired.\par\smallskip
+        Suppose for the sake of contradiction that for some $p<s$, no $x\in X$ exists such that $p<x\leq s$. Since $s$ is a least upper bound of $X$, Definitions \ref{dfn:5.7} and \ref{dfn:5.6} imply\footnote{Technically, Definition \ref{dfn:5.7} implies that $s$ is an upper bound of $X$ and Definition \ref{dfn:5.6} implies based off of this result that for all $x\in X$, $x\leq s$. However, to avoid having to write this every time, I will shorthand this concept in this fashion.} that for all $x\in X$, $x\leq s$. Consequently, by the supposition, it is true that for all $x\in X$, $x\leq p$ (if there existed an $x>p$, then this point would satisfy $p<x\leq s$, contradicting the supposition). Thus, by Definition \ref{dfn:5.6}, $p$ is a upper bound of $X$. But since $p<s$, it is not true that $s\leq s'$ for all upper bounds $s'$ of $X$, meaning by Definition \ref{dfn:5.7} that $s$ is not a least upper bound of $X$, a contradiction. Therefore, if $p<s$, then there exists an $x\in X$ such that $p<x\leq s$, as desired.\par
         The proof is symmetric in the other case.
     \end{proof}
 \end{lemma}

@@ -348,6 +348,28 @@
     \item \marginnote{11/19:}Potentially I can suppose that $A$ is nonempty straightaway to avoid considering the case that $A=\emptyset$ in Theorem \ref{trm:5.1}.
     \item Don't switch to $\leq$ and $\geq$ in Theorem \ref{trm:5.2}! Just use $C=(-\infty,y)\cup(x,+\infty)$, two provably open, disjoint, nonempty sets.
     \item Theorem \ref{trm:5.2} could be done directly, in a sense. The fact that $C$ is continuous implies that if $A\cup B=C$, and $A$ and $B$ are nonempty, open sets, then $A$ and $B$ must not be disjoint. Critically, the implied-to-exist element of $A\cap B$ would be between $x$ and $y$ if $A$ and $B$ are defined as they are currently.
+    \item \marginnote{12/1:}Doing Corollaries \ref{cly:5.4} and \ref{cly:5.5} by contradiction: Proving that a region is singleton or empty even though we know it must be infinite.
+    \item Give some sort of reason for your answers to Exercise \ref{exr:5.10}.
+    \item Higher level contradiction logic in Lemma \ref{lem:5.11}?
+    \begin{itemize}
+        \item 
+        \begin{proof}[Danny's Proof]
+            If $X\subset C$ for some continuum $C$ and $s=\sup X$, then by Definitions \ref{dfn:5.6} and \ref{dfn:5.7}, we have that $x\leq s$ for all $x\in X$ and that there does not exist any $s'\in C$ such that $x\leq s'<s$ for all $x\in X$. If $p\in C$ and $p<s$, then suppose that there does not exist any $x\in X$ such that $p<x\leq s$. This implies that $x\leq p<s$ for all $x\in X$. However, as $p\in C$, we may let $s'=p$, giving us that there does not exist some $p\in C$ such that $x\leq p<s$ for all $x\in X$, which is a contradiction. So, the supposition is false, meaning that there exists some $x\in X$ such that $p<x\leq s$.
+        \end{proof}
+        \item We don't necessarily have to derive a contradiction from a supposition using \emph{only} true statements. We can use false implications, or implications that don't hold true in every case, to derive a statement that \emph{is} a contradiction but is also just wrong on so many levels.
+        \item I still don't think I agree with this. B/c we just can't say $\nexists\ x\in X:p<x\leq s \Longrightarrow x\leq p<s\ \forall\ x\in X$. This implication is flatly false if $s\in X$.
+        \item Wait a sec. Danny's proof is correct. Saying there does not exist any $x\in X$ such that $p<x\leq s$ implies that $s\neq x$ for any $x\in X$, i.e., $s\notin X$.
+    \end{itemize}
+    \item Final exams:
+    \begin{itemize}
+        \item Approximately half an hour.
+        \item First 10 minutes: Present one of the proofs we've covered in class (he'll give us a list --- none of the short corollaries or the massive ones like Theorem \ref{trm:2.11}).
+        \item Second 10 minutes: Present a new proof (he'll give us a list of novel proofs to prepare, and it will be one of those; we can't talk about these with other people).
+        \item Third 10 minutes: Follow up questions (he may give a list of 5-6 questions).
+        \item We can bring in materials for the exam (scripts, notes, etc.), but we cannot bring in communication devices (to talk with others).
+        \item He'll want us to present live on Zoom --- not have prewritten stuff.
+        \item He'll put up a sign up sheet and we can sign up for a time slot across the possible final days.
+    \end{itemize}
 \end{itemize}
 
 
