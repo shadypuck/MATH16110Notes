@@ -133,6 +133,44 @@
     \end{proof}
 \end{theorem}
 
+\begin{lemma}\label{lem:5.13}\marginnote{\emph{12/3:}}
+    Let $X$ be a subset of $C$. Suppose that $\sup X$ exists and $\sup X\notin X$. Then $\sup X$ is a limit point of $X$. The same holds for $\inf X$.
+    \begin{proof}
+        To prove that $\sup X$ is a limit point of $X$, Definition \ref{dfn:3.13} tells us that it will suffice to verify that for all regions $\underline{ab}$ with $\sup X\in\underline{ab}$, we have $\underline{ab}\cap(X\setminus\{\sup X\})\neq\emptyset$. Let $\underline{ab}$ be an arbitrary region with $\sup X\in\underline{ab}$. Then by Definitions \ref{dfn:3.10} and \ref{dfn:3.6}, $a<\sup X<b$. It follows by Lemma \ref{lem:5.11} that there exists an $x\in X$ such that $a<x\leq\sup X$. Additionally, since $x\in X$ and $\sup X\notin X$, we cannot have $\sup X=x$, meaning that $a<x<\sup X$. Combining the last few results, we have $a<x<\sup X<b$. Thus, by Definitions \ref{dfn:3.6} and \ref{dfn:3.10}, $x\in\underline{ab}$. Consequently, since $x\in X$ and $x\neq\sup X$ implies $x\notin\{\sup X\}$, Definition \ref{dfn:1.11} asserts that $x\in X\setminus\{\sup X\}$. Therefore, since we also know that $x\in\underline{ab}$, we have by Definition \ref{dfn:1.6} that $x\in\underline{ab}\cap(X\setminus\{\sup X\})$, meaning by Definition \ref{dfn:1.8} that $\underline{ab}\cap(X\setminus\{\sup X\})\neq\emptyset$, as desired.\par
+        The proof is symmetric in the other case.
+    \end{proof}
+\end{lemma}
+
+\begin{corollary}\label{cly:5.14}
+    Both $a$ and $b$ are limit points of the region $\underline{ab}$.
+    \begin{proof}
+        Clearly, $\underline{ab}\subset C$. Additionally, by Theorem \ref{trm:5.12}, $\sup\underline{ab}$ and $\inf\underline{ab}$ exist and are equal to $b$ and $a$, respectively. Furthermore, it follows from Definition \ref{dfn:3.10} that neither $b$ nor $a$ (i.e., neither $\sup\underline{ab}$ nor $\inf\underline{ab}$) are elements of $\underline{ab}$. Therefore, by Lemma \ref{lem:5.13}, $\inf\underline{ab}=a$ and $\sup\underline{ab}=b$ are limit points of the region $\underline{ab}$.
+    \end{proof}
+\end{corollary}
+
+\begin{corollary}\label{cly:5.15}
+    Let $[a,b]$ denote the closure $\overline{\underline{ab}}$ of the region $\underline{ab}$. Then $[a,b]=\{x\in C\mid a\leq x\leq b\}$.
+    \begin{proof}
+        To prove that $[a,b]=\{x\in C\mid a\leq x\leq b\}$, Definition \ref{dfn:1.2} tells us that it will suffice to show that every element $y\in[a,b]$ is an element of $\{x\in C\mid a\leq x\leq b\}$ and vice versa.\par
+        First, let $y\in[a,b]$. Then by Definition \ref{dfn:4.4}, $y\in\underline{ab}\cup LP(\underline{ab})$. It follows by Definition \ref{dfn:1.5} that $y\in\underline{ab}$ or $y\in LP(\underline{ab})$. We divide into two cases. Suppose first that $y\in\underline{ab}$. Then by Definitions \ref{dfn:3.10} and \ref{dfn:3.6}, $y\in C$ and $a<y<b$. The latter condition implies that $a\leq y\leq b$. Therefore, since $y\in C$ and $a\leq y\leq b$, we have that $y\in\{x\in C\mid a\leq x\leq b\}$ in this case. Now suppose that $y\in LP(\underline{ab})$. Then by Lemma \ref{lem:3.17}, $y\notin\ext\underline{ab}$. By Definition \ref{dfn:3.15}, this implies that $y\notin C\setminus(\{a\}\cup\underline{ab}\cup\{b\})$. It follows by Definition \ref{dfn:1.11} that $y\notin C$ or $y\in\{a\}\cup\underline{ab}\cup\{b\}$. Now as a limit point of $\underline{ab}$, Definition \ref{dfn:3.13} asserts that $y\in C$, so it must be that $y\in\{a\}\cup\underline{ab}\cup\{b\}$. Consequently, by two applications of Definition \ref{dfn:1.5} as well as Definitions \ref{dfn:3.10} and \ref{dfn:3.6}, $y=a$, $a<y<b$, or $y=b$. In other words, $a\leq y\leq b$. Therefore, since $y\in C$ and $a\leq y\leq b$, we have that $y\in\{x\in C\mid a\leq x\leq b\}$ in this case, too, as desired.\par
+        Now let $y\in\{x\in C\mid a\leq x\leq b\}$. Then $y\in C$ and $a\leq y\leq b$. We divide into three cases ($y=a$, $y=b$, and $a<y<b$). Suppose first that $y=a$. Then by Corollary \ref{cly:5.14}, $y\in LP(\underline{ab})$. Thus, by Definition \ref{dfn:1.5}, $y\in\underline{ab}\cup LP(\underline{ab})$. Consequently, by Definition \ref{dfn:4.4}, $y\in[a,b]$ in this case. The proof of the second case is symmetric to that of the first. Lastly, suppose that $a<y<b$. Then by Definitions \ref{dfn:3.6} and \ref{dfn:3.10}, $y\in\underline{ab}$. Thus, by Definition \ref{dfn:1.5}, $y\in\underline{ab}\cup LP(\underline{ab})$. Consequently, by Definition \ref{dfn:4.4}, $y\in[a,b]$ in this case, too, as desired.
+    \end{proof}
+\end{corollary}
+
+\begin{lemma}\label{lem:5.16}
+    Let $X\subset C$ and define:
+    \begin{align*}
+        \Psi(X) &= \{x\in C\mid x\text{ is not an upper bound of }X\}&
+        \Omega(X) &= \{x\in C\mid x\text{ is not a lower bound of }X\}
+    \end{align*}
+    Then both $\Psi(X)$ and $\Omega(X)$ are open.
+    \begin{proof}
+        We will take this one set at a time.\par
+        To prove that $\Psi(X)$ is open, Theorem \ref{trm:4.10} tells us that it will suffice to confirm that for all $y\in\Psi(X)$, there exists a region containing $y$ that is a subset of $\Psi(X)$. Let $y$ be an arbitrary element of $\Psi(X)$. Then by the definition of $\Psi(X)$, $y$ is not an upper bound of $X$. Thus, by Definition \ref{dfn:5.6}, there exists some $x\in X$ such that $x>y$. Now let $a\in C$ be a point such that $a<y$ (Axiom \ref{axm:3.3} and Definition \ref{dfn:3.3} imply the existence of such a point) and consider the region $\underline{ax}$. We will demonstrate that $\underline{ax}$ is the desired region, i.e., that $y\in\underline{ax}$ and $\underline{ax}\subset\Psi(X)$. For the first condition, since $a<y<x$, it immediately follows from Definitions \ref{dfn:3.6} and \ref{dfn:3.10} that $y\in\underline{ax}$, as desired. As to the second condition, Definition \ref{dfn:1.3} tells us that it will suffice to show that every element $z\in\underline{ax}$ is an element of $\Psi(X)$. Let $z$ be an arbitrary element of $\underline{ax}$. Then by Definitions \ref{dfn:3.10} and \ref{dfn:3.6}, $z<x$. Since $z$ is less than an element of $X$, Definition \ref{dfn:5.6} asserts that $z$ is not an upper bound of $X$. Thus, by the definition of $\Psi(X)$, $z\in\Psi(X)$, as desired. Therefore, for all $y\in\Psi(X)$, there exists a region containing $y$ that is a subset of $\Psi(X)$.\par
+        The proof is symmetric in the other case.
+    \end{proof}
+\end{lemma}
+
 
 
 
