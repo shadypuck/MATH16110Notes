@@ -171,6 +171,35 @@
     \end{proof}
 \end{lemma}
 
+\begin{theorem}\label{trm:5.17}
+    Suppose that $X$ is nonempty and bounded above. Then $\sup X$ exists. Similarly, if $X$ is nonempty and bounded below, then $\inf X$ exists.
+    \begin{proof}
+        We begin by proving that $\Psi(X)$ is not closed. This can be accomplished by using the two constraints on $X$ (that it is nonempty and bounded) to demonstrate that it is is neither equal to $C$ nor $\emptyset$, respectively; it follows from the facts that $\Psi(X)$ is open, $\Psi(X)\neq C$, and $\Psi(X)\neq\emptyset$ that $\Psi(X)$ is not closed. Once we've established that $\Psi(X)$ is not closed, we have that there exists a limit point of $\Psi(X)$ that is not an element of $\Psi(X)$. This limit point will be $\sup X$. Let's begin.\par\smallskip
+        To prove that $\Psi(X)\neq C$, Definition \ref{dfn:1.2} tells us that it will suffice to show that there exists some point in $C$ that is not an element of $\Psi(X)$. By definition, $X$ is bounded above. Thus, by Definition \ref{dfn:5.6}, there exists an upper bound $u$ of $X$, where $u\in C$ by definition. Since $u$ is an upper bound of $X$, we have by the definition of $\Psi(X)$ that $u\notin\Psi(X)$. Since $u\in C$ and $u\notin\Psi(X)$, $\Psi(X)\neq C$, as desired.\par
+        To prove that $\Psi(X)\neq\emptyset$, Definition \ref{dfn:1.8} tells us that it will suffice to show that there exists some point $y\in\Psi(X)$. By Definition, $X$ is nonempty. Thus, there exists some $x\in X$. It follows by Axiom \ref{axm:3.3} and Definition \ref{dfn:3.3} that there exists some $y\in C$ such that $y<x$. Since there is an element of $X$ that is greater than $y$, we have by Definition \ref{dfn:5.6} that $y$ is not an upper bound of $X$. Thus, by the definition or $\Psi(X)$, $y\in\Psi(X)$. Therefore, $\Psi(X)\neq\emptyset$, as desired.\par
+        Now the last two main results state that $\Psi(X)\neq C$ and $\Psi(X)\neq\emptyset$, respectively. Thus, by Theorem \ref{trm:5.1}, $\Psi(X)$ cannot be both open and closed. Consequently, since $\Psi(X)$ is open by Lemma \ref{lem:5.16}, we have that $\Psi(X)$ is not closed.\par
+        Since $\Psi(X)$ is not closed, we have by Definition \ref{dfn:4.1} that $\Psi(X)$ does not contain all of its limit points, i.e., there exists some $u\in LP(\Psi(X))$ such that $u\notin\Psi(X)$. It follows from the latter condition and the definition of $\Psi(X)$ that $u$ is an upper bound of $X$. Now suppose for the sake of contradiction that there exists an upper bound $u'$ of $X$ such that $u'<u$. First off, we have by Axiom \ref{axm:3.3} and Definition \ref{dfn:3.3} that there exists some point $b\in C$ such that $u<b$. Now consider the region $\underline{u'b}$. Since $u'<u<b$, we have by Definitions \ref{dfn:3.6} and \ref{dfn:3.10} that $u\in\underline{u'b}$. Additionally, we can verify that $\underline{u'b}\cap\Psi(X)=\emptyset$ (if $z\in\underline{u'b}\cap\Psi(X)$, then $z\in\underline{u'b}$ and $z\in\Psi(X)$; it follows from the first result that $z>u'$, i.e., $z>x$ for all $x\in X$, but it follows from the second that $z$ is not an upper bound of $X$, i.e., $z<x$ for some $x\in X$, a contradiction). Consequently, $\underline{u'b}\cap(\Psi(X)\setminus\{u\})=\emptyset$, implying by Definition \ref{dfn:3.13} that $u\notin LP(\Psi(X))$, a contradiction. Therefore, if $u'$ is an upper bound of $X$, then $u\leq u'$. This combined with the fact that $u$ is an upper bound of $X$ implies by Definition \ref{dfn:5.7} that $u=\sup X$, meaning that $\sup X$ exists, as desired.\par\medskip
+        The proof is symmetric in the other case.
+    \end{proof}
+\end{theorem}
+
+\begin{corollary}\label{cly:5.18}
+    Every nonempty, closed, and bounded set has a first and a last point.
+    \begin{proof}
+        Let $X$ be an arbitrary nonempty, closed, and bounded set. We will start by proving that $X$ has a first point, and then we will prove that it has a last point. Let's begin.\par
+        Since $X$ is bounded, Definition \ref{dfn:5.7} implies that $X$ is bounded below. This result combined with the fact that $X$ is nonempty proves by Theorem \ref{trm:5.17} that $\inf X$ exists. Now suppose for the sake of contradiction that $\inf X\notin X$. Then by Lemma \ref{lem:5.13}, $\inf X\in LP(X)$. But since $X$ is closed, this result implies by Definition \ref{dfn:4.1} that $\inf X\in X$, a contradiction. Thus, $\inf X\in X$. To summarize, at this point we know that $\inf X$ is a point of $X$ such that (by Definitions \ref{dfn:5.7} and \ref{dfn:5.6}) for every element $x\in X$, $\inf X\leq x$. Therefore, by Definition \ref{dfn:3.3}, $\inf X$ is the first point of $X$.\par
+        The proof is symmetric in the other case.
+    \end{proof}
+\end{corollary}
+
+\begin{exercise}\label{exr:5.19}
+    Is this true for $\Q$?
+    \begin{proof}
+        No. Consider the set $A=\{x\in\Q\mid x^2<2\}$. By the proof of Exercise \ref{exr:4.24}, $A$ is nonempty. Additionally, by the proof of Exercise \ref{exr:4.24}, $\Q\setminus A$ is open, meaning that $A$ is closed. To prove that $A$ is bounded, Definition \ref{dfn:5.6} tells us that it will suffice to show that there exists an upper and lower bound on $A$. Now it can be deduced from the properties in Script \ref{sct:0} that $x^2<y^2$ and $y>0$ imply that $x<y$, and that $x^2<y^2$ and $y<0$ imply that $y<x$. Thus, if we let our upper bound be 3, we have that $3^2=9>2>x^2$ for all $x\in A$ and $3>0$, so $3>x$ for all $x\in A$. A similar argument proves that $-3$ is a lower bound.\par
+        However, $A$ has no first or last point --- for any value in $A$, no matter how large, we can apply the technique of Exercise \ref{exr:4.24} to find a larger value. Similarly, for any value in $A$, no matter how small, we can find a smaller value with the same procedure.
+    \end{proof}
+\end{exercise}
+
 
 
 
