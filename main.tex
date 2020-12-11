@@ -316,6 +316,10 @@
         \item Wrong: in the proof, say, "...Thus, we can create the set $\mathcal{R}=\{R_x\mid x\in G\}$ [by the axiom of choice] and define its union..."
         \item Right: We use the axiom of choice to pick 1 $R_x$ out of the set of all possible $R_x$ (we know that at least one exists by Theorem \ref{trm:4.10}, but there could be [and certainly in some cases are] infinitely many $R_x$ containing $x$ that are subsets of $G$). It is the act of choosing that necessitates the axiom of choice.
     \end{itemize}
+    \item Alternate proof of Theorem \ref{trm:4.14} w/o the axiom of choice:
+    \begin{itemize}
+        \item Consider the set $\bigcup_{R\subset G}R$, which is the union of all regions $R$ such that $R\subset G$. We prove that $\bigcup_{R\subset G}R=G$. Let $x\in\bigcup_{R\subset G}R$. Then $x\in R$ for some $R\subset G$. It follows that $x\in G$. Now let $x\in G$. Then by Theorem \ref{trm:4.10}, there exists an $R\subset G$ such that $x\in R$. As a region that is a subset of $G$, $R$ is one of the sets in $\bigcup_{R\subset G}R$. Thus, $x\in\bigcup_{R\subset G}R$.
+    \end{itemize}
     \item In Exercise \ref{exr:4.15}, show that the region containing 2 is not a subset of $\underline{12}\cup\{2\}$ and then invoke Theorem \ref{trm:4.10} to prove that it's not open. To prove that it's closed, still use my argument.
     \item \marginnote{11/12:}Revisiting the axiom of choice:
     \begin{itemize}
@@ -382,6 +386,11 @@
         \item He'll put up a sign up sheet and we can sign up for a time slot across the possible final days.
     \end{itemize}
 \end{itemize}
+
+
+
+\setcounter{secnumdepth}{0}
+\subfile{Final/final.tex}
 
 
 

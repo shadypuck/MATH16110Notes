@@ -1,0 +1,87 @@
+\documentclass[../main.tex]{subfiles}
+
+\pagestyle{main}
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter}{#1}}
+\setenumerate[2]{label=\alph*)}
+
+\begin{document}
+
+
+
+
+\chapter*{Final-Specific Questions}\label{sct:finalSpecificQuestions}
+\addcontentsline{toc}{chapter}{Final-Specific Questions}
+\begin{enumerate}
+    \item Define an ordering on $\Z\times\Z$ by $(a,b)<(c,d)$ if and only if either $a<c$, or $a=c$ and $b<d$.
+    \begin{enumerate}
+        \item Prove that $<$ is indeed an ordering.
+        \item Prove that with this ordering, $\Z\times\Z$ satisfies Axioms \ref{axm:3.1}, \ref{axm:3.2}, and \ref{axm:3.3} (as stated in Script \ref{sct:5}).
+    \end{enumerate}
+    \begin{proof}[Proof of a]
+        To prove that $<$ is an ordering, Definition \ref{dfn:3.1} tells us that it will suffice to show that $<$ satisfies the trichotomy and transitivity. We will address each stipulation in turn.\par\smallskip
+        To show that $<$ satisfies the trichotomy, Definition \ref{dfn:3.1} tells us that it will suffice to verify that for all $(a,b),(c,d)\in\Z\times\Z$, exactly one of the following holds: $(a,b)<(c,d)$, $(c,d)<(a,b)$, or $(a,b)=(c,d)$. We first show that \emph{no more than one} of the three statements can simultaneously be true, and then show that \emph{at least one} of the three statements is always true. Let's begin.\par
+        Let $(a,b),(c,d)$ be arbitrary elements of $\Z\times\Z$. We divide into three cases. First, suppose for the sake of contradiction that $(a,b)<(c,d)$ and $(c,d)<(a,b)$. By the definition of $<$, the former statement implies that either $a<c$, or $a=c$ and $b<d$, and the latter statement implies that either $c<a$, or $c=a$ and $d<b$. We divide into cases once again, this time into two (one for each of the possibilities implied by the former statement). If we have $a<c$, then Exercise \ref{exr:3.9} asserts that $c\not<a$, so we must have $c=a$ and $d<b$. But by Exercise \ref{exr:3.9}, we cannot have both $a<c$ and $a=c$, a contradiction. On the other hand, if we have $a=c$ and $b<d$, then Exercise \ref{exr:3.9} asserts that $c\not<a$, so we must have $c=a$ and $d<b$. But by Exercise \ref{exr:3.9}, we cannot have both $b<d$ and $d<b$, a contradiction. Therefore, we have a contradiction in every case, so we cannot have both $(a,b)<(c,d)$ and $(c,d)<(a,b)$. Second, suppose for the sake of contradiction that $(a,b)<(c,d)$ and $(a,b)=(c,d)$. By the definition of $<$, either $a<c$, or $a=c$ and $b<d$. We divide into two cases as before. If $a<c$, then we have a contradiction with the fact that $a=c$, as implied by $(a,b)=(c,d)$ and Definition \ref{dfn:1.15}. On the other hand, if $a=c$ and $b<d$, we arrive at the same contradiction as before except with regard to $b$ and $d$. Therefore, we have a contradiction in every case, so we cannot have both $(a,b)<(c,d)$ and $(a,b)=(c,d)$. The proof of the third case ($(c,d)<(a,b)$ and $(a,b)=(c,d)$) is symmetric to that of the second case.\par
+        Let $(a,b),(c,d)$ be arbitrary elements of $\Z\times\Z$, and suppose for the sake of contradiction that $(a,b)\not<(c,d)$, $(c,d)\not<(a,b)$, and $(a,b)\neq(c,d)$. By consecutive applications of the definition of $<$, we have from the first statement that $a\not<c$, and $a\neq c$ or $b\not<d$, and from the second statement that $c\not<a$, and $c\neq a$ or $d\not<b$. Since $a\not<c$ and $c\not<a$, Definition \ref{dfn:3.1} asserts that $a=c$. But by Definition \ref{dfn:1.15}, we have from the third statement that $a\neq c$, a contradiction.\par\smallskip
+        To show that $<$ is transitive, Definition \ref{dfn:3.1} tells us that it will suffice to verify that for all $(a,b),(c,d),(e,f)\in\Z\times\Z$, if $(a,b)<(c,d)$ and $(c,d)<(e,f)$, then $(a,b)<(e,f)$. Let $(a,b),(c,d),(e,f)$ be elements of $\Z\times\Z$ for which it is true that $(a,b)<(c,d)$ and $(c,d)<(e,f)$. Then by consecutive applications of the definition of $<$, it follows from the first statement that either $a<c$, or $a=c$ and $b<d$, and it follows from the second statement that either $c<e$, or $c=e$ and $d<f$. We divide into four cases ($a<c$ and $c<e$; $a<c$, $c=e$, and $d<f$; $a=c$, $b<d$, and $c<e$; and $a=c$, $b<d$, $c=e$, and $d<f$). In the first case, it follows from the facts that $a<c$ and $c<e$ by Exercise \ref{exr:3.9} that $a<e$, implying that $(a,b)<(e,f)$ by the definition of $<$. In the second case, it follows from the facts that $a<c$ and $c=e$ by substitution that $a<e$, implying that $(a,b)<(e,f)$ by the definition of $<$. In the third case, it follows from the facts that $a=c$ and $c<e$ by substitution that $a<e$, implying that $(a,b)<(e,f)$ by the definition of $<$. In the fourth case, it follows from the facts that $a=c$ and $c=e$ by transitivity that $a=e$, and it follows from the facts that $b<d$ and $d<f$ by Exercise \ref{exr:3.9} that $b<f$; these two results imply that $(a,b)<(e,f)$ by the definition of $<$.
+    \end{proof}
+    \begin{proof}[Proof of b]
+        To prove that $\Z\times\Z$ satisfies Axiom \ref{axm:3.1}, we must show that it is nonempty. To show this, Definition \ref{dfn:1.8} tells us that it will suffice to find an element of $\Z\times\Z$. Since $0\in\Z$ by definition, $(0,0)\in\Z\times\Z$ by Definition \ref{dfn:1.15}, as desired.\par
+        By part (a), $\Z\times\Z$ has an ordering $<$; thus, Axiom \ref{axm:3.2} is satisfied.\par
+        To prove that $\Z\times\Z$ satisfies Axiom \ref{axm:3.3}, we must show that it has no first or last point. Suppose for the sake of contradiction that $\Z\times\Z$ has some first point $(a,b)$. Then by Definition \ref{dfn:3.3}, $(a,b)\leq(x,y)$ for every $(x,y)\in\Z\times\Z$. However, under the closure of subtraction on $\Z$, $(a-1)\in\Z$. Thus, $(a-1,b)\in\Z\times\Z$. But since $a-1<a$ by Exercise \ref{exr:3.9}, we have by the definition of $<$ that $(a-1,b)<(a,b)$. Therefore, we have $(a-1,b)<(a,b)$ and $(a,b)\leq(a-1,b)$ (since, again, $(a-1,b)\in\Z\times\Z$), contradicting the previously demonstrated fact that $<$ is an ordering. The proof is symmetric for the last point.
+    \end{proof}
+    \item Let $C$ be a continuum satisfying Axioms 1-4, and let $S\subset C$.
+    \begin{enumerate}
+        \item Show that $\overline{S}=\{x\in C\mid \text{for all }R\text{ containing }x,\ R\cap S\neq\emptyset\}$.
+        \item Let $A$ and $B$ be subsets of $C$. Show that if $A\subset B$, then $\overline{A}\subset\overline{B}$.
+    \end{enumerate}
+    \begin{proof}[Proof of a]
+        To show that $\overline{S}=\{x\in C\mid \text{for all }R\text{ containing }x,\ R\cap S\neq\emptyset\}$, Definition \ref{dfn:1.2} tells us that it will suffice to prove that every element $y\in\overline{S}$ is an element of $\{x\in C\mid \text{for all }R\text{ containing }x,\ R\cap S\neq\emptyset\}$ and vice versa. First off, let $y\in\overline{S}$. Then by Definition \ref{dfn:4.4}, $y\in S\cup LP(S)$. Thus, by Definition \ref{dfn:1.5}, $y\in S$ or $y\in LP(S)$. We now divide into two cases. Suppose first that $y\in S$. Clearly, this implies that $y\in C$. As to the other stipulation, let $R$ be any region containing $y$. Since $y\in S$ and $y\in R$, Definition \ref{dfn:1.6} asserts that $y\in R\cap S$, which implies by Definition \ref{dfn:1.8} that $R\cap S\neq\emptyset$. Thus, for all $R$ containing $y$, $R\cap S\neq\emptyset$. It follows from this result and the previous finding that $y\in C$ that $y\in\{x\in C\mid \text{for all }R\text{ containing }x,\ R\cap S\neq\emptyset\}$. Now suppose that $y\in LP(S)$. As before, this implies that $y\in C$. Additionally, by Definition \ref{dfn:3.13}, for all $R$ containing $y$, $R\cap(S\setminus\{y\})\neq\emptyset$. Consequently, we have that for all $R$ containing $y$, $R\cap S\neq\emptyset$. It follows from this result and the previous finding that $y\in C$ that $y\in\{x\in C\mid \text{for all }R\text{ containing }x,\ R\cap S\neq\emptyset\}$. Now let $y\in\{x\in C\mid \text{for all }R\text{ containing }x,\ R\cap S\neq\emptyset\}$. Then $y\in C$ and for all $R$ containing $y$, $R\cap S\neq\emptyset$. We divide into two cases ($y\in S$ and $y\notin S$). If $y\in S$, then by Definitions \ref{dfn:1.5} and \ref{dfn:4.4}, $y\in\overline{S}$. On the other hand, if $y\notin S$, then for all $R$ containing $y$, $R\cap(S\setminus\{y\})\neq\emptyset$. It follows by Definition \ref{dfn:3.13} that $y\in LP(S)$. Thus, by Definitions \ref{dfn:1.5} and \ref{dfn:4.4}, $y\in\overline{S}$.
+    \end{proof}
+    \begin{proof}[Proof of b]
+        To prove that $\overline{A}\subset\overline{B}$, Definition \ref{dfn:1.3} tells us that it will suffice to show that every element $x\in\overline{A}$ is an element of $\overline{B}$. Let $x$ be an arbitrary element of $\overline{A}$. Then by Definitions \ref{dfn:4.4} and \ref{dfn:1.5}, $x\in A$ or $x\in LP(A)$. We now divide into two cases. Suppose first that $x\in A$. Then since $A\subset B$, we have by Definition \ref{dfn:1.3} that $x\in B$. Consequently, by Definitions \ref{dfn:1.5} and \ref{dfn:4.4}, $x\in\overline{B}$. On the other hand, suppose that $x\in LP(A)$. Then since $A\subset B$, by Theorem \ref{trm:3.14}, $x\in LP(B)$. Consequently, by Definitions \ref{dfn:1.5} and \ref{dfn:4.4}, $x\in\overline{B}$.
+    \end{proof}
+    \item Let $A\subset C$ where $C$ is a continuum. We say that $x\in A$ is an \textbf{interior} point of $A$ if there is a region $R$ such that $x\in R$ and $R\subset A$. We let $\inte(A)=\{a\in A\mid a\text{ is an interior point of }A\}$.
+    \begin{enumerate}
+        \item Show that $\inte(A)$ is open.
+        \item Show that $A$ is open if and only if $A=\inte(A)$.
+    \end{enumerate}
+    \begin{proof}[Proof of a]
+        To prove that $\inte(A)$ is open, Theorem \ref{trm:4.10} tells us that it will suffice to show that for all $x\in\inte(A)$, there exists a region $R$ such that $x\in R$ and $R\subset\inte(A)$. Let $x$ be an arbitrary element of $\inte(A)$. Then by the definition of $\inte(A)$, $x\in A$ and $x$ is an interior point of $A$. It follows from the latter result that there exists a region $R$ such that $x\in R$ and $R\subset A$. We now demonstrate that this $R$ is a subset of $\inte(A)$, too. Let $y$ be an arbitrary element of $R$. Then since $R\subset A$, $y\in A$. Additionally, $R$ is a region such that $y\in R$ and $R\subset A$, meaning that $y$ is an interior point of $A$. These last two results imply that $y\in\inte(A)$. It follows by Definition \ref{dfn:1.3} that $R\subset\inte(A)$. Therefore, there exists a region $R$ such that $x\in R$ and $R\subset\inte(A)$, as desired.
+    \end{proof}
+    \begin{proof}[Proof of b]
+        Suppose first that $A$ is open, and suppose for the sake of contradiction that $A\neq\inte(A)$. It follows from the supposition by Definition \ref{dfn:1.2} that there exists a point $x\in A$ such that $x\notin\inte(A)$ (since all elements of $\inte(A)$ are elements of $A$ by definition). Since $x\notin\inte(A)$ but $x\in A$, we have by the definition of $\inte(A)$ that $x$ is not an interior point of $A$. Thus, there does not exist a region $R$ such that $x\in R$ and $R\subset A$. But since $x\in A$, this implies by Theorem \ref{trm:4.10} that $A$ is not open, a contradiction. Therefore, $A=\inte(A)$, as desired.\par
+        Now suppose that $A=\inte(A)$. Then since $\inte(A)$ is open by part (a), clearly $A$ is open, too.
+    \end{proof}
+    \item Let $A$ and $B$ be disjoint, countable sets. Show that $A\cup B$ is also countable.
+    \begin{proof}
+        By Exercise \ref{exr:1.36}, $\Z$ is countable. Since $\Z\setminus\{0\}$ is an infinite subset of $\Z$, Exercise \ref{exr:1.37} implies that $\Z\setminus\{0\}$ is countable. To prove that $A\cup B$ is countable, Exercise \ref{exr:1.38} tells us that it will suffice to find an injection $h:A\cup B\to\Z\setminus\{0\}$ (note that $A\cup B$ is clearly infinite). First off, by consecutive applications of Definitions \ref{dfn:1.35} and \ref{dfn:1.28}, the fact that $A$ and $B$ are both countable implies that there exist bijections $f:A\to\N$ and $g:B\to\N$. Now let $h:A\cup B\to\Z\setminus\{0\}$ be defined as follows:
+        \begin{equation*}
+            h(x) =
+            \begin{cases}
+                f(x) & x\in A\\
+                -g(x) & x\in B
+            \end{cases}
+        \end{equation*}
+        To prove that $h$ is a function, Definition \ref{dfn:1.16} tells us that it will suffice to show that for all $x\in A\cup B$, there exists a unique $y\in\Z\setminus\{0\}$ such that $h(x)=y$. Let $x$ be an arbitrary element of $A\cup B$. Then since $A$ and $B$ are disjoint, either $x\in A$ or $x\in B$ (but not both). We now divide into two cases. If $x\in A$, then $h(x)=f(x)$, which is a well-defined element of $\N$, i.e., of $\Z\setminus\{0\}$, since $f$ is a function. If $x\in B$, then $h(x)=-g(x)$, which is a well-defined element of $-\N$, i.e., of $\Z\setminus\{0\}$, since $g$ is a function.\par
+        To prove that $h$ is injective, Definition \ref{dfn:1.20} tells us that it will suffice to show that $h(a)=h(b)$ implies $a=b$. We divide into two cases ($h(a),h(b)\in\N$ and $h(a),h(b)\in-\N$). If $h(a)=h(b)$ is an element of $\N$, then $f(a)=h(a)=h(b)=f(b)$, so by the injectivity of $f$ (which follows from its bijectivity by Definition \ref{dfn:1.20}), $a=b$. If $h(a)=h(b)$ is an element of $-\N$, then $-g(a)=h(a)=h(b)=-g(b)$, i.e., $g(a)=g(b)$, so by the injectivity of $g$ (which follows from its bijectivity as with $f$), $a=b$.
+    \end{proof}
+    \item If $A\subset C$, where $C$ is a continuum satisfying Axioms 1-4, we define the \textbf{boundary} of $A$ by the equation
+    \begin{equation*}
+        \Bd(A) = \overline{A}\cap\overline{(C\setminus A)}
+    \end{equation*}
+    \begin{enumerate}
+        \item Show that if $A$ is a closed set, then $\Bd(A)\subset A$.
+        \item Show that if $A$ is an open set, then $A\cap\Bd(A)=\emptyset$.
+    \end{enumerate}
+    \begin{proof}[Proof of a]
+        To prove that $\Bd(A)\subset A$, Definition \ref{dfn:1.3} tells us that it will suffice to show that every element $x\in\Bd(A)$ is an element of $A$. Let $x$ be an arbitrary element of $\Bd(A)$. Then by the definition of the boundary of $A$, $x\in\overline{A}\cap\overline{(C\setminus A)}$. Thus, by Definition \ref{dfn:1.6}, $x\in\overline{A}$ and $x\in\overline{C\setminus A}$. Additionally, since $A$ is closed, Theorem \ref{trm:4.5} asserts that $\overline{A}=A$. Therefore, since $x\in\overline{A}$ and $\overline{A}=A$, Definition \ref{dfn:1.2} implies that $x\in A$, as desired.
+    \end{proof}
+    \begin{proof}[Proof of b]
+        Suppose for the sake of contradiction that $A\cap\Bd(A)\neq\emptyset$. By Definition \ref{dfn:1.8}, this implies that there exists an object $x\in A\cap\Bd(A)$. Consequently, by Definition \ref{dfn:1.6}, $x\in A$ and $x\in\Bd(A)$. It follows from the latter result by the definition of the boundary of $A$ that $x\in\overline{A}\cap\overline{(C\setminus A)}$. Thus, by Definition \ref{dfn:1.6}, $x\in\overline{A}$ and $x\in\overline{C\setminus A}$. By consecutive applications of Definitions \ref{dfn:4.4} and \ref{dfn:1.5}, we have from the former result that $x\in A$ or $x\in LP(A)$, and from the latter result that $x\in C\setminus A$ or $x\in LP(C\setminus A)$. Since $x\in A$, as previously established, Definition \ref{dfn:1.11} implies that $x\notin C\setminus A$, meaning that $x\in LP(C\setminus A)$. But since $A$ is open, Definition \ref{dfn:4.4} asserts that $C\setminus A$ is closed, and this implies by Definition \ref{dfn:4.1} that $x\in C\setminus A$ (since $x\in LP(C\setminus A)$), a contradiction. Therefore, $A\cap\Bd(A)=\emptyset$, as desired.
+    \end{proof}
+\end{enumerate}
+
+
+
+
+\end{document}
