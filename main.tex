@@ -23,11 +23,15 @@
 
 \pagenumbering{arabic}
 \pagestyle{main}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\setcounter{secnumdepth}{0}
 \subfile{NotesOnProofs/notesonproofs.tex}
 
 
 
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter}{}}
 \setcounter{secnumdepth}{3}
+\setcounter{chapter}{-1}
 \subfile{Script0/script0.tex}
 
 
@@ -389,6 +393,7 @@
 
 
 
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
 \setcounter{secnumdepth}{0}
 \subfile{Final/final.tex}
 

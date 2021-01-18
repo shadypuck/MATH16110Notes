@@ -1,7 +1,7 @@
 \documentclass[../main.tex]{subfiles}
 
 \pagestyle{main}
-\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter}{#1}}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
 \setenumerate[2]{label=\alph*)}
 
 \begin{document}
@@ -11,6 +11,7 @@
 
 \chapter*{Final-Specific Questions}\label{sct:finalSpecificQuestions}
 \addcontentsline{toc}{chapter}{Final-Specific Questions}
+\chaptermark{Final-Specific Questions}
 \begin{enumerate}
     \item Define an ordering on $\Z\times\Z$ by $(a,b)<(c,d)$ if and only if either $a<c$, or $a=c$ and $b<d$.
     \begin{enumerate}
