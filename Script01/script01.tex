@@ -254,16 +254,16 @@
     If $A$ is a finite set that is in bijective correspondence with $[n]$, then we say that the \textbf{cardinality} of $A$ is $n$, and we write $|A|=n$. (By Theorem \ref{trm:1.32}, there is exactly one such natural number $n$.) We also say that $A$ contains $n$ elements. We define the cardinality of the empty set to be 0.
 \end{definition}
 
-\begin{exercise}\label{trm:1.34}
+\begin{exercise}\label{exr:1.34}
     Let $A$ and $B$ be finite sets.
     \begin{enumerate}[label={\alph*)},ref={\thetheorem\alph*}]
-        \item \label{trm:1.34a}If $A\subset B$, then $|A|\leq|B|$.
+        \item \label{exr:1.34a}If $A\subset B$, then $|A|\leq|B|$.
         \begin{proof}
             Let $|A|=m$ and $|B|=n$. Using these variables, Definitions \ref{dfn:1.33} and \ref{dfn:1.28} tell us that there exist bijections $f:[m]\to A$ and $g:B\to[n]$. Now let $h:A\to B$ be defined by $h(a)=a$ for each $a\in A$. By Definition \ref{dfn:1.16}, to verify that $h$ is a function, we must show that for every $a\in A$, there exists a unique $b\in B$ such that $h(a)=b$. Let $a$ be an arbitrary element of $A$. Since $A\subset B$, Definition \ref{dfn:1.3} implies that $a\in B$. Thus, since $h(a)=a$, $h(a)\in B$. Now suppose for the sake of contradiction that $h(a)=b$ and $h(a)=b'$ for two elements $b,b'\in B$ such that $b\neq b'$. By the definition of $h$, $h(a)=a$, so $a=b$ and $a=b'$, implying by transitivity that $b=b'$, a contradiction.\par
             We now demonstrate that $h$ is injective. By Definition \ref{dfn:1.20}, it will suffice to show that $h(a)=h(a')$ implies that $a=a'$ (where $a,a'\in A$). So suppose that $h(a)=h(a')$. By the definition of $h$, $h(a)=a$ and $h(a')=a'$, so by assumption, $a=h(a)=h(a')=a'$, as desired.\par
             To recap, at this point we have injective functions $f:[m]\to A$, $h:A\to B$, and $g:B\to [n]$, where the injectivity of $f$ and $g$ follows from their bijectivity (see Definition \ref{dfn:1.20}). It follows by consecutive applications of Proposition \ref{prp:1.26} that $h\circ f$ is injective, and that $g\circ (h\circ f)$ is injective. Thus, there exists an injective function $g\circ (h\circ f):[m]\to[n]$, so the contrapositive of Theorem \ref{trm:1.31} implies that it is false that $n<m$. Equivalently, it is true that $n\geq m$, or, to return substitutions, that $|A|\leq|B|$.
         \end{proof}
-        \item \label{trm:1.34b}Let $A\cap B=\emptyset$. Then $|A\cup B|=|A|+|B|$.
+        \item \label{exr:1.34b}Let $A\cap B=\emptyset$. Then $|A\cup B|=|A|+|B|$.
         \begin{proof}
             Let $|A|=m$ and $|B|=n$. Thus, $|A|+|B|=m+n$, so to prove that $|A\cup B|=|A|+|B|$, Definition \ref{dfn:1.33} and \ref{dfn:1.28} tell us that that we must find a bijection $h:A\cup B\to[m+n]$. Let's begin.\par
             Since $|A|=m$ and $|B|=n$, by Definition \ref{dfn:1.33} and \ref{dfn:1.28}, there exist bijections $f:A\to[m]$ and $g:B\to[n]$. As such, let $h:A\cup B\to[m+n]$ be defined as follows:
@@ -279,7 +279,7 @@
             To prove that $h$ is surjective, Definition \ref{dfn:1.20} tells us that we must verify that for every $i\in[m+n]$, there exists an $x\in A\cup B$ such that $h(x)=i$. We divide into two cases ($i\leq m$ and $m+n\geq i>m$). If $i\leq m$, then $i\in[m]$. It follows by the surjectivity of $f$ (which follows from its bijectivity by Definition \ref{dfn:1.20}) that there exists an $x\in A$ such that $f(x)=i$. Now by Definition \ref{dfn:1.5}, this $x$ is also an element of $A\cup B$, so $h(x)=f(x)=i$ by the definition of $h$, as desired. On the other hand, if $m+n\geq i>m$, then $i=m+u$ for some $u\in[n]$. It follows by the surjectivity of $g$ that there exists an $x\in B$ such that $g(x)=u$. Thus, $i=m+u=m+g(x)=h(x)$, as desired.\par
             At this point, Definition \ref{dfn:1.20} implies that $h$ is bijective, as desired.
         \end{proof}
-        \item \label{trm:1.34c}$|A\cup B|+|A\cap B|=|A|+|B|$.
+        \item \label{exr:1.34c}$|A\cup B|+|A\cap B|=|A|+|B|$.
         \begin{lemma*}
             Let $A$ and $B$ be sets. Then
             \begin{enumerate}[label={\alph*\textup{)}}]
@@ -309,11 +309,11 @@
                 All of these claims can be read directly from the above diagram --- for the sake of space and because proving these claims is not the main point of this exercise, a rigorous proof of this lemma will be omitted.
             \end{proof}
         \end{lemma*}
-        \begin{proof}[Proof of Theorem \ref{trm:1.34c}]
-            We want to show that $|A\cup B|+|A\cap B|=|A|+|B|$, which we can do by using the above lemma to justify various manipulations inspired by Theorem \ref{trm:1.34b}. To begin, use Lemma (a) as follows.
+        \begin{proof}[Proof of Exercise \ref{exr:1.34c}]
+            We want to show that $|A\cup B|+|A\cap B|=|A|+|B|$, which we can do by using the above lemma to justify various manipulations inspired by Exercise \ref{exr:1.34b}. To begin, use Lemma (a) as follows.
             \begin{align*}
                 |A\cup B|+|A\cap B| &= |(B\setminus A)\cup A|+|A\cap B|
-                \intertext{Since $(B\setminus A)\cup A$ is a union of two disjoint sets (see Lemma (b)), it follows by Theorem \ref{trm:1.34b} that the above}
+                \intertext{Since $(B\setminus A)\cup A$ is a union of two disjoint sets (see Lemma (b)), it follows by Exercise \ref{exr:1.34b} that the above}
                 &= |B\setminus A|+|A|+|A\cap B|\\
                 &= |A|+|B\setminus A|+|A\cap B|
                 \intertext{Since $B\setminus A$ and $A\cap B$ are disjoint (see Lemma (c)), we know that the above}
@@ -322,7 +322,7 @@
                 &= |A|+|B|
             \end{align*}
         \end{proof}
-        \item \label{trm:1.34d}\marginnote{10/13:}$|A\times B|=|A|\cdot|B|$.
+        \item \label{exr:1.34d}\marginnote{10/13:}$|A\times B|=|A|\cdot|B|$.
         \begin{proof}
             Let $|A|=n$ and $|B|=m$. Then since $A$ and $B$ are finite, Definition \ref{dfn:1.30} and \ref{dfn:1.28} tell us that there exist bijections $f:A\to[n]$ and $g:B\to[m]$. By Definition \ref{dfn:1.33} and \ref{dfn:1.28}, to prove the claim, it will suffice to find a bijection $h:A\times B\to[m\cdot n]$.\par
             Let $h:A\times B\to[m\cdot n]$ be defined by
